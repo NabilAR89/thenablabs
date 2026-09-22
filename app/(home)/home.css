@@ -1,0 +1,2805 @@
+/* Home page styles — extracted from "TheNabLab Pro v5 Charcoal.html" (v5 Charcoal · Cyan theme). */
+
+/* ---- general brand hero (shared with v2/v4) ---- */
+.plogo-txt {
+  display: grid;
+  gap: 2px;
+  line-height: 1;
+}
+.plogo-txt small {
+  font-weight: 500;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cform {
+  width: min(560px, 100%);
+  margin: 26px auto 0;
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+.cform-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.cfield {
+  display: grid;
+  gap: 6px;
+}
+.cfield span {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cfield input,
+.cfield textarea {
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition:
+    border-color 0.25s var(--ease),
+    background 0.25s var(--ease);
+}
+.cfield textarea {
+  resize: vertical;
+}
+.cfield input::placeholder,
+.cfield textarea::placeholder {
+  color: var(--muted-2);
+}
+.cfield input:focus,
+.cfield textarea:focus {
+  border-color: var(--teal);
+  background: var(--cream-2);
+}
+.cform .btn {
+  justify-self: center;
+  margin-top: 4px;
+}
+.cform .btn i.ph {
+  font-size: 18px;
+  line-height: 1;
+}
+@media (max-width: 620px) {
+  .cform-row {
+    grid-template-columns: 1fr;
+  }
+}
+.phero-eyebrow .dot-avail {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--teal) 18%, transparent);
+}
+.gphero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(22px, 3vw, 46px);
+  margin-top: clamp(30px, 4vw, 46px);
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.gphero-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.gphero-meta b {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.4vw, 30px);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+}
+.gphero-meta span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.gphero .phero-art {
+  aspect-ratio: 1 / 1.02;
+  margin-top: -72px;
+  align-self: center;
+}
+.gphero .phero-art .gbrowser {
+  position: absolute;
+  top: 8%;
+  left: -1%;
+  width: 102%;
+  aspect-ratio: 2880 / 2048;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transform: rotate(-2deg);
+  z-index: 2;
+}
+.gphero .phero-art .gbrowser img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.gphero .phero-art .gphone,
+.gphero .phero-art .gphone2 {
+  position: absolute;
+  width: 26%;
+  aspect-ratio: 780 / 1688;
+  border-radius: 22px;
+  padding: 5px;
+  background: linear-gradient(155deg, #2b2e33, #111214 55%, #26292e);
+  z-index: 3;
+}
+.gphero .phero-art .gphone .s,
+.gphero .phero-art .gphone2 .s {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  display: block;
+}
+.gphero .phero-art .gphone img,
+.gphero .phero-art .gphone2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.gphero .phero-art .gphone {
+  top: 2%;
+  right: -5%;
+  transform: rotate(7deg);
+  animation: gfloatA 7s ease-in-out infinite;
+}
+.gphero .phero-art .gphone2 {
+  bottom: 4%;
+  left: -6%;
+  transform: rotate(-8deg);
+  animation: gfloatB 8s ease-in-out infinite 0.6s;
+}
+@keyframes gfloatA {
+  0%,
+  100% {
+    transform: rotate(7deg) translateY(0);
+  }
+  50% {
+    transform: rotate(7deg) translateY(-12px);
+  }
+}
+@keyframes gfloatB {
+  0%,
+  100% {
+    transform: rotate(-8deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-8deg) translateY(-12px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gphero .phero-art .gphone,
+  .gphero .phero-art .gphone2 {
+    animation: none;
+  }
+}
+.gphero .phero-blob,
+.gphero .phero-ring,
+.gphero .phero-dots {
+  display: none;
+}
+
+/* ================= v5 CHARCOAL · CYAN =================
+   Background #111214 · Surface #181A1D · Elevated #202328 · Border #2B2E33
+   Text #F4F1EA / #A6A8AD / #6F737A · Accent #19B7D1 (hover #42C8DD) */
+:root {
+  --maxw: 1440px;
+  --cream: #111214;
+  --cream-2: #181a1d;
+  --paper: #181a1d;
+  --paper-2: #202328;
+  --ink: #f4f1ea;
+  --ink-2: #dcd9d3;
+  --muted: #a6a8ad;
+  --muted-2: #6f737a;
+  --line: #2b2e33;
+  --line-2: #383b41;
+  --teal: #19b7d1;
+  --teal-dark: #128fa5;
+  --teal-soft: rgba(25, 183, 209, 0.1);
+  --neon2: #8b6bff;
+}
+body {
+  background: var(--cream);
+  color: var(--ink);
+}
+body::before,
+body::after {
+  display: none !important;
+  content: none !important;
+}
+.section:nth-of-type(even) {
+  background: #141518;
+}
+#about,
+#skills {
+  background: #141518;
+  border-block: 1px solid var(--line);
+}
+
+/* nav */
+.pnav {
+  background: rgba(17, 18, 20, 0.72);
+  backdrop-filter: blur(14px) saturate(120%);
+  border-bottom: 1px solid var(--line);
+}
+.pnav.scrolled {
+  background: rgba(17, 18, 20, 0.94);
+  box-shadow: 0 1px 0 var(--line);
+}
+.plogo,
+.plogo span,
+.pnav-links a {
+  color: var(--ink);
+}
+.plogo .mk {
+  background: var(--teal);
+  color: #0d0e10;
+  box-shadow: none;
+}
+.plogo .teal,
+.teal {
+  color: var(--teal);
+}
+.pnav-links a:hover {
+  color: var(--teal);
+  text-shadow: none;
+}
+
+/* type */
+h1,
+h2,
+h3,
+.h-sec,
+.gphero-meta b {
+  color: var(--ink);
+}
+h1 .teal,
+.h-sec .teal,
+.hero3-h1 .teal {
+  color: var(--teal);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  text-shadow: none;
+}
+.eyebrow {
+  color: var(--teal);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  text-shadow: none;
+  letter-spacing: 0.16em;
+}
+.eyebrow::before {
+  background: var(--teal) !important;
+}
+.lede,
+.sec-sub,
+p {
+  color: var(--muted);
+}
+
+/* buttons — warm-white pill primary, cyan on hover */
+.btn-teal,
+.btn-primary,
+.mega .btn-primary,
+.mega-foot .btn-primary,
+.btn-light,
+.cta .btn-light,
+.cform .btn-light {
+  background: var(--ink) !important;
+  color: #111214 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.btn-teal:hover,
+.btn-primary:hover,
+.btn-light:hover,
+.cta .btn-light:hover,
+.cform .btn-light:hover {
+  background: var(--teal) !important;
+  color: #111214 !important;
+  box-shadow: none !important;
+}
+.btn-ghost {
+  color: var(--ink);
+  border: 1px solid var(--line-2);
+  background: transparent;
+  box-shadow: none;
+}
+.btn-ghost:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--teal-soft);
+  box-shadow: none;
+}
+
+/* services list */
+.svc-list {
+  border-top: 1px solid var(--line);
+}
+.svc-row {
+  border-bottom: 1px solid var(--line);
+}
+.svc-row .no {
+  color: var(--muted-2);
+}
+.svc-row:hover .no {
+  color: var(--teal);
+  text-shadow: none;
+}
+.svc-row:hover .nm {
+  text-shadow: none;
+  color: var(--ink);
+}
+.svc-row::after {
+  background: var(--teal);
+  box-shadow: none;
+}
+.svc-shield {
+  box-shadow: 0 0 0 1px var(--line-2);
+}
+.svc-row:hover .svc-shield {
+  box-shadow: 0 0 0 1px
+    color-mix(in oklab, var(--tint, var(--teal)) 60%, transparent);
+}
+.svc-tag::before {
+  background: var(--paper-2);
+  color: var(--ink);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.cap-item {
+  border-top: 1px solid var(--line);
+}
+.cap-num,
+.cap-num::first-line {
+  color: var(--ink);
+}
+
+/* strips, cards, surfaces */
+.pstrip {
+  background: #0d0e10 !important;
+  color: var(--ink);
+  border-block: 1px solid var(--line);
+}
+.pstrip span b::after {
+  color: var(--teal);
+  text-shadow: none;
+}
+.approach-art,
+.card,
+.pcard,
+.work-card,
+.pw-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: none !important;
+}
+.card:hover,
+.pcard:hover,
+.work-card:hover,
+.pw-card:hover {
+  background: var(--paper-2);
+}
+
+/* CTA block */
+.cta {
+  position: relative;
+  background: #181a1d !important;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+.cta-neon {
+  display: none !important;
+}
+.cta::before,
+.cta::after {
+  content: none !important;
+  display: none !important;
+}
+.cta h2 {
+  color: var(--ink);
+}
+.email {
+  color: var(--teal);
+  text-shadow: none;
+}
+
+/* footer + links */
+.pfooter {
+  background: #0d0e10;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.pfooter a {
+  color: var(--muted);
+}
+.pfooter a:hover {
+  color: var(--teal);
+}
+a {
+  color: var(--teal);
+}
+a:hover {
+  color: #42c8dd;
+}
+
+/* hero composition */
+.gphero .phero-art .gbrowser {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 40px 90px -50px #000;
+}
+.gphero .phero-art .gphone,
+.gphero .phero-art .gphone2 {
+  box-shadow: 0 30px 70px -40px #000;
+}
+.studio-mix::after {
+  background: linear-gradient(
+    200deg,
+    rgba(25, 183, 209, 0.16),
+    transparent 55%
+  ) !important;
+}
+.studio-mix-badge {
+  background: var(--paper-2);
+  color: var(--ink);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.studio-mix-badge .mk {
+  background: var(--teal);
+  color: #111214;
+}
+
+/* ---- cyan neon accents (charcoal-safe: single hue, no violet) ---- */
+body::before {
+  display: block !important;
+  content: "" !important;
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(
+      58% 44% at 8% 2%,
+      rgba(25, 183, 209, 0.16),
+      transparent 70%
+    ),
+    radial-gradient(
+      52% 42% at 92% 26%,
+      rgba(25, 183, 209, 0.1),
+      transparent 72%
+    ),
+    radial-gradient(
+      66% 48% at 50% 102%,
+      rgba(25, 183, 209, 0.1),
+      transparent 74%
+    );
+  pointer-events: none;
+}
+/* The hero's grid overlay was replaced by the animated .hero-fx layer below. */
+.pnav.scrolled {
+  box-shadow:
+    0 1px 0 rgba(25, 183, 209, 0.28),
+    0 18px 40px -32px rgba(25, 183, 209, 0.45);
+}
+.plogo .mk {
+  box-shadow:
+    0 0 0 1px rgba(25, 183, 209, 0.5),
+    0 0 20px -2px rgba(25, 183, 209, 0.5);
+}
+.pnav-links a:hover {
+  text-shadow: 0 0 14px rgba(25, 183, 209, 0.5);
+}
+h1 .teal,
+.h-sec .teal,
+.hero3-h1 .teal {
+  text-shadow: 0 0 26px rgba(25, 183, 209, 0.45);
+}
+.eyebrow {
+  text-shadow: 0 0 14px rgba(25, 183, 209, 0.4);
+}
+.eyebrow::before {
+  box-shadow: 0 0 12px rgba(25, 183, 209, 0.8);
+}
+.btn-teal:hover,
+.btn-primary:hover,
+.btn-light:hover,
+.cta .btn-light:hover,
+.cform .btn-light:hover {
+  box-shadow:
+    0 0 0 1px rgba(25, 183, 209, 0.55),
+    0 14px 38px -14px rgba(25, 183, 209, 0.85) !important;
+}
+.btn-ghost:hover {
+  box-shadow:
+    0 0 24px -10px rgba(25, 183, 209, 0.7),
+    inset 0 0 22px -12px rgba(25, 183, 209, 0.8);
+}
+.svc-row:hover .no {
+  text-shadow: 0 0 14px rgba(25, 183, 209, 0.6);
+}
+.svc-row:hover .nm {
+  text-shadow: 0 0 22px rgba(25, 183, 209, 0.28);
+}
+.svc-row::after {
+  box-shadow: 0 0 14px rgba(25, 183, 209, 0.7);
+}
+.svc-row:hover .svc-shield {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--tint, var(--teal)) 65%, transparent),
+    0 0 26px -8px color-mix(in oklab, var(--tint, var(--teal)) 80%, transparent);
+}
+.pstrip span b::after {
+  text-shadow: 0 0 14px rgba(25, 183, 209, 0.7);
+}
+.approach-art,
+.card,
+.pcard,
+.work-card,
+.pw-card {
+  box-shadow:
+    0 0 0 1px rgba(25, 183, 209, 0.05),
+    0 30px 70px -45px #000 !important;
+}
+.card:hover,
+.pcard:hover,
+.work-card:hover,
+.pw-card:hover {
+  box-shadow:
+    0 0 0 1px rgba(25, 183, 209, 0.22),
+    0 26px 60px -34px rgba(25, 183, 209, 0.35) !important;
+}
+.cta {
+  overflow: hidden;
+  box-shadow: 0 0 60px -26px rgba(25, 183, 209, 0.4);
+}
+.cta::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background:
+    radial-gradient(
+      58% 70% at 10% 0%,
+      rgba(25, 183, 209, 0.2),
+      transparent 70%
+    ),
+    radial-gradient(
+      62% 78% at 50% 116%,
+      rgba(25, 183, 209, 0.14),
+      transparent 72%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+.cta::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background-image:
+    linear-gradient(rgba(66, 200, 221, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(66, 200, 221, 0.055) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(80% 90% at 50% 40%, #000, transparent 88%);
+  pointer-events: none;
+  z-index: 0;
+}
+.cta > * {
+  position: relative;
+  z-index: 1;
+}
+.cta-neon {
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--ang, 0deg),
+    transparent 0deg,
+    var(--teal) 45deg,
+    #7fe4f4 80deg,
+    var(--teal) 120deg,
+    transparent 175deg,
+    transparent 205deg,
+    var(--teal) 250deg,
+    #7fe4f4 290deg,
+    var(--teal) 320deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 8px rgba(25, 183, 209, 0.6));
+  animation: ctaSpin 7s linear infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+@property --ang {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes ctaSpin {
+  to {
+    --ang: 360deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-neon {
+    animation: none;
+  }
+}
+.email {
+  text-shadow: 0 0 18px rgba(25, 183, 209, 0.5);
+}
+.gphero .phero-art .gbrowser {
+  box-shadow:
+    0 0 0 1px rgba(25, 183, 209, 0.16),
+    0 40px 90px -46px rgba(25, 183, 209, 0.4);
+}
+.gphero .phero-art .gphone,
+.gphero .phero-art .gphone2 {
+  box-shadow:
+    0 0 0 1px rgba(25, 183, 209, 0.18),
+    0 30px 66px -34px rgba(25, 183, 209, 0.4);
+}
+.studio-mix-badge {
+  box-shadow:
+    0 0 0 1px var(--line-2),
+    0 0 24px -10px rgba(25, 183, 209, 0.6);
+}
+.cfield input:focus,
+.cfield textarea:focus {
+  box-shadow: 0 0 0 3px rgba(25, 183, 209, 0.14);
+}
+
+/* ---- minimal violet touches ---- */
+body::before {
+  background:
+    radial-gradient(
+      58% 44% at 8% 2%,
+      rgba(25, 183, 209, 0.16),
+      transparent 70%
+    ),
+    radial-gradient(
+      52% 42% at 92% 26%,
+      rgba(139, 107, 255, 0.11),
+      transparent 72%
+    ),
+    radial-gradient(
+      66% 48% at 50% 102%,
+      rgba(25, 183, 209, 0.1),
+      transparent 74%
+    ) !important;
+}
+.plogo .mk {
+  background: linear-gradient(140deg, var(--teal), var(--neon2));
+  box-shadow:
+    0 0 0 1px rgba(139, 107, 255, 0.4),
+    0 0 20px -2px rgba(25, 183, 209, 0.45);
+}
+.svc-row::after {
+  background: linear-gradient(90deg, var(--teal), var(--neon2));
+}
+.pstrip span b::after {
+  color: var(--neon2);
+  text-shadow: 0 0 14px rgba(139, 107, 255, 0.6);
+}
+.cta-neon {
+  background: conic-gradient(
+    from var(--ang, 0deg),
+    transparent 0deg,
+    var(--teal) 45deg,
+    #7fe4f4 80deg,
+    var(--teal) 120deg,
+    transparent 175deg,
+    transparent 205deg,
+    var(--neon2) 250deg,
+    #b39bff 290deg,
+    var(--neon2) 320deg,
+    transparent 360deg
+  );
+}
+.studio-mix-badge .mk {
+  background: linear-gradient(140deg, var(--teal), var(--neon2));
+}
+a:hover {
+  color: #a98fff;
+}
+
+/* nav order: Skills before Work */
+.pnav-links > * {
+  order: 5;
+}
+.pnav-links > *:nth-child(1) {
+  order: 1;
+}
+.pnav-links > *:nth-child(2) {
+  order: 2;
+}
+.pnav-links > *:nth-child(4) {
+  order: 3;
+}
+.pnav-links > .pnav-mega {
+  order: 4;
+}
+
+/* Base360 shots are wider than the laptop box — show them whole */
+.ml-laptop .scr img[src^="/base360/"] {
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #08080d;
+}
+.ml-laptop .scr img[src="/base360/landing-full.png"] {
+  object-fit: cover !important;
+  object-position: top !important;
+}
+
+.ml-laptop .scr::after {
+  background: linear-gradient(#2a2c3a, #14151f) !important;
+}
+.ml-laptop .scr::before {
+  background: #3a3d4d !important;
+}
+
+.work-card-art[data-brand="base360"] {
+  background:
+    radial-gradient(
+      66% 58% at 22% 14%,
+      rgba(109, 94, 255, 0.26),
+      transparent 56%
+    ),
+    radial-gradient(
+      70% 62% at 84% 88%,
+      rgba(34, 211, 238, 0.18),
+      transparent 58%
+    ),
+    linear-gradient(160deg, #14142a, #08080d 76%);
+}
+.work-card-art[data-brand="base360"]::after {
+  background: radial-gradient(
+    120% 100% at 50% 120%,
+    rgba(0, 0, 0, 0.35),
+    transparent 55%
+  );
+}
+
+.pnav .btn-teal,
+.phero-cta .btn-teal,
+.btn-neon-host {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+.btn-neon {
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  overflow: hidden;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(25, 183, 209, 0.55));
+}
+.btn-neon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  aspect-ratio: 1;
+  background: conic-gradient(
+    transparent 0deg,
+    #19b7d1 45deg,
+    #7fe4f4 80deg,
+    #19b7d1 120deg,
+    transparent 175deg,
+    transparent 205deg,
+    #8b6bff 250deg,
+    #b39bff 290deg,
+    #8b6bff 320deg,
+    transparent 360deg
+  );
+  animation: btnRingSpin 5s linear infinite;
+}
+@keyframes btnRingSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-neon::before {
+    animation: none;
+  }
+}
+.pnav .btn-teal,
+.phero-cta .btn-teal,
+.btn-neon-host,
+.cta .btn-light.btn-neon-host,
+.cform .btn-light.btn-neon-host {
+  background: transparent !important;
+  color: #a98fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.pnav .btn-teal:hover,
+.phero-cta .btn-teal:hover,
+.btn-neon-host:hover,
+.cta .btn-light.btn-neon-host:hover,
+.cform .btn-light.btn-neon-host:hover {
+  background: rgba(139, 107, 255, 0.1) !important;
+  color: #c4b2ff !important;
+  box-shadow: 0 0 24px -10px rgba(139, 107, 255, 0.8) !important;
+}
+
+.phero h1 {
+  font-size: clamp(30px, 4.2vw, 54px) !important;
+}
+.phero p.lede {
+  font-size: clamp(15px, 1.2vw, 17px) !important;
+}
+.gphero .phero-art .gbrowser {
+  aspect-ratio: 697/431 !important;
+}
+.gphero .phero-art .gbrowser img {
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #08080d;
+}
+.gphero .phero-art {
+  margin-top: 20px !important;
+  transform: scale(1.14);
+  transform-origin: center top;
+}
+@media (max-width: 880px) {
+  .gphero .phero-art {
+    transform: none;
+    margin-top: 24px !important;
+  }
+}
+
+/* work index */
+#work .pf-list > * + * {
+  margin-top: 0;
+}
+#work .pf-item .pf-no,
+#work .pf-item .pf-no.on-dark,
+#work .pf-item .moods-no,
+#work .pf-item .wimsa-no {
+  color: var(--muted-2);
+  text-shadow: none;
+}
+.pf-link .ar,
+.pf-link.on-dark .ar {
+  background: var(--pacc, var(--ink));
+  color: #111214;
+  box-shadow: 0 0 0 1px
+    color-mix(in oklab, var(--pacc, var(--ink)) 45%, transparent);
+}
+.pf-link:hover .ar {
+  background: var(--pacc, var(--teal));
+  color: #111214;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--pacc, var(--teal)) 65%, transparent),
+    0 0 30px -8px color-mix(in oklab, var(--pacc, var(--teal)) 90%, transparent);
+}
+/* on hover the label picks up the same project accent as the arrow beside it */
+a.pf-link {
+  transition: color 0.3s var(--ease);
+}
+a.pf-link:hover,
+a.pf-link.on-dark:hover {
+  color: var(--pacc, var(--teal));
+}
+#work .pf-item:hover .pf-no {
+  color: var(--teal);
+  text-shadow: 0 0 16px rgba(25, 183, 209, 0.45);
+}
+.pf-banner-copy p {
+  color: var(--ink-2);
+}
+.pf-no.moods-no {
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: var(--muted-2) !important;
+}
+#work .pf-item:hover .pf-no.moods-no {
+  color: var(--teal) !important;
+  -webkit-text-fill-color: var(--teal) !important;
+  text-shadow: 0 0 16px rgba(25, 183, 209, 0.45);
+}
+.mega-foot .btn.btn-neon-host,
+.pf-more .btn.btn-neon-host,
+.cform .btn.btn-neon-host {
+  background: transparent !important;
+  color: #a98fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.mega-foot .btn.btn-neon-host:hover,
+.pf-more .btn.btn-neon-host:hover,
+.cform .btn.btn-neon-host:hover {
+  background: rgba(139, 107, 255, 0.1) !important;
+  color: #c4b2ff !important;
+}
+#about {
+  border-top: none !important;
+}
+section.section {
+  border-top: none !important;
+  border-bottom: none !important;
+}
+.svc-row .nm {
+  font-size: clamp(22px, 3.2vw, 40px) !important;
+}
+.h-sec {
+  font-size: clamp(28px, 4.2vw, 54px) !important;
+}
+.sec-sub {
+  font-size: clamp(15px, 1.2vw, 17px) !important;
+}
+.cta h2 {
+  font-size: clamp(28px, 4.2vw, 54px) !important;
+}
+.work-head h1 {
+  font-size: clamp(30px, 4.2vw, 54px) !important;
+}
+.plogo .mk svg,
+.nl-logo .nl-mk svg,
+.studio-mix-badge .mk svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.plogo .mk,
+.nl-logo .nl-mk,
+.studio-mix-badge .mk {
+  font-size: 0;
+}
+/* Brand mark: the circled "N" carries the gradient itself — no tile behind it. */
+.plogo .mk,
+.nl-logo .nl-mk,
+.studio-mix-badge .mk {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* ---------- Rotating hero (see ProHeroGeneral + DATA.hero) ----------
+   The kickers and the headlines are two stacked grids: every variant sits in
+   the same grid cell, so each block is as tall as its longest member and the
+   page never reflows as they cross-fade. */
+.hero-v2 {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: clamp(118px, 14vh, 160px);
+  padding-bottom: clamp(12px, 1.8vh, 24px);
+}
+.hero-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-kicks,
+.hero-heads {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+.hero-kicks > *,
+.hero-heads > * {
+  grid-area: 1/1;
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.75s var(--ease),
+    transform 0.75s var(--ease);
+}
+.hero-kicks > .on,
+.hero-heads > .on {
+  opacity: 1;
+  transform: none;
+}
+
+.hero-kick {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-shadow: 0 0 14px rgba(25, 183, 209, 0.4);
+}
+.hero-kick::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--teal);
+  box-shadow: 0 0 12px rgba(25, 183, 209, 0.8);
+}
+
+.hero-v2 .hero-heads {
+  margin-top: clamp(8px, 1.2vh, 14px);
+  max-width: 20ch;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  font-size: clamp(30px, 4.4vw, 54px);
+  color: var(--ink);
+  margin-bottom: 40px;
+}
+.hero-head {
+  min-width: 0;
+}
+.hero-head .hl {
+  color: var(--teal);
+  text-shadow: 0 0 26px rgba(25, 183, 209, 0.45);
+}
+
+/* device row */
+/* Composition box. The phones are placed on it in percentages (see
+   DATA.hero.devices), so the whole arrangement scales as one picture.
+   The box is deliberately flat. A phone hung below the desktop makes the box
+   taller, and since the hero's height is fixed, a taller box is a narrower
+   one — so the phones all sit in the desktop's own vertical band instead,
+   fanned across its edges. That keeps the ratio at ~100/51, which lets the
+   width run all the way out to the wrap (1088px at 1440 viewport) instead of
+   stopping at the ~870px a deeper arrangement allowed.
+   Mind the units: a phone's `top` is a percentage of the box's HEIGHT while
+   its `width` is a percentage of the box's WIDTH, so the fit condition is
+   t/100 × H + w/100 × W × 1688/780 ≤ H — not a comparison of two percentages.
+   Al Hilal is the lowest: 27.4% of H plus its own 360px lands at 497px in a
+   500px box. Sizing the box to the content, rather than to a padded guess, is
+   what lets the width run out to the wrap (1088px) instead of stopping short.
+   The 6.9% steps inside each cluster are the phone-to-phone spacing; the 1%
+   margins either side of the desktop are its clear gap. Those margins are the
+   only slack left — the box is already as wide as the 1200px wrap allows, so
+   anything the desktop gains now comes out of the gaps or the phones. */
+.hero-devices {
+  position: relative;
+  display: block;
+  width: min(1440px, 100%, 125vh);
+  aspect-ratio: 100/46;
+  margin-top: clamp(10px, 1.6vh, 24px);
+}
+.hero-phone {
+  position: absolute;
+  left: var(--l);
+  top: var(--t);
+  width: var(--w);
+  z-index: var(--z, 1);
+  display: block;
+  min-width: 0;
+  border-radius: clamp(9px, 1.1vw, 18px);
+  padding: clamp(2px, 0.32vw, 4px);
+  background: linear-gradient(155deg, #2b2e33, #111214 55%, #26292e);
+  box-shadow:
+    0 30px 70px -40px #000,
+    0 0 0 1px rgba(25, 183, 209, 0.18);
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease);
+}
+.hero-phone .s {
+  display: block;
+  width: 100%;
+  aspect-ratio: 780/1688;
+  border-radius: clamp(7px, 0.85vw, 14px);
+  overflow: hidden;
+  background: #000;
+}
+.hero-phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.hero-devices:hover .hero-phone,
+.hero-devices:hover .hero-web {
+  box-shadow:
+    0 30px 70px -40px #000,
+    0 0 0 1px rgba(25, 183, 209, 0.28);
+}
+.hero-phone:hover {
+  transform: translateY(-8px);
+  z-index: 9;
+}
+.hero-web:hover {
+  transform: translateY(-6px);
+}
+
+/* The desktop anchors the middle; the phones overlap its edges. */
+/* A screenshot that carries its own window chrome gets an even bezel; the
+   asymmetric padding below exists only to sit flush under the drawn bar. */
+.hero-web.has-chrome {
+  padding: clamp(3px, 0.42vw, 5px);
+}
+.hero-web {
+  position: absolute;
+  left: 30.1%;
+  top: 0;
+  width: 46.8%;
+  z-index: 2;
+  border-radius: clamp(7px, 0.85vw, 12px);
+  padding: 0 clamp(3px, 0.42vw, 5px) clamp(3px, 0.42vw, 5px);
+  background: linear-gradient(155deg, #2b2e33, #111214 55%, #26292e);
+  box-shadow:
+    0 40px 90px -46px #000,
+    0 0 0 1px rgba(25, 183, 209, 0.18);
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease);
+}
+.hero-web .bar {
+  display: flex;
+  align-items: center;
+  gap: clamp(3px, 0.34vw, 5px);
+  height: clamp(13px, 1.45vw, 21px);
+  padding-inline: clamp(6px, 0.7vw, 10px);
+}
+.hero-web .bar i {
+  width: clamp(3px, 0.36vw, 5px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+}
+.hero-web .s {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1200/740;
+  border-radius: clamp(4px, 0.5vw, 7px);
+  overflow: hidden;
+  background: #000;
+}
+.hero-web img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* ---------- Hero mockups: carousel on tablet and below ----------
+   The floating arrangement needs width it does not have here. It used to fall
+   back to a four-across row, which made every phone too small to read.
+
+   The track is moved with a transform rather than by scrolling: scroll-snap
+   plus scripted scrollLeft measured correctly in every desktop engine but was
+   unreliable on real iOS hardware. See useSwipeCarousel in lib/hooks.js. */
+@media (max-width: 1024px) {
+  .hero-devices {
+    display: block;
+    width: 100vw;
+    /* Full-bleed: escape the page gutter so a mockup can fill the screen. */
+    margin-inline: calc(50% - 50vw);
+    aspect-ratio: auto;
+    height: auto;
+    overflow: hidden;
+    /* The horizontal axis belongs to the carousel, the vertical to the page. */
+    touch-action: pan-y;
+    margin-top: clamp(16px, 3vh, 30px);
+    padding-block: 12px 18px;
+  }
+  .hero-track {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 4vw, 30px);
+    width: max-content;
+    /* Keeps the first and last mockup off the edges of the screen. The gutter
+       sits on the track so it scrolls with the content. */
+    padding-inline: var(--gutter);
+    will-change: transform;
+  }
+  .hero-track > * {
+    position: static;
+    flex: 0 0 auto;
+  }
+
+  /* Phones fill the track height; their width follows the screen ratio.
+
+     The ratio lives on the frame itself. With `width:auto` the frame is sized
+     from its max-content width, and WebKit measures that from the mockup's
+     intrinsic pixel width — so on iOS every slide became an ~787px box holding
+     a 156px phone. Deriving width from height makes it identical everywhere. */
+  .hero-phone {
+    /* As large as the screen allows: height-driven, then bounded by width so
+       a tablet does not end up with one enormous slab. */
+    height: min(70vh, 680px);
+    max-width: 82vw;
+    width: auto;
+    aspect-ratio: 780 / 1688;
+    padding: clamp(3px, 0.9vw, 5px);
+    border-radius: clamp(16px, 4.4vw, 26px);
+  }
+  .hero-phone .s {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: auto;
+    border-radius: clamp(13px, 3.8vw, 22px);
+  }
+  .hero-phone .s img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  /* The Wimsa browser frame is landscape: in a track sized for portrait
+     phones it can only ever sit short and marooned in its own slide, so the
+     carousel is phones only and it sits the small screens out. */
+  .hero-web {
+    display: none;
+  }
+  /* Its counterpart — the SmartWealth home screen leads the carousel and is
+     not part of the placed desktop arrangement. Scoped to the track so it
+     outranks the base `display:none` regardless of which comes first. */
+  .hero-track > .hero-phone-lead {
+    display: block;
+  }
+}
+
+/* Short viewports keep the mockup inside the screen it is on. */
+@media (max-width: 1024px) and (max-height: 620px) {
+  .hero-phone {
+    height: min(62vh, 420px);
+  }
+}
+
+/* ---------- Page-load intro (nav + hero) ----------
+   One-shot entrance that plays on every fresh load. Everything here animates
+   the independent `translate` / `scale` properties rather than `transform`,
+   because the phones and the nav already use `transform` for their resting
+   offset and their hover state — animating it here would fight them. */
+@keyframes introDown {
+  from {
+    opacity: 0;
+    translate: 0 -16px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes introUp {
+  from {
+    opacity: 0;
+    translate: 0 20px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes introRise {
+  from {
+    opacity: 0;
+    translate: 0 34px;
+    scale: 0.96;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+@keyframes introFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The bar slides in as a unit; its three items only fade, staggered. They must
+   not get a translate of their own — .mega-panel is absolutely positioned
+   against .pnav-inner, and any transform/translate on .pnav-links in between
+   would make *that* the containing block and throw the dropdown off. */
+.pnav-inner {
+  animation: introDown 0.85s var(--ease) both 0.1s;
+}
+.pnav-inner > * {
+  animation: introFade 0.6s var(--ease) both;
+}
+.pnav-inner > *:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.pnav-inner > *:nth-child(2) {
+  animation-delay: 0.42s;
+}
+.pnav-inner > *:nth-child(3) {
+  animation-delay: 0.54s;
+}
+
+.hero-v2 .hero-kicks {
+  animation: introUp 0.8s var(--ease) both 0.45s;
+}
+.hero-v2 .hero-heads {
+  animation: introUp 0.95s var(--ease) both 0.58s;
+}
+/* Phones land last, left to right — the row is the payoff of the sequence. */
+.hero-phone,
+.hero-web {
+  animation: introRise 0.9s var(--ease) both;
+  animation-delay: calc(0.82s + var(--i, 0) * 0.1s);
+}
+/* The ambient layer washes in underneath the whole thing. */
+.hero-fx {
+  animation: introFade 2s linear both 0.25s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pnav-inner,
+  .pnav-inner > *,
+  .hero-v2 .hero-kicks,
+  .hero-v2 .hero-heads,
+  .hero-phone,
+  .hero-web,
+  .hero-fx {
+    animation: none;
+  }
+}
+
+/* ---------- Hero ambience (see the .hero-fx markup in ProHeroGeneral) ----------
+   Three slow-drifting light pools, one diagonal sweep and a handful of rising
+   sparks. Everything is transform/opacity only so it stays on the compositor,
+   and the whole layer is masked so nothing hard-edges against the section. */
+.hero-v2 {
+  position: relative;
+  overflow: clip;
+}
+.hero-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  mask-image: radial-gradient(90% 80% at 50% 42%, #000 40%, transparent 92%);
+  -webkit-mask-image: radial-gradient(
+    90% 80% at 50% 42%,
+    #000 40%,
+    transparent 92%
+  );
+}
+.hero-stack {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+.hero-orb.o1 {
+  width: 52vw;
+  height: 52vw;
+  left: -12vw;
+  top: -14vw;
+  background: radial-gradient(
+    circle,
+    rgba(25, 183, 209, 0.3),
+    rgba(25, 183, 209, 0.08) 42%,
+    transparent 68%
+  );
+  animation: heroDrift1 24s ease-in-out infinite;
+}
+.hero-orb.o2 {
+  width: 44vw;
+  height: 44vw;
+  right: -10vw;
+  top: 2vh;
+  background: radial-gradient(
+    circle,
+    rgba(139, 107, 255, 0.24),
+    rgba(139, 107, 255, 0.06) 44%,
+    transparent 70%
+  );
+  animation: heroDrift2 31s ease-in-out infinite;
+}
+.hero-orb.o3 {
+  width: 60vw;
+  height: 60vw;
+  left: 22vw;
+  bottom: -34vw;
+  background: radial-gradient(
+    circle,
+    rgba(25, 183, 209, 0.2),
+    rgba(25, 183, 209, 0.05) 46%,
+    transparent 72%
+  );
+  animation: heroDrift3 38s ease-in-out infinite;
+}
+
+.hero-sweep {
+  position: absolute;
+  inset: -30% -60%;
+  background: linear-gradient(
+    102deg,
+    transparent 40%,
+    rgba(127, 228, 244, 0.07) 50%,
+    transparent 60%
+  );
+  animation: heroSweep 14s linear infinite;
+  will-change: transform;
+}
+
+/* Sparks are laid out from --n rather than hand-placed, so changing the count
+   in ProHeroGeneral is enough. The nth-child rules below break up the rhythm —
+   without them 18 dots on one timing read as a comb sliding up the screen. */
+.hero-sparks {
+  position: absolute;
+  inset: 0;
+}
+.hero-sparks i {
+  position: absolute;
+  bottom: -6%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 10px 1px rgba(25, 183, 209, 0.7);
+  opacity: 0;
+  left: calc(2.5% + var(--n) * 5.5%);
+  animation: heroSpark 17s linear infinite;
+  animation-delay: calc(var(--n) * -1.15s);
+  will-change: transform, opacity;
+}
+/* size / depth */
+.hero-sparks i:nth-child(2n) {
+  width: 2px;
+  height: 2px;
+  box-shadow: 0 0 8px 1px rgba(25, 183, 209, 0.55);
+}
+.hero-sparks i:nth-child(5n) {
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 0 14px 2px rgba(25, 183, 209, 0.75);
+}
+.hero-sparks i:nth-child(7n) {
+  background: var(--neon2);
+  box-shadow: 0 0 12px 1px rgba(139, 107, 255, 0.7);
+}
+/* speed — coprime-ish spacing keeps the set from re-syncing */
+.hero-sparks i:nth-child(3n) {
+  animation-duration: 23s;
+}
+.hero-sparks i:nth-child(4n) {
+  animation-duration: 14s;
+}
+.hero-sparks i:nth-child(5n + 2) {
+  animation-duration: 29s;
+}
+/* sideways drift, leaning both ways */
+.hero-sparks i:nth-child(3n + 1) {
+  --dx: -2.5vw;
+}
+.hero-sparks i:nth-child(4n + 3) {
+  --dx: 5vw;
+}
+/* stagger the start height so they do not all enter along one line */
+.hero-sparks i:nth-child(2n + 1) {
+  bottom: -16%;
+}
+.hero-sparks i:nth-child(6n) {
+  bottom: -28%;
+}
+
+@keyframes heroDrift1 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(5vw, 3vh, 0) scale(1.1);
+  }
+}
+@keyframes heroDrift2 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-4vw, 5vh, 0) scale(0.92);
+  }
+}
+@keyframes heroDrift3 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+  50% {
+    transform: translate3d(-6vw, -4vh, 0) scale(1.08);
+  }
+}
+@keyframes heroSweep {
+  0% {
+    transform: translate3d(-22%, 0, 0);
+  }
+  100% {
+    transform: translate3d(22%, 0, 0);
+  }
+}
+@keyframes heroSpark {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.55;
+  }
+  80% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate3d(var(--dx, 3vw), -130vh, 0);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  /* Fewer, smaller moving parts where the paint cost hurts most. */
+  .hero-sweep,
+  .hero-sparks i:nth-child(n + 9) {
+    display: none;
+  }
+  .hero-orb.o2 {
+    opacity: 0.7;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-kicks > *,
+  .hero-heads > * {
+    transition: none;
+  }
+  .hero-orb,
+  .hero-sweep,
+  .hero-sparks i {
+    animation: none;
+  }
+  .hero-sparks,
+  .hero-sweep {
+    display: none;
+  }
+}
+
+/* Floating nav — a rounded bar inset from the edges rather than a full-width
+   strip. The bar itself is transparent; the pill is the inner row. */
+.pnav {
+  background: none;
+  backdrop-filter: none;
+  border-bottom: none;
+  box-shadow: none;
+  padding-block: clamp(10px, 1.3vw, 16px);
+}
+.pnav-inner {
+  width: calc(100% - clamp(20px, 4vw, 52px));
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 10px 12px 10px 22px;
+  border-radius: 20px;
+  background: #141518;
+  border: none;
+  box-shadow: none;
+  transition:
+    background 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+.pnav.scrolled {
+  background: none;
+  box-shadow: none;
+}
+.pnav.scrolled .pnav-inner {
+  box-shadow:
+    0 20px 46px -10px rgba(0, 0, 0, 1),
+    0 6px 16px -6px rgba(0, 0, 0, 0.9);
+}
+
+/* ---------- Book a call (BookingSection + /functions/api) ---------- */
+/* Header runs as one left-aligned row — title block on the left, the lead
+   beside it rather than under it, which is what keeps the section short. */
+.book-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(16px, 3vw, 52px);
+  align-items: end;
+  text-align: left;
+  margin: 0 0 clamp(24px, 3vw, 40px);
+}
+.book-head .h-sec {
+  margin-top: 12px;
+  font-size: clamp(28px, 3.7vw, 48px);
+}
+.book-head .sec-sub {
+  margin-top: 0;
+  margin-inline: 0;
+  max-width: 52ch;
+}
+.book-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.6fr);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: 0 40px 90px -60px #000;
+}
+
+/* left rail */
+.book-aside {
+  background: #0d0e10;
+  padding: clamp(28px, 3.4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.book-aside::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    70% 50% at 100% 0%,
+    rgba(25, 183, 209, 0.14),
+    transparent 70%
+  );
+}
+.book-aside > * {
+  position: relative;
+  z-index: 1;
+}
+.book-aside-kick {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.book-aside h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 2.4vw, 32px);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-top: 16px;
+}
+.book-aside > p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 14px;
+  line-height: 1.65;
+}
+.book-points {
+  list-style: none;
+  margin-top: 26px;
+  display: grid;
+  gap: 13px;
+}
+.book-points li {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  font-size: 14.5px;
+  color: var(--ink-2);
+}
+.book-points svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  margin-top: 2px;
+  color: var(--teal);
+}
+.book-mail {
+  margin-top: auto;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 6px;
+}
+.book-mail span {
+  color: var(--muted-2);
+  font-size: 13.5px;
+}
+.book-mail a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+.book-mail a:hover {
+  color: var(--teal);
+}
+
+/* right pane */
+.book-main {
+  padding: clamp(24px, 3vw, 38px);
+  display: flex;
+  flex-direction: column;
+}
+.book-kick {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.book-main-head h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(20px, 2vw, 26px);
+  letter-spacing: -0.02em;
+  margin-top: 8px;
+}
+.book-tz {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.book-tz select {
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--cream-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(18px, 2.4vw, 30px);
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.book-cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.book-cal-head strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+}
+.book-nav {
+  display: flex;
+  gap: 6px;
+}
+.book-nav button {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+  background: none;
+  transition: all 0.25s var(--ease);
+}
+.book-nav button:hover:not(:disabled) {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.book-nav button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.book-nav svg {
+  width: 15px;
+  height: 15px;
+}
+.book-nav button:first-child svg {
+  transform: rotate(180deg);
+}
+
+.book-dow,
+.book-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.book-dow {
+  margin-top: 18px;
+}
+.book-dow span {
+  text-align: center;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.book-days {
+  margin-top: 8px;
+}
+.book-day {
+  aspect-ratio: 1;
+  border-radius: 11px;
+  border: none;
+  background: none;
+  color: var(--muted-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.25s var(--ease);
+}
+.book-day.open {
+  background: color-mix(in oklab, var(--teal) 16%, transparent);
+  color: #7fe4f4;
+  cursor: pointer;
+}
+.book-day.open:hover {
+  background: color-mix(in oklab, var(--teal) 26%, transparent);
+}
+.book-day.on {
+  background: var(--teal);
+  color: #06171b;
+}
+.book-day:disabled {
+  cursor: default;
+}
+
+.book-times > strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  display: block;
+}
+.book-slots {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  max-height: min(46vh, 330px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.book-slot {
+  padding: 11px 14px;
+  border-radius: 11px;
+  border: 1px solid var(--line);
+  background: var(--cream-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  transition: all 0.25s var(--ease);
+}
+.book-slot:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.book-slot.on {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #06171b;
+}
+.book-note {
+  color: var(--muted-2);
+  font-size: 12.5px;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+.book-err {
+  color: var(--coral);
+  font-size: 13.5px;
+  margin-top: 12px;
+}
+
+.book-go {
+  margin-top: 22px;
+  width: 100%;
+  justify-content: center;
+}
+.book-go:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* details step + confirmation */
+.book-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.book-chosen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+}
+.book-chosen button {
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--teal);
+  text-decoration: underline;
+}
+.book-done {
+  margin: auto;
+  text-align: center;
+  padding: clamp(20px, 4vw, 44px) 0;
+}
+.book-tick {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+  background: color-mix(in oklab, var(--teal) 16%, transparent);
+  color: var(--teal);
+}
+.book-tick svg {
+  width: 24px;
+  height: 24px;
+}
+.book-done h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.2vw, 28px);
+}
+.book-done p {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .book-head {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 14px;
+  }
+  .book-head .sec-sub {
+    max-width: none;
+  }
+  .book-card {
+    grid-template-columns: 1fr;
+  }
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+  .book-slots {
+    max-height: none;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  }
+}
+
+/* ---------- Connect switch (scheduler ⇄ message form) ---------- */
+.connect {
+  padding-top: clamp(26px, 3.5vw, 52px);
+  position: relative;
+  overflow: clip;
+}
+.connect > .section {
+  padding-top: 0;
+}
+
+/* Ambient light behind "let's talk". Deliberately barely-there: two wide pools
+   breathing on long, mismatched cycles, faded top and bottom so they never
+   meet an edge. Reuses the hero's drift keyframes at a much lower alpha. */
+.connect-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.7;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 14%,
+    #000 82%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 14%,
+    #000 82%,
+    transparent 100%
+  );
+}
+.connect > .wrap,
+.connect > .section {
+  position: relative;
+  z-index: 1;
+}
+
+.connect-orb {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+.connect-orb.c1 {
+  width: 58vw;
+  height: 58vw;
+  left: -18vw;
+  top: 2vh;
+  background: radial-gradient(
+    circle,
+    rgba(25, 183, 209, 0.13),
+    rgba(25, 183, 209, 0.035) 46%,
+    transparent 72%
+  );
+  animation: heroDrift1 34s ease-in-out infinite;
+}
+.connect-orb.c2 {
+  width: 52vw;
+  height: 52vw;
+  right: -16vw;
+  bottom: -6vh;
+  background: radial-gradient(
+    circle,
+    rgba(139, 107, 255, 0.1),
+    rgba(139, 107, 255, 0.03) 48%,
+    transparent 74%
+  );
+  animation: heroDrift3 43s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connect-orb {
+    animation: none;
+  }
+}
+.cswitch {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: max-content;
+  margin: 0 auto clamp(28px, 3.4vw, 44px);
+  padding: 5px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px -46px #000;
+}
+.cswitch-thumb {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  width: calc(50% - 5px);
+  border-radius: 999px;
+  background: var(--teal);
+  transition: transform 0.34s var(--ease);
+}
+.cswitch-thumb.right {
+  transform: translateX(100%);
+}
+.cswitch-opt {
+  position: relative;
+  z-index: 1;
+  font: inherit;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 11px 26px;
+  border: none;
+  background: none;
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.28s var(--ease);
+}
+.cswitch-opt:hover {
+  color: var(--ink);
+}
+.cswitch-opt.on {
+  color: #06171b;
+}
+.cswitch-opt:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .cswitch {
+    width: 100%;
+  }
+  .cswitch-opt {
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cswitch-thumb {
+    transition: none;
+  }
+}
+
+/* ---------- Related: Al Hilal banner treatment in the app's own palette ------
+   Same construction as .pf-banner — a deep-to-bright diagonal sweep with two
+   blurred orbs over the whole block — recoloured from the Related app: espresso
+   and burnt sienna running up to the gold of its "Find a table" CTA, with a
+   coral orb picked from the reserved-table state. Al Hilal's own purple-black
+   shadows are re-tinted warm to match. */
+.pf-banner[data-brand="relatedapp"] {
+  background: linear-gradient(
+    116deg,
+    #140d06 0%,
+    #33200c 24%,
+    #7a3d15 49%,
+    #c47628 72%,
+    #f5c451 112%
+  );
+  box-shadow: 0 40px 90px -50px rgba(74, 34, 8, 0.7);
+}
+.pf-banner[data-brand="relatedapp"] .pf-banner-glow.g-a {
+  background: #f5c451;
+  opacity: 0.4;
+}
+.pf-banner[data-brand="relatedapp"] .pf-banner-glow.g-b {
+  background: #ef8354;
+  opacity: 0.42;
+}
+.pf-banner[data-brand="relatedapp"] .ahb-phones::before {
+  background: radial-gradient(ellipse, rgba(30, 12, 2, 0.5), transparent 70%);
+}
+.pf-banner[data-brand="relatedapp"] .ahb-phone {
+  box-shadow:
+    0 36px 70px -28px rgba(30, 12, 2, 0.7),
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Wimsa showcase: fill more of the block ----------
+   Every device in the stage is sized as a % of it, so widening the stage scales
+   the monitor, laptop and phones together. The cap only bites above ~1240px,
+   where the stage was leaving ~330px of the block unused; narrower viewports
+   already fill the width and are untouched. */
+.wimsa-stage {
+  max-width: 1240px;
+}
+
+/* ---------- Base360: banner block in its own violet/cyan theme ----------
+   Same construction as Al Hilal and Related, but this product is web, not
+   mobile, so the art column carries the laptop pair rather than the phone fan.
+   Landscape mockups need more room than portrait phones, so the grid leans
+   toward the art side and the laptops are scaled up to match — they end up the
+   same size they were in the old stacked showcase. The ramp stays on the violet
+   axis end to end: the product has no blue in it, so depth comes from dark-to-
+   light rather than from a shift in hue. */
+.pf-banner[data-brand="base360"] {
+  grid-template-columns: 0.88fr 1.12fr;
+  background: linear-gradient(
+    116deg,
+    #06060e 0%,
+    #170f33 24%,
+    #3b1f8f 49%,
+    #6d5eff 72%,
+    #b39bff 112%
+  );
+  box-shadow: 0 40px 90px -50px rgba(38, 18, 90, 0.75);
+}
+.pf-banner[data-brand="base360"] .pf-banner-glow.g-a {
+  background: #7c5cff;
+  opacity: 0.42;
+}
+.pf-banner[data-brand="base360"] .pf-banner-glow.g-b {
+  background: #a855f7;
+  opacity: 0.36;
+}
+.pf-banner[data-brand="base360"] .pf-banner-copy .pf-no.on-dark {
+  color: #c4b2ff;
+}
+
+/* laptop pair, overlapped on the diagonal so both screens stay readable */
+.pf-banner-art.laptops {
+  min-height: clamp(300px, 30vw, 430px);
+}
+.pf-banner-art.laptops .ml-glow {
+  width: 82%;
+  height: 76%;
+  top: 10%;
+  background: radial-gradient(
+    closest-side,
+    rgba(124, 92, 255, 0.34),
+    rgba(168, 85, 247, 0.2) 55%,
+    transparent 75%
+  );
+}
+.pf-banner-art.laptops .ml-laptop.back {
+  width: 62%;
+  left: 0;
+  top: 4%;
+  bottom: auto;
+  z-index: 1;
+}
+.pf-banner-art.laptops .ml-laptop.front {
+  width: 68%;
+  right: 0;
+  bottom: 4%;
+  z-index: 2;
+}
+
+@media (max-width: 820px) {
+  .pf-banner[data-brand="base360"] {
+    grid-template-columns: 1fr;
+  }
+  .pf-banner-art.laptops {
+    min-height: 260px;
+  }
+  .pf-banner-art.laptops .ml-laptop.back {
+    width: 64%;
+  }
+  .pf-banner-art.laptops .ml-laptop.front {
+    width: 70%;
+  }
+}
+
+/* ---------- Selected work: split section head ----------
+   Caption and title on the left, the archive link on the right of the same row.
+   Its own class rather than a change to .sec-head-center, which the Process and
+   Kind-words sections still use centred. */
+.sec-head-split {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(20px, 4vw, 56px);
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.sec-head-split .h-sec {
+  margin-top: 14px;
+}
+.sec-head-split > a {
+  flex: none;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 820px) {
+  .sec-head-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .sec-head-split > a {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/* ---------- Hero height on tablet and below ----------
+   .hero-v2 pins itself to 100svh and centres inside that, which on a handset
+   left large empty bands above and below a small cluster of mockups. Here the
+   section is simply as tall as what it contains, and the height that frees up
+   goes to the carousel above. */
+@media (max-width: 1024px) {
+  .hero-v2 {
+    min-height: 0;
+    display: block;
+    /* Clears the floating nav bar, nothing more. */
+    padding-top: clamp(96px, 13vh, 124px);
+    padding-bottom: clamp(20px, 4vh, 40px);
+  }
+  .hero-v2 .hero-heads {
+    margin-bottom: clamp(4px, 1vh, 12px);
+    max-width: 18ch;
+  }
+  .hero-fx {
+    /* The ambient layer was sized against a full-viewport hero. */
+    mask-image: radial-gradient(100% 90% at 50% 38%, #000 40%, transparent 94%);
+    -webkit-mask-image: radial-gradient(
+      100% 90% at 50% 38%,
+      #000 40%,
+      transparent 94%
+    );
+  }
+}
+
+/* Carousel-only lead slide: no coordinates in the desktop composition, so it
+   is absent until the carousel takes over (see the 1024px block above). */
+.hero-phone-lead {
+  display: none;
+}
+
+/* ---------- Carousel dots ---------- */
+.hero-dots {
+  display: none;
+  justify-content: center;
+  /* The targets already carry their own padding, so they sit flush. */
+  gap: 0;
+  margin-top: clamp(10px, 1.8vh, 18px);
+}
+@media (max-width: 1024px) {
+  .hero-dots {
+    display: flex;
+  }
+}
+.hero-dot {
+  /* A small mark inside a 44x40 target — thumb-sized without looking it.
+     Six of these still fit inside a 320px screen's gutters. */
+  width: 44px;
+  height: 40px;
+  padding: 0;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.hero-dot::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--muted-2);
+  opacity: 0.55;
+  transition:
+    width 0.35s var(--ease),
+    background 0.3s,
+    opacity 0.3s;
+}
+.hero-dot.on::after {
+  width: 22px;
+  background: var(--teal);
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(25, 183, 209, 0.7);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-dot::after {
+    transition: none;
+  }
+}
+
+
+/* ---------- Scheduler on phones ----------
+   The booking block leads with a lead paragraph and a side panel of selling
+   copy, and only then reaches the calendar. On a phone that is a screen and a
+   half of reading before the thing the section is for. Everything that is not
+   the calendar steps aside; the panel's one piece of function — the email
+   fallback — is kept and moved below the picker. */
+@media (max-width: 720px) {
+  .book-head .sec-sub,
+  .book-aside > h3,
+  .book-aside > p,
+  .book-aside-kick,
+  .book-points {
+    display: none;
+  }
+  .book-card {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Calendar first, email fallback after it. */
+  .book-main {
+    order: 0;
+  }
+  .book-aside {
+    order: 1;
+    padding: 16px 18px;
+    border-top: 1px solid var(--line);
+    background: none;
+  }
+  .book-mail {
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: baseline;
+    font-size: 14px;
+  }
+  .book-head {
+    margin-bottom: 18px;
+  }
+  /* The timezone row is a control, not copy — keep it, but compact. */
+  .book-tz {
+    font-size: 13px;
+  }
+  .book-foot,
+  .book-note-sm {
+    font-size: 12.5px;
+  }
+}
+
+/* ---------- Project captions in brand blue on tablet and below ----------
+   The counterpart rule lives at the end of pro.css, but this stylesheet
+   re-colours the same captions to muted grey afterwards and so wins the
+   cascade — hence the repeat here, where it lands last. */
+@media (max-width: 1024px) {
+  .pf-no,
+  .pf-no.on-dark,
+  .moods-no,
+  .wimsa-no,
+  #work .pf-item .pf-no,
+  #work .pf-item .pf-no.on-dark,
+  #work .pf-item .moods-no,
+  #work .pf-item .wimsa-no {
+    color: var(--teal);
+  }
+}
+
+/* ---------- Booking calendar on small screens ----------
+   The month grid is seven fixed columns, so on a 320px handset each day cell
+   resolved to 29x29 — under any reasonable touch minimum. Width is spoken for
+   by the column count, so buy it back from the gap and let the cells grow
+   taller than they are wide. */
+@media (max-width: 560px) {
+  .book-dow,
+  .book-days {
+    gap: 3px;
+  }
+  .book-day {
+    aspect-ratio: auto;
+    min-height: 42px;
+    border-radius: 9px;
+  }
+  .book-nav button {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 400px) {
+  .book-slots {
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  }
+}
+
+/* Base360's laptop pair is sized in this stylesheet, which loads after
+   pro.css, so the full-bleed strip rules there cannot reach it. Repeated here
+   so each laptop is a full-width slide like every other project mockup. */
+@media (max-width: 820px) {
+  .pf-banner-art.laptops .ml-laptop.back,
+  .pf-banner-art.laptops .ml-laptop.front {
+    position: static;
+    inset: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    flex: 0 0 auto;
+    width: min(calc(100vw - var(--gutter) * 2), 460px);
+    max-width: none;
+    height: auto;
+    transform: none;
+  }
+}
+
+/* ---------- Base360: laptops stacked, not scrolled ----------
+   Two landscape screens read better one under the other than side by side in
+   a scroller — there is no third frame to discover, and a horizontal strip
+   left the second one cut off at the edge. Their widths are set in this
+   stylesheet, so the stacking has to be undone here too. */
+@media (max-width: 820px) {
+  .pf-banner-art.laptops {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* .pf-banner-art reserves clamp(360px,33vw,470px) for the placed
+       composition; stacked, the frames set their own height. */
+    min-height: 0;
+    justify-content: flex-start;
+    align-self: start;
+    gap: clamp(14px, 3vw, 22px);
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+  .pf-banner-art.laptops .ml-laptop.back,
+  .pf-banner-art.laptops .ml-laptop.front {
+    width: 100%;
+    max-width: none;
+    scroll-snap-align: none;
+  }
+}
+
+/* ---------- Base360: more air between the stacked screens ---------- */
+@media (max-width: 820px) {
+  .pf-banner-art.laptops {
+    gap: clamp(26px, 6vw, 40px);
+  }
+}
+
+/* ---------- Wimsa: desktop screens stacked, phones in their own strip ----------
+   The same shape as Base360 for the two web screens — one per row, full width,
+   no sideways scrolling — with the companion app kept as the swipeable strip
+   it already was, inset from the block so the frames are not flush against it. */
+@media (max-width: 820px) {
+  .wimsa-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(26px, 6vw, 40px);
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+  .wimsa-stage > .wm-monitor,
+  .wimsa-stage > .wm-laptop {
+    display: block;
+    /* relative, not static: each draws its stand and deck with absolutely
+       positioned pseudo-elements. Made static, those lose their containing
+       block and re-anchor to an ancestor — the laptop's deck ended up as a
+       stray grey bar behind the tags at the foot of the block. */
+    position: relative;
+    inset: auto;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    transform: none;
+  }
+  /* The laptop draws its deck with an ::after that is 1.16x the lid — wider on
+     purpose, the way a real one is. At full width that deck ran past the
+     screen and stretched the page. Sizing the lid to 86% puts the deck at
+     about 100%, so the whole machine fits and its footprint lines up with the
+     monitor above it. */
+  .wimsa-stage > .wm-laptop {
+    width: 86%;
+    align-self: center;
+  }
+  /* Belt and braces: nothing decorative may widen the page from here. */
+  .wimsa-stage {
+    overflow-x: clip;
+  }
+
+  /* The phone pair: a horizontal strip of its own, with room around it. */
+  .wimsa-stage > .wm-phones {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    gap: 14px;
+    padding: clamp(14px, 4vw, 22px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* The stacked layer is click-through by default; the strip needs the touch. */
+    pointer-events: auto;
+    touch-action: pan-x pan-y;
+  }
+  .wimsa-stage > .wm-phones::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  .wimsa-stage .wm-phone,
+  .wimsa-stage .wm-phone.p1,
+  .wimsa-stage .wm-phone.p2 {
+    position: static;
+    inset: auto;
+    flex: 0 0 auto;
+    height: min(64vh, 520px);
+    width: auto;
+    max-width: calc(100vw - var(--gutter) * 2);
+    transform: none;
+    scroll-snap-align: center;
+  }
+}
+
+/* ---------- Phone screenshots: show the whole screen ----------
+   The screens are scaled 1.1 inside their frames, which trims about 5% off
+   every edge — on a large mobile frame that is enough to cut the app's own
+   chrome (Related lost its header and the date chip). The artwork matches the
+   frame's ratio to within half a percent, so at this size object-fit alone
+   places it exactly. */
+@media (max-width: 820px) {
+  .ahb-phone .scr img,
+  .pf-phone .scr img,
+  .wm-phone .scr img {
+    transform: none;
+  }
+}
+
+/* ---------- Wimsa: breathing room around the stage ----------
+   The frames were sitting on the page gutter with nothing between them and
+   the edge of the screen, and the phone pair was wide enough that the second
+   frame pressed against the right edge rather than peeking past it. The stage
+   takes its own inset on top of the gutter, and the phones come down enough
+   that one sits centred with a clear margin either side. */
+@media (max-width: 820px) {
+  .wimsa-stage {
+    padding-inline: clamp(8px, 2.5vw, 18px);
+  }
+  .wimsa-stage > .wm-phones {
+    padding: clamp(16px, 4.5vw, 26px) clamp(10px, 3vw, 18px);
+    gap: clamp(16px, 4vw, 24px);
+  }
+  .wimsa-stage .wm-phone,
+  .wimsa-stage .wm-phone.p1,
+  .wimsa-stage .wm-phone.p2 {
+    height: min(56vh, 460px);
+  }
+}
+
+/* ---------- Project mockups: keep clear of the screen edges ----------
+   The full-bleed strips ran to the gutter; on the widest frames that reads as
+   edge-to-edge. A little more inset on the strip itself, so the first and last
+   mockup always have a margin. */
+@media (max-width: 820px) {
+  .pf-art.phones-art .pf-phones,
+  .pf-banner-art.three .ahb-phones {
+    padding-inline: clamp(18px, 5vw, 30px);
+    padding-block: clamp(10px, 3vw, 18px);
+    gap: clamp(16px, 4vw, 24px);
+  }
+  .pf-banner-art.laptops {
+    padding-inline: clamp(4px, 1.5vw, 10px);
+  }
+}
+
+/* ---------- Stacked screens: more room between them ----------
+   26px between a monitor and the laptop under it reads as one crowded block;
+   each screen wants to be its own beat. */
+@media (max-width: 820px) {
+  .wimsa-stage,
+  .pf-banner-art.laptops {
+    gap: clamp(44px, 11vw, 76px);
+  }
+}
+
+
+/* ---------- Project strips: a scrollbar that is actually visible ----------
+   Drawn rather than native. iOS gives overflow containers an overlay
+   scrollbar only: it fades in under a finger and reserves no space, and
+   neither `scrollbar-width` nor `::-webkit-scrollbar` changes that. The
+   element is created by useStripScrollbars (lib/hooks.js) and sits under the
+   strip it belongs to; width and offset come from the scroller's own numbers,
+   so it reads the same on every engine. */
+.strip-scroll {
+  display: none;
+}
+@media (max-width: 820px) {
+  .strip-scroll {
+    display: block;
+    position: relative;
+    height: 5px;
+    margin: 12px auto 0;
+    width: min(180px, 52%);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    overflow: hidden;
+  }
+  .strip-scroll > i {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    transition: left 0.08s linear;
+  }
+  /* SmartWealth's strip sits on the page rather than on a coloured panel. */
+  .pf-art.phones-art + .strip-scroll,
+  .pf-art.phones-art .strip-scroll {
+    background: color-mix(in oklab, var(--muted-2) 30%, transparent);
+  }
+  .pf-art.phones-art + .strip-scroll > i,
+  .pf-art.phones-art .strip-scroll > i {
+    background: var(--muted-2);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .strip-scroll > i {
+      transition: none;
+    }
+  }
+}
+
+/* ---------- Al Hilal / Related: no drop shadow on the phone frames ----------
+   The shadow was cast for small frames floating over a banner. At the size
+   these run on a phone it just muddies the panel behind them. Both the drop
+   shadow and the hairline ring come off; the frame's own bezel is edge
+   enough. Each brand sets its own shadow, so each is named here. */
+@media (max-width: 820px) {
+  .pf-banner-art.three .ahb-phone,
+  .pf-banner[data-brand="alhilal"] .ahb-phone,
+  .pf-banner[data-brand="relatedapp"] .ahb-phone {
+    box-shadow: none;
+  }
+}
+
+/* ---------- Hero: a second desktop screen behind the first ----------
+   Same frame and width as the Wimsa screen, stepped down and to the right so
+   the two read as layered windows rather than a row. It sits above the first
+   in z-order, and only tucks a few percent under the right-hand phones. */
+.hero-web-2 {
+  /* Wider than the first screen, and the 5.44:1 ratio carries the height up
+     with it. z-index 0 puts it behind every phone (those sit at 1-3) and
+     in front of the Wimsa console (now at -1), so it reads as the middle
+     plane: the wall over the console, the phones over both. */
+  left: 24%;
+  top: 56%;
+  width: 68%;
+  z-index: 0;
+  /* Casts upward as well as down. The wall sits in front of the Wimsa
+     console, so a shadow off its top edge falls onto the console behind and
+     is what actually sells the two as separate planes. The base .hero-web
+     shadow is restated here because box-shadow replaces rather than adds. */
+  box-shadow:
+    0 -24px 44px -18px rgba(0, 0, 0, 0.75),
+    0 40px 90px -46px #000,
+    0 0 0 1px rgba(25, 183, 209, 0.18);
+}
+.hero-web-2 .s {
+  aspect-ratio: 4784 / 880;
+}
+@media (max-width: 1024px) {
+  /* The carousel is phones only — a landscape frame cannot fill a track
+     sized for portrait mockups (see .hero-web above). */
+  .hero-web-2 {
+    display: none;
+  }
+}
+
+/* The Wimsa console drops behind the Tahakkom wall. The phones sit at z 1-3
+   and the wall at 0, so the only value left underneath is -1; it stays inside
+   .hero-stack's stacking context, so it cannot fall behind the section. */
+.hero-web:not(.hero-web-2) {
+  z-index: -1;
+}

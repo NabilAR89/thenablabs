@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Related — Restaurant Table Booking</title>
+<meta name="description" content="A concierge-style dining app for discovering venues and reserving the perfect table: from date, guests and live availability through an interactive floor plan, special requests and a confirmed booking with reminders." />
+<link rel="canonical" href="https://thenablabs.com/relatedapp/Related.html" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Nabil Abou Rjeily" />
+<meta name="theme-color" content="#111214" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="TheNabLab" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://thenablabs.com/relatedapp/Related.html" />
+<meta property="og:title" content="Related — Restaurant Table Booking" />
+<meta property="og:description" content="A concierge-style dining app for discovering venues and reserving the perfect table: from date, guests and live availability through an interactive floor plan, special requests and a confirmed booking with reminders." />
+<meta property="og:image" content="https://thenablabs.com/relatedapp/front.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Related — Restaurant Table Booking" />
+<meta name="twitter:description" content="A concierge-style dining app for discovering venues and reserving the perfect table: from date, guests and live availability through an interactive floor plan, special requests and a confirmed booking with reminders." />
+<meta name="twitter:image" content="https://thenablabs.com/relatedapp/front.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#070707;
+  --bg-2:#0e0d0b;
+  --surface:#141310;
+  --surface-2:#1c1a16;
+  --line:rgba(232,196,104,0.14);
+  --line-2:rgba(232,196,104,0.28);
+  --text:#f6f1e7;
+  --muted:#a7a094;
+  --muted-2:#75706a;
+
+  --gold:#E8C468;
+  --gold-2:#cda84e;
+  --gold-soft:rgba(232,196,104,0.12);
+  --coral:#E08A5B;
+
+  --font-serif:'Cormorant Garamond', Georgia, serif;
+  --font-sans:'DM Sans', system-ui, sans-serif;
+  --maxw:1260px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+::selection{background:var(--gold);color:#000;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-fx .glow{position:absolute;border-radius:50%;filter:blur(140px);}
+.bg-fx .g1{width:560px;height:560px;background:var(--gold);opacity:.10;top:-220px;left:50%;transform:translateX(-50%);}
+.bg-fx .g2{width:460px;height:460px;background:var(--coral);opacity:.08;bottom:-180px;right:-80px;}
+.bg-fx .lines{position:absolute;inset:0;background-image:radial-gradient(circle at 50% -10%,rgba(232,196,104,.05),transparent 55%);}
+main{position:relative;z-index:1;}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
+
+/* logo */
+.rmark{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;font-family:var(--font-serif);font-weight:600;font-size:22px;color:var(--gold);}
+.hero{padding-top:clamp(64px,11vw,128px);padding-bottom:clamp(26px,4vw,48px);text-align:center;}
+.brandbar{display:inline-flex;align-items:center;gap:14px;margin-bottom:32px;}
+.brandbar .wm{font-family:var(--font-serif);font-weight:600;font-size:24px;letter-spacing:.02em;text-align:left;line-height:1.0;}
+.brandbar .wm small{display:block;font-family:var(--font-sans);font-weight:400;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+.eyebrow{font-family:var(--font-sans);font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+.hero h1{font-family:var(--font-serif);font-weight:500;font-size:clamp(46px,8vw,98px);line-height:1.0;letter-spacing:0;margin-top:18px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p.lede{color:var(--muted);font-size:clamp(16px,1.6vw,20px);max-width:54ch;margin:22px auto 0;}
+.hero .tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:32px;}
+.hero .tags span{font-family:var(--font-sans);font-size:13px;color:var(--text);padding:8px 16px;border:1px solid var(--line-2);border-radius:999px;}
+.hero .tags span b{color:var(--gold);font-weight:700;}
+.rule{width:90px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:30px auto 0;}
+
+/* flow rail */
+.flow{padding-block:clamp(40px,6vw,84px);}
+.flow-head{text-align:center;margin-bottom:6px;}
+.flow-head h2{font-family:var(--font-serif);font-weight:500;font-size:clamp(30px,4.4vw,56px);letter-spacing:0;}
+.flow-head .hint{font-family:var(--font-sans);font-size:12.5px;color:var(--muted-2);display:inline-flex;align-items:center;gap:8px;margin-top:10px;letter-spacing:.06em;}
+.flow-head .hint svg{width:15px;height:15px;}
+
+.rail{display:flex;gap:clamp(30px,5vw,72px);overflow-x:auto;padding:34px 4px 40px;scroll-snap-type:x mandatory;justify-content:center;}
+.rail::-webkit-scrollbar{height:7px;}
+.rail::-webkit-scrollbar-track{background:var(--surface);border-radius:999px;}
+.rail::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:999px;}
+.step{flex:0 0 auto;width:300px;scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;}
+.step:nth-child(even){margin-top:42px;}
+.step-meta{align-self:flex-start;margin-bottom:18px;display:flex;align-items:center;gap:13px;}
+.step-no{width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--font-serif);font-weight:600;font-size:17px;color:var(--gold);flex:none;}
+.step-kicker{font-family:var(--font-sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2);}
+.step-kicker b{display:block;font-family:var(--font-serif);font-size:21px;letter-spacing:0;text-transform:none;color:var(--text);font-weight:600;margin-top:1px;}
+.phone{position:relative;width:100%;aspect-ratio:720/1556;border-radius:42px;padding:7px;
+  background:linear-gradient(155deg,#2a2825,#0c0b09 55%,#26241f);
+  box-shadow:0 2px 0 rgba(232,196,104,.14) inset,0 44px 80px -30px rgba(0,0,0,.9),0 0 0 1px rgba(0,0,0,.6);
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease);}
+.step:hover .phone{transform:translateY(-10px);box-shadow:0 2px 0 rgba(232,196,104,.2) inset,0 54px 96px -28px rgba(0,0,0,.95),0 0 0 1px var(--line-2),0 0 64px -18px var(--gold);}
+.phone .screen{position:relative;width:100%;height:100%;aspect-ratio:auto;border-radius:35px;overflow:hidden;background:#000;}
+.rail .phone{aspect-ratio:720/1556!important;height:auto!important;}
+.rail .phone .screen{position:absolute;inset:7px;width:auto;height:auto;}
+.phone .screen img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.phone::before{content:"";position:absolute;left:-2px;top:120px;width:3px;height:64px;border-radius:3px;background:#1a1815;}
+.phone::after{content:"";position:absolute;right:-2px;top:96px;width:3px;height:38px;border-radius:3px;background:#1a1815;box-shadow:0 56px 0 #1a1815,0 110px 0 #1a1815;}
+.step-cap{margin-top:24px;align-self:stretch;text-align:center;}
+.step-cap p{color:var(--muted);font-size:14.5px;}
+.step-cap .pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;justify-content:center;}
+.step-cap .pills span{font-family:var(--font-sans);font-size:11.5px;color:var(--text);padding:5px 12px;border:1px solid var(--line);border-radius:999px;}
+
+/* features */
+.feat{padding-block:clamp(46px,6vw,90px);border-top:1px solid var(--line);}
+.feat-head{text-align:center;}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px;}
+.fcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 24px;text-align:center;}
+.fcard .ic{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);color:var(--gold);display:grid;place-items:center;margin:0 auto;}
+.fcard .ic svg{width:22px;height:22px;}
+.fcard b{font-family:var(--font-serif);font-weight:600;font-size:21px;display:block;margin-top:18px;}
+.fcard p{color:var(--muted);font-size:14px;margin-top:8px;}
+@media (max-width:900px){.feat-grid{grid-template-columns:1fr 1fr;}}
+
+/* palette */
+.palette{padding-block:clamp(50px,7vw,96px);border-top:1px solid var(--line);text-align:center;}
+.palette-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:34px;text-align:left;}
+.sw{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface);}
+.sw .chip{height:116px;}
+.sw .info{padding:14px 16px;}
+.sw .info b{font-family:var(--font-sans);font-weight:600;font-size:14px;display:block;}
+.sw .info span{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;}
+@media (max-width:860px){.palette-grid{grid-template-columns:repeat(2,1fr);}}
+
+.foot{padding-block:46px;border-top:1px solid var(--line);color:var(--muted-2);font-size:13px;}
+.foot .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.foot b{color:var(--text);font-weight:600;}
+.eyebrow-h2{font-family:var(--font-serif);font-weight:500;font-size:clamp(30px,4.4vw,56px);margin-top:8px;}
+
+/* ---------- Case-study nav ---------- */
+.cs-nav{position:fixed;inset:0 0 auto 0;z-index:100;background:color-mix(in oklab,var(--bg) 74%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.cs-nav-inner{max-width:var(--maxw);margin:0 auto;padding:13px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.cs-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-sans);font-weight:600;font-size:14px;color:var(--text);letter-spacing:.02em;}
+.cs-back .ar{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:all .3s var(--ease);}
+.cs-back:hover .ar{background:var(--gold);border-color:var(--gold);color:#000;}
+.cs-back svg{width:16px;height:16px;}
+.cs-nav .logo{font-family:var(--font-serif);font-weight:600;font-size:19px;color:var(--text);letter-spacing:.02em;}
+.cs-nav .logo b{color:var(--gold);font-weight:600;}
+
+/* ---------- Case-study facts ---------- */
+.cs-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:800px;margin:34px auto 0;padding-top:28px;border-top:1px solid var(--line);text-align:left;}
+.cs-facts .k{font-family:var(--font-sans);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted-2);}
+.cs-facts .v{font-family:var(--font-sans);font-weight:600;font-size:15.5px;margin-top:7px;color:var(--text);}
+@media (max-width:720px){.cs-facts{grid-template-columns:1fr 1fr;gap:18px;}}
+
+/* ---------- Case-study narrative ---------- */
+.cs-intro{padding-block:clamp(50px,7vw,92px);border-top:1px solid var(--line);}
+.cs-2col{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,80px);align-items:start;}
+.cs-2col h2{font-family:var(--font-serif);font-weight:500;font-size:clamp(28px,3.8vw,48px);line-height:1.06;margin-top:10px;}
+.cs-prose p{color:var(--muted);font-size:clamp(16px,1.4vw,18px);margin-top:18px;line-height:1.7;}
+.cs-prose p:first-child{margin-top:0;}
+.cs-prose b{color:var(--text);font-weight:600;}
+@media (max-width:760px){.cs-2col{grid-template-columns:1fr;gap:16px;}}
+.cs-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px;}
+.cs-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 24px;}
+.cs-card .ic{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);color:var(--gold);display:grid;place-items:center;}
+.cs-card .ic svg{width:22px;height:22px;}
+.cs-card b{font-family:var(--font-serif);font-weight:600;font-size:21px;display:block;margin-top:18px;color:var(--text);}
+.cs-card p{color:var(--muted);font-size:14px;margin-top:8px;}
+@media (max-width:900px){.cs-cards{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.cs-cards{grid-template-columns:1fr;}}
+</style>
+<style id="nl-brand">
+.nl-logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{width:34px;height:34px;flex:none;border-radius:11px;background:linear-gradient(150deg,#39a6ff,#7b5cff);color:#fff;display:grid;place-items:center;font-weight:700;font-size:16px;letter-spacing:-.02em;box-shadow:0 0 0 1px rgba(123,92,255,.45),0 0 20px -5px rgba(57,166,255,.6);}
+.nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-weight:700;font-size:20px;letter-spacing:-.02em;color:#f4f1ea;line-height:1;}
+/* opaque #111214 — the same dark as the case-study pages. A translucent
+   dark greys out on the light-themed showcases. */
+.cs-nav,.csw-nav{background:#111214!important;backdrop-filter:none!important;border-bottom:1px solid rgba(255,255,255,.09)!important;box-shadow:none!important;}
+.cs-nav .cs-back,.csw-nav .csw-back{color:#f4f1ea!important;}
+.cs-nav .cs-back .ar,.csw-nav .csw-back .ar{border-color:rgba(255,255,255,.22)!important;color:#f4f1ea!important;}
+
+.nl-footer{background:#0d0e10;border-top:1px solid #2b2e33;color:#a6a8ad;padding:clamp(44px,6vw,72px) 0;position:relative;z-index:2;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-footer .nl-fwrap{max-width:1300px;margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+.nl-ftop{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid #2b2e33;}
+.nl-footer .nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-size:24px;}
+.nl-flinks{display:flex;flex-wrap:wrap;gap:8px;}
+.nl-flinks a{font-weight:500;font-size:14px;color:#dcd9d3;padding:8px 14px;border-radius:999px;text-decoration:none;transition:background .25s,color .25s;}
+.nl-flinks a:hover{background:#181a1d;color:#42c8dd;}
+.nl-fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;color:#a6a8ad;font-size:14px;}
+.nl-socials{display:flex;gap:8px;}
+.nl-socials a{width:40px;height:40px;border-radius:50%;border:1.5px solid #383b41;display:grid;place-items:center;color:#dcd9d3;transition:all .3s ease;}
+.nl-socials a:hover{background:#19b7d1;border-color:#19b7d1;color:#fff;}
+.nl-socials svg{width:17px;height:17px;}
+.plogo .mk svg,.nl-logo .nl-mk svg,.studio-mix-badge .mk svg{width:74%;height:74%;display:block}
+.plogo .mk,.nl-logo .nl-mk,.studio-mix-badge .mk{font-size:0}
+
+.nl-fbot{display:grid!important;grid-template-columns:1fr auto 1fr;align-items:center;}
+.nl-fbot .nl-tag{text-align:center;}
+.nl-fbot .nl-socials{justify-self:end;}
+@media (max-width:700px){.nl-fbot{grid-template-columns:1fr;justify-items:center;text-align:center;}.nl-fbot .nl-socials{justify-self:center;}}
+
+/* brand mark matches the homepage: the bare circled N (gradient lives in the
+   svg), Sora wordmark, no tile behind the mark */
+.nl-logo{font-family:'Sora',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{background:none!important;box-shadow:none!important;border-radius:0!important;}
+.nl-logo .nl-mk svg{width:100%;height:100%;display:block;}
+
+/* Floating nav — a rounded bar inset from the edges rather than a full-width
+   strip. The bar itself is transparent; the pill is the inner row. */
+.cs-nav,.csw-nav{background:none!important;backdrop-filter:none!important;border-bottom:none!important;box-shadow:none!important;padding-block:clamp(10px,1.3vw,16px);}
+.cs-nav-inner{width:calc(100% - clamp(20px,4vw,52px));max-width:var(--maxw);margin-inline:auto;
+  padding:10px 12px 10px 22px;border-radius:20px;
+  background:#141518;
+  border:none;box-shadow:none;
+  transition:background .4s var(--ease),box-shadow .4s var(--ease);}
+html.scrolled .cs-nav-inner{box-shadow:0 20px 46px -10px rgba(0,0,0,1),0 6px 16px -6px rgba(0,0,0,.9);}
+
+/* ---------- Small screens: clear the fixed bar, smaller wordmark ----------
+   The hero's padding-top bottomed out at 64px while the fixed bar reaches
+   ~76px, so the first line of the page was sitting under the header. The
+   wordmark also comes down a size: at 34px with its subtitle it was wrapping
+   the bar onto a second line on a narrow handset, which is what made the bar
+   tall enough to collide in the first place. */
+@media (max-width:760px){
+  .hero{padding-top:clamp(104px,20vw,138px);}
+  .cs-nav .nl-logo .nl-mk,.csw-nav .nl-logo .nl-mk{width:26px;height:26px;}
+  .cs-nav .nl-logo b,.csw-nav .nl-logo b{font-size:16px!important;}
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{font-size:8px;letter-spacing:.12em;}
+  .cs-nav .nl-logo,.csw-nav .nl-logo{gap:8px!important;}
+  .cs-nav-inner,.csw-nav-inner{padding:8px 12px 8px 16px;}
+}
+@media (max-width:420px){
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{display:none;}
+}
+
+/* ---------- Showcase header carries the project's own logo ----------
+   The site wordmark was the one thing in this bar that did not belong to the
+   project on screen, and the footer already signs the page. The hero's
+   brandbar mark is reused here instead, shrunk to sit in the bar. Sizing is
+   per-page below because every project's mark is built differently - some are
+   fixed boxes, some images, some the wordmark itself. */
+.cs-brand{display:inline-flex;align-items:center;gap:9px;min-width:0;}
+.cs-brand>*{flex:none;margin:0;}
+.cs-brand .cs-brand-name{font-family:'Sora',system-ui,-apple-system,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.01em;color:#f4f1ea;white-space:nowrap;line-height:1;}
+.cs-brand .cs-brand-name em{font-style:normal;}
+@media (max-width:420px){.cs-brand .cs-brand-name{font-size:14px;}}
+.cs-brand .rmark{width:26px;height:26px;font-size:13px;border-width:1px;}
+
+/* The hero's brandbar is the same logo the header now carries, at four times
+   the size and directly beneath it. One of the two has to go, and the header
+   is the one that stays visible as the page scrolls. */
+.hero .brandbar{display:none;}
+
+
+/* ---------- Screens close to the description on small screens ----------
+   The tag row and the fact grid sat between the description and the first
+   screen, and on the longer pages two prose sections sat there too — so the
+   work itself started a screen and a half down. The description keeps its
+   place, the screens follow it, and the supporting detail moves below them.
+   Desktop is untouched: .cs-meta renders exactly where the tags and facts
+   used to sit at the foot of the hero. */
+.cs-meta{padding:0;}
+@media (max-width:760px){
+  main{display:flex;flex-direction:column;}
+  main>*{order:5;}
+  main>.hero{order:0;}
+  /* .cs-meta is now the first section in source, so the description is the
+     one straight after it. :first-of-type cannot see past .cs-meta. */
+  main>.cs-meta+section{order:1;}
+  main>[data-shots]{order:2;}
+  main>.cs-meta{order:3;}
+}
+
+/* ---------- Social icons: square, never stretched ---------- */
+.nl-socials a{flex:0 0 auto;aspect-ratio:1;}
+@media (pointer:coarse){
+  .nl-socials a{width:44px;height:44px;min-width:44px;min-height:44px;display:grid;place-items:center;border-radius:50%;}
+}
+
+/* The tag row moved out of .hero into .cs-meta when the screens were
+   brought up next to the description, which left these rules behind and
+   the pills unstyled. Same declarations, re-scoped to where they live. */
+.cs-meta .tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:32px;}
+.cs-meta .tags span{font-family:var(--font-sans);font-size:13px;color:var(--text);padding:8px 16px;border:1px solid var(--line-2);border-radius:999px;}
+.cs-meta .tags span b{color:var(--gold);font-weight:700;}
+</style>
+</head>
+<body>
+<nav class="cs-nav">
+  <div class="cs-nav-inner">
+    <a class="cs-back" href="/work">
+      <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
+      Back to work
+    </a>
+    <span class="cs-brand"><span class="rmark">R</span><b class="cs-brand-name">Related</b></span>
+  </div>
+</nav>
+<div class="bg-fx"><div class="glow g1"></div><div class="glow g2"></div><div class="lines"></div></div>
+
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <div class="brandbar reveal in">
+        <span class="rmark">R</span>
+        <span class="wm">Related<small>Fine dining reservations</small></span>
+      </div>
+      <div class="reveal in d1"><span class="eyebrow">Restaurant table booking</span></div>
+      <h1 class="reveal in d1">Reserve the <em>perfect</em> table</h1>
+      <p class="lede reveal in d2">A concierge-style dining app for discovering venues and booking the right table, from date, guests and live availability to an interactive floor plan and a confirmed reservation.</p>
+      
+      <div class="rule reveal in d3"></div>
+      
+    </div>
+  </header>
+
+  <section class="cs-meta">
+    <div class="wrap">
+      <div class="tags reveal in d3">
+        <span><b>5</b>&nbsp; key screens</span>
+        <span>Discover&nbsp; <b>·</b>&nbsp; Floor plan&nbsp; <b>·</b>&nbsp; Confirm</span>
+        <span>iOS&nbsp; <b>·</b>&nbsp; black & gold</span>
+      </div>
+      <div class="cs-facts reveal in d3">
+        <div><div class="k">Role</div><div class="v">Product Designer &amp; Front-End</div></div>
+        <div><div class="k">Timeline</div><div class="v">4 months</div></div>
+        <div><div class="k">Platform</div><div class="v">iOS · React Native</div></div>
+        <div><div class="k">Sector</div><div class="v">Hospitality</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CASE STUDY · OVERVIEW -->
+  <section class="cs-intro">
+    <div class="wrap cs-2col">
+      <div class="reveal"><span class="eyebrow">Overview</span><h2>Booking should feel like being seated</h2></div>
+      <div class="cs-prose reveal d1">
+        <p>Most reservation apps stop at “table for two, 8pm”: a form, a confirmation, no sense of the room you’ll sit in. <b>Related set out to make booking feel like the start of the evening, not a transaction.</b></p>
+        <p>I designed a flow that moves from a tactile date-and-guests dial, to curated venue discovery, to an interactive floor plan where you choose the exact table, reserved seats greyed out, your pick glowing gold.</p>
+        <p>I owned the experience end-to-end: the flow, the elegant black-and-gold UI, and the front-end, including the floor-plan interactions and the 360° venue view.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY · WHAT I DID -->
+  <section class="cs-intro" style="padding-top:0;border-top:0;">
+    <div class="wrap">
+      <div class="reveal" style="max-width:680px;"><span class="eyebrow">What I did</span><h2 class="eyebrow-h2">A flow as considered as the venues</h2></div>
+      <div class="cs-cards reveal d1">
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></span><b>Booking flow</b><p>Mapped craving → discover → choose table → confirm, with a clear progress bar carrying the whole way.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><b>Editorial UI</b><p>An elegant black-and-gold visual language with serif headings that feels like a fine-dining menu.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span><b>Interactive floor plan</b><p>Built the per-floor table picker (open, selected and reserved states) plus the toggle to a 360° room view.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span><b>Date &amp; guests dial</b><p>Designed and built the tactile picker for day, time and party size, one confident gesture.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow" data-shots>
+    <div class="wrap">
+      <div class="flow-head reveal">
+        <h2>From craving to confirmed</h2>
+        <span class="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          Two taps to a table
+        </span>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="rail reveal d1">
+        <article class="step">
+          <div class="step-meta"><span class="step-no">I</span><span class="step-kicker">Discover<b>Find a table</b></span></div>
+          <div class="phone"><div class="screen"><img src="back.jpg" alt="Related — find a table" /></div></div>
+          <div class="step-cap"><p>Pick a date, time and party size on a dial, then browse venues with ratings and live table availability.</p><div class="pills"><span>Date & guests</span><span>Live availability</span></div></div>
+        </article>
+        <article class="step">
+          <div class="step-meta"><span class="step-no">II</span><span class="step-kicker">Browse<b>Select a restaurant</b></span></div>
+          <div class="phone"><div class="screen"><img src="select-restaurant.jpg" alt="Related — select a restaurant" /></div></div>
+          <div class="step-cap"><p>Results respond to the dial above, each venue card carries its rating, address and how many tables are still open.</p><div class="pills"><span>25 results</span><span>Tables left</span></div></div>
+        </article>
+        <article class="step">
+          <div class="step-meta"><span class="step-no">III</span><span class="step-kicker">Choose<b>Select your table</b></span></div>
+          <div class="phone"><div class="screen"><img src="front.jpg" alt="Related — select your table" /></div></div>
+          <div class="step-cap"><p>An interactive floor plan across multiple levels: tap an open table, see reserved ones, switch to a 360° view.</p><div class="pills"><span>Floor plan</span><span>360° view</span></div></div>
+        </article>
+        <article class="step">
+          <div class="step-meta"><span class="step-no">IV</span><span class="step-kicker">Details<b>Information about you</b></span></div>
+          <div class="phone"><div class="screen"><img src="user-information.jpg" alt="Related — information about you" /></div></div>
+          <div class="step-cap"><p>A short sheet over the venue photo, name and number only, with the booking summary pinned above so context never leaves.</p><div class="pills"><span>Two fields</span><span>Progress</span></div></div>
+        </article>
+        <article class="step">
+          <div class="step-meta"><span class="step-no">V</span><span class="step-kicker">Confirm<b>Confirm your booking</b></span></div>
+          <div class="phone"><div class="screen"><img src="confirm-booking.jpg" alt="Related — confirm your booking" /></div></div>
+          <div class="step-cap"><p>Date, time and guests restated, special requests and allergies acknowledged, and a reminder set before the single confirm action.</p><div class="pills"><span>Special requests</span><span>Reminder</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat">
+    <div class="wrap">
+      <div class="feat-head reveal"><span class="eyebrow">The experience</span><h2 class="eyebrow-h2">Dining, curated</h2></div>
+      <div class="feat-grid reveal d1">
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><b>Date & guests</b><p>A tactile dial for choosing the day, hour and party size in one gesture.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><b>Venue discovery</b><p>Curated restaurants and bars with ratings, location and tables left.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><b>Interactive floor plan</b><p>Real tables on real floors, pick the exact seat, or spin to a 360° view.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><b>Confirm & remind</b><p>Special requests, a confirmed booking and gentle reminders before you arrive.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="palette">
+    <div class="wrap">
+      <span class="eyebrow reveal">Color system</span>
+      <h2 class="eyebrow-h2 reveal">The Related palette</h2>
+      <div class="palette-grid reveal d1">
+        <div class="sw"><div class="chip" style="background:#070707"></div><div class="info"><b>Midnight</b><span>#070707</span></div></div>
+        <div class="sw"><div class="chip" style="background:#E8C468"></div><div class="info"><b>Champagne Gold</b><span>#E8C468</span></div></div>
+        <div class="sw"><div class="chip" style="background:#E08A5B"></div><div class="info"><b>Reserved Coral</b><span>#E08A5B</span></div></div>
+        <div class="sw"><div class="chip" style="background:#1c1a16"></div><div class="info"><b>Velvet</b><span>#1C1A16</span></div></div>
+        <div class="sw"><div class="chip" style="background:#f6f1e7"></div><div class="info"><b>Linen</b><span>#F6F1E7</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="nl-footer">
+  <div class="nl-fwrap">
+    <div class="nl-ftop">
+      <a class="nl-logo" href="/"><span class="nl-mk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><linearGradient id="mk-foot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19b7d1"/><stop offset="1" stop-color="#8b6bff"/></linearGradient><circle cx="12" cy="12" r="10.85" stroke="url(#mk-foot)" stroke-width="2.2"/><path d="M8.7 7.9h1.8l3 5.13V7.9h1.8V16.1h-1.8l-3-5.13V16.1H8.7Z" fill="url(#mk-foot)"/></svg></span><b><span>the<i>Nab</i>Labs</span><small>by Nabil Abou Rjeily</small></b></a>
+      <div class="nl-flinks"><a href="/#services">Services</a><a href="/#about">About</a><a href="/#skills">Skills</a><a href="/work">Work</a><a href="/#contact">Contact</a></div>
+    </div>
+    <div class="nl-fbot">
+      <span>© 2026 TheNabLab</span>
+      <span class="nl-tag"><b style="font-weight:inherit;color:#19b7d1">Designing</b> products. <b style="font-weight:inherit;color:#8b6bff">Engineering</b> experiences.</span>
+      <div class="nl-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24">undefined</svg></a><a href="#" aria-label="Behance"><svg viewBox="0 0 24 24">undefined</svg></a></div>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+})();
+</script>
+<script>(function(){var r=document.documentElement,f=function(){r.classList.toggle('scrolled',window.scrollY>24)};f();window.addEventListener('scroll',f,{passive:true})})();</script>
+</body>
+</html>

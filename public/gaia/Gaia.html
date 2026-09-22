@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gaia — AI Shopping Assistant · TheNabLab</title>
+<meta name="description" content="A conversational AI assistant woven into the BuyMore storefront. It tracks orders, applies promos, surfaces collections and resolves issues, turning support tickets and dead-end searches into a single, friendly chat." />
+<link rel="canonical" href="https://thenablabs.com/gaia/Gaia.html" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Nabil Abou Rjeily" />
+<meta name="theme-color" content="#111214" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="TheNabLab" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://thenablabs.com/gaia/Gaia.html" />
+<meta property="og:title" content="Gaia — AI Shopping Assistant · TheNabLab" />
+<meta property="og:description" content="A conversational AI assistant woven into the BuyMore storefront. It tracks orders, applies promos, surfaces collections and resolves issues, turning support tickets and dead-end searches into a single, friendly chat." />
+<meta property="og:image" content="https://thenablabs.com/gaia/home.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Gaia — AI Shopping Assistant · TheNabLab" />
+<meta name="twitter:description" content="A conversational AI assistant woven into the BuyMore storefront. It tracks orders, applies promos, surfaces collections and resolves issues, turning support tickets and dead-end searches into a single, friendly chat." />
+<meta name="twitter:image" content="https://thenablabs.com/gaia/home.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#efe9f7;
+  --bg-2:#f7f1f4;
+  --cream:#fbf3f0;
+  --surface:#ffffff;
+  --surface-2:#f5f1fb;
+  --line:rgba(34,18,60,0.09);
+  --line-2:rgba(34,18,60,0.16);
+  --ink:#1c1733;
+  --muted:#6c6688;
+  --muted-2:#9b96b3;
+
+  --violet:#7c5cff;
+  --violet-deep:#5b3fd6;
+  --blue:#5b8def;
+  --mint:#bdeecb;
+  --mint-deep:#1f8a5b;
+  --yellow:#fbe7a0;
+
+  --grad:linear-gradient(115deg,#8b6fe8,#5c8be8);
+  --grad-soft:linear-gradient(135deg,#efe9f7,#fbf3f0 60%,#f4eef9);
+
+  --font-display:'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:'DM Sans', system-ui, sans-serif;
+  --maxw:1300px;
+  --r:26px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+::selection{background:var(--violet);color:#fff;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-fx .glow{position:absolute;border-radius:50%;filter:blur(150px);}
+.bg-fx .g1{width:620px;height:620px;background:#b9a6f5;opacity:.5;top:-260px;left:-120px;}
+.bg-fx .g2{width:560px;height:560px;background:#f7c9bd;opacity:.42;bottom:-220px;right:-120px;}
+.bg-fx .g3{width:440px;height:440px;background:#9fd3f0;opacity:.3;top:42%;left:48%;}
+main{position:relative;z-index:1;}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
+
+/* nav */
+.cs-nav{position:fixed;inset:0 0 auto 0;z-index:100;background:color-mix(in oklab,var(--bg) 80%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.cs-nav-inner{max-width:var(--maxw);margin:0 auto;padding:13px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.cs-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:14.5px;color:var(--ink);}
+.cs-back .ar{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line-2);display:grid;place-items:center;transition:all .3s var(--ease);}
+.cs-back:hover .ar{background:var(--violet);border-color:var(--violet);color:#fff;}
+.cs-back svg{width:16px;height:16px;}
+.cs-nav .logo{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--ink);}
+.cs-nav .logo b{color:var(--violet);font-weight:700;}
+.cs-nav .live{font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;background:var(--grad);padding:10px 20px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+.cs-nav .live:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(124,92,255,.6);}
+.cs-nav .live svg{width:15px;height:15px;}
+
+/* hero */
+.hero{padding-top:clamp(96px,12vw,138px);padding-bottom:clamp(20px,3vw,40px);}
+.brandbar{display:inline-flex;align-items:center;gap:14px;margin-bottom:30px;}
+.gmark{width:50px;height:50px;border-radius:16px;background:var(--grad);display:grid;place-items:center;box-shadow:0 14px 30px -12px rgba(92,80,200,.55);}
+.gmark svg{width:28px;height:28px;color:#fff;}
+.brandbar .wm{font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:-0.01em;line-height:1.0;}
+.brandbar .wm small{display:block;font-family:var(--font-body);font-weight:400;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+.eyebrow{font-family:var(--font-display);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--violet-deep);font-weight:700;}
+.hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(40px,6.6vw,82px);line-height:1.0;letter-spacing:-0.035em;margin-top:18px;max-width:17ch;}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p.lede{color:var(--muted);font-size:clamp(17px,1.6vw,21px);max-width:58ch;margin-top:24px;}
+.cs-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;padding-top:30px;border-top:1px solid var(--line);}
+.cs-facts .k{font-family:var(--font-display);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted-2);font-weight:600;}
+.cs-facts .v{font-family:var(--font-display);font-weight:600;font-size:16.5px;margin-top:7px;}
+@media (max-width:720px){.cs-facts{grid-template-columns:1fr 1fr;gap:18px;}}
+
+/* hero banner — browser frame */
+.banner{margin-top:clamp(34px,5vw,58px);}
+.browser{border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 50px 90px -50px rgba(60,30,110,.5);}
+.browser .bar{display:flex;align-items:center;gap:8px;padding:13px 18px;background:var(--surface-2);border-bottom:1px solid var(--line);}
+.browser .bar i{width:11px;height:11px;border-radius:50%;background:#d9d2ea;}
+.browser .bar i:nth-child(1){background:#ff5f57;}.browser .bar i:nth-child(2){background:#febc2e;}.browser .bar i:nth-child(3){background:#28c840;}
+.browser .bar .url{margin-left:14px;flex:1;max-width:340px;height:24px;border-radius:7px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;padding-inline:12px;font-size:12px;color:var(--muted-2);font-family:var(--font-body);}
+.browser img{width:100%;display:block;}
+
+/* sections */
+.section{padding-block:clamp(50px,7vw,96px);}
+.cs-2col{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,80px);align-items:start;}
+.cs-2col h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,42px);letter-spacing:-0.025em;line-height:1.08;margin-top:12px;}
+.cs-prose p{color:var(--muted);font-size:clamp(16px,1.4vw,18px);margin-top:18px;line-height:1.72;}
+.cs-prose p:first-child{margin-top:0;}
+.cs-prose b{color:var(--ink);font-weight:600;}
+@media (max-width:760px){.cs-2col{grid-template-columns:1fr;gap:16px;}}
+.h-sec{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,44px);letter-spacing:-0.025em;margin-top:12px;}
+
+/* what i did cards */
+.cs-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px;}
+.cs-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 22px;box-shadow:0 24px 50px -40px rgba(60,30,110,.4);}
+.cs-card .ic{width:46px;height:46px;border-radius:14px;background:var(--surface-2);color:var(--violet-deep);display:grid;place-items:center;}
+.cs-card .ic svg{width:22px;height:22px;}
+.cs-card b{font-family:var(--font-display);font-weight:600;font-size:17px;display:block;margin-top:18px;}
+.cs-card p{color:var(--muted);font-size:14px;margin-top:8px;}
+@media (max-width:900px){.cs-cards{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.cs-cards{grid-template-columns:1fr;}}
+
+/* split demo: chat mock + live recording */
+.demo-split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(22px,4vw,52px);align-items:center;}
+.demo-copy .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.demo-copy .chips span{font-family:var(--font-display);font-size:13px;font-weight:500;color:var(--ink);padding:8px 15px;border:1px solid var(--line-2);border-radius:999px;background:rgba(255,255,255,.55);}
+.demo-copy .chips span b{color:var(--violet-deep);}
+.phone-fx{position:relative;display:grid;place-items:center;padding:clamp(20px,3vw,40px) 0;}
+.phone-fx .halo{position:absolute;width:78%;height:78%;border-radius:50%;background:radial-gradient(closest-side,rgba(124,92,255,.28),transparent 72%);filter:blur(40px);}
+.recording{position:relative;border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 40px 80px -40px rgba(60,30,110,.55);max-width:560px;width:100%;}
+.recording .topbar{display:flex;align-items:center;gap:8px;padding:11px 16px;background:var(--surface-2);border-bottom:1px solid var(--line);}
+.recording .topbar i{width:10px;height:10px;border-radius:50%;background:#d9d2ea;}
+.recording .topbar i:nth-child(1){background:#ff5f57;}.recording .topbar i:nth-child(2){background:#febc2e;}.recording .topbar i:nth-child(3){background:#28c840;}
+.recording .topbar .live{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mint-deep);}
+.recording .topbar .live .dot{width:8px;height:8px;border-radius:50%;background:var(--mint-deep);box-shadow:0 0 0 0 rgba(31,138,91,.5);animation:pulse 1.8s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,138,91,.45);}70%{box-shadow:0 0 0 8px rgba(31,138,91,0);}100%{box-shadow:0 0 0 0 rgba(31,138,91,0);}}
+.recording img{width:100%;display:block;}
+@media (max-width:840px){.demo-split{grid-template-columns:1fr;}}
+
+/* flow panels */
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,26px);margin-top:34px;}
+.panel{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:0 30px 60px -45px rgba(60,30,110,.45);}
+.panel .shot{aspect-ratio:16/11;overflow:hidden;background:var(--surface-2);}
+.panel .shot img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.panel .cap{padding:20px 24px;border-top:1px solid var(--line);}
+.panel .cap .k{font-family:var(--font-display);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-deep);font-weight:700;}
+.panel .cap b{font-family:var(--font-display);font-weight:700;font-size:19px;display:block;margin-top:7px;}
+.panel .cap p{color:var(--muted);font-size:14px;margin-top:6px;}
+@media (max-width:760px){.panels{grid-template-columns:1fr;}}
+
+/* feature grid */
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;}
+.fcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 22px;box-shadow:0 24px 50px -42px rgba(60,30,110,.4);}
+.fcard .ic{width:44px;height:44px;border-radius:13px;background:var(--surface-2);color:var(--violet-deep);display:grid;place-items:center;}
+.fcard .ic svg{width:22px;height:22px;}
+.fcard b{font-family:var(--font-display);font-weight:600;font-size:17px;display:block;margin-top:18px;}
+.fcard p{color:var(--muted);font-size:14px;margin-top:8px;}
+@media (max-width:900px){.feat-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.feat-grid{grid-template-columns:1fr;}}
+
+/* palette */
+.palette-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:34px;}
+.sw{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:0 20px 40px -38px rgba(60,30,110,.4);}
+.sw .chip{height:104px;}
+.sw .info{padding:13px 15px;}
+.sw .info b{font-family:var(--font-display);font-weight:600;font-size:13.5px;display:block;}
+.sw .info span{font-size:11.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;}
+@media (max-width:860px){.palette-grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:480px){.palette-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* cta */
+.cta{position:relative;border-radius:var(--r);padding:clamp(40px,6vw,82px);overflow:hidden;text-align:center;background:var(--grad);color:#fff;box-shadow:0 40px 80px -44px rgba(92,80,200,.6);}
+.cta .glow{position:absolute;width:480px;height:480px;border-radius:50%;background:#fff;filter:blur(120px);opacity:.18;top:-220px;left:50%;transform:translateX(-50%);}
+.cta .in{position:relative;z-index:2;}
+.cta .kick{font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85);}
+.cta h2{font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4.4vw,52px);letter-spacing:-0.03em;line-height:1.04;margin-top:14px;}
+.cta p{color:rgba(255,255,255,.86);font-size:17px;margin-top:18px;max-width:48ch;margin-inline:auto;}
+.cta .btn-w{margin-top:30px;display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:15px;background:#fff;color:var(--violet-deep);padding:15px 28px;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+.cta .btn-w:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px rgba(0,0,0,.3);}
+.cta .btn-w svg{width:17px;height:17px;}
+
+.foot{padding-block:46px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;}
+.foot .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.foot b{color:var(--ink);font-weight:600;}
+.foot a{color:var(--violet-deep);font-weight:600;}
+</style>
+<style id="nl-brand">
+.nl-logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{width:34px;height:34px;flex:none;border-radius:11px;background:linear-gradient(150deg,#39a6ff,#7b5cff);color:#fff;display:grid;place-items:center;font-weight:700;font-size:16px;letter-spacing:-.02em;box-shadow:0 0 0 1px rgba(123,92,255,.45),0 0 20px -5px rgba(57,166,255,.6);}
+.nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-weight:700;font-size:20px;letter-spacing:-.02em;color:#f4f1ea;line-height:1;}
+/* opaque #111214 — the same dark as the case-study pages. A translucent
+   dark greys out on the light-themed showcases. */
+.cs-nav,.csw-nav{background:#111214!important;backdrop-filter:none!important;border-bottom:1px solid rgba(255,255,255,.09)!important;box-shadow:none!important;}
+.cs-nav .cs-back,.csw-nav .csw-back{color:#f4f1ea!important;}
+.cs-nav .cs-back .ar,.csw-nav .csw-back .ar{border-color:rgba(255,255,255,.22)!important;color:#f4f1ea!important;}
+
+.nl-footer{background:#0d0e10;border-top:1px solid #2b2e33;color:#a6a8ad;padding:clamp(44px,6vw,72px) 0;position:relative;z-index:2;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-footer .nl-fwrap{max-width:1300px;margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+.nl-ftop{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid #2b2e33;}
+.nl-footer .nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-size:24px;}
+.nl-flinks{display:flex;flex-wrap:wrap;gap:8px;}
+.nl-flinks a{font-weight:500;font-size:14px;color:#dcd9d3;padding:8px 14px;border-radius:999px;text-decoration:none;transition:background .25s,color .25s;}
+.nl-flinks a:hover{background:#181a1d;color:#42c8dd;}
+.nl-fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;color:#a6a8ad;font-size:14px;}
+.nl-socials{display:flex;gap:8px;}
+.nl-socials a{width:40px;height:40px;border-radius:50%;border:1.5px solid #383b41;display:grid;place-items:center;color:#dcd9d3;transition:all .3s ease;}
+.nl-socials a:hover{background:#19b7d1;border-color:#19b7d1;color:#fff;}
+.nl-socials svg{width:17px;height:17px;}
+.plogo .mk svg,.nl-logo .nl-mk svg,.studio-mix-badge .mk svg{width:74%;height:74%;display:block}
+.plogo .mk,.nl-logo .nl-mk,.studio-mix-badge .mk{font-size:0}
+
+.nl-fbot{display:grid!important;grid-template-columns:1fr auto 1fr;align-items:center;}
+.nl-fbot .nl-tag{text-align:center;}
+.nl-fbot .nl-socials{justify-self:end;}
+@media (max-width:700px){.nl-fbot{grid-template-columns:1fr;justify-items:center;text-align:center;}.nl-fbot .nl-socials{justify-self:center;}}
+
+/* brand mark matches the homepage: the bare circled N (gradient lives in the
+   svg), Sora wordmark, no tile behind the mark */
+.nl-logo{font-family:'Sora',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{background:none!important;box-shadow:none!important;border-radius:0!important;}
+.nl-logo .nl-mk svg{width:100%;height:100%;display:block;}
+
+/* Floating nav — a rounded bar inset from the edges rather than a full-width
+   strip. The bar itself is transparent; the pill is the inner row. */
+.cs-nav,.csw-nav{background:none!important;backdrop-filter:none!important;border-bottom:none!important;box-shadow:none!important;padding-block:clamp(10px,1.3vw,16px);}
+.cs-nav-inner{width:calc(100% - clamp(20px,4vw,52px));max-width:var(--maxw);margin-inline:auto;
+  padding:10px 12px 10px 22px;border-radius:20px;
+  background:#141518;
+  border:none;box-shadow:none;
+  transition:background .4s var(--ease),box-shadow .4s var(--ease);}
+html.scrolled .cs-nav-inner{box-shadow:0 20px 46px -10px rgba(0,0,0,1),0 6px 16px -6px rgba(0,0,0,.9);}
+
+/* ---------- Small screens: clear the fixed bar, smaller wordmark ----------
+   The hero's padding-top bottomed out at 64px while the fixed bar reaches
+   ~76px, so the first line of the page was sitting under the header. The
+   wordmark also comes down a size: at 34px with its subtitle it was wrapping
+   the bar onto a second line on a narrow handset, which is what made the bar
+   tall enough to collide in the first place. */
+@media (max-width:760px){
+  .hero{padding-top:clamp(104px,20vw,138px);}
+  .cs-nav .nl-logo .nl-mk,.csw-nav .nl-logo .nl-mk{width:26px;height:26px;}
+  .cs-nav .nl-logo b,.csw-nav .nl-logo b{font-size:16px!important;}
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{font-size:8px;letter-spacing:.12em;}
+  .cs-nav .nl-logo,.csw-nav .nl-logo{gap:8px!important;}
+  .cs-nav-inner,.csw-nav-inner{padding:8px 12px 8px 16px;}
+}
+@media (max-width:420px){
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{display:none;}
+}
+
+/* ---------- Showcase header carries the project's own logo ----------
+   The site wordmark was the one thing in this bar that did not belong to the
+   project on screen, and the footer already signs the page. The hero's
+   brandbar mark is reused here instead, shrunk to sit in the bar. Sizing is
+   per-page below because every project's mark is built differently - some are
+   fixed boxes, some images, some the wordmark itself. */
+.cs-brand{display:inline-flex;align-items:center;gap:9px;min-width:0;}
+.cs-brand>*{flex:none;margin:0;}
+.cs-brand .cs-brand-name{font-family:'Sora',system-ui,-apple-system,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.01em;color:#f4f1ea;white-space:nowrap;line-height:1;}
+.cs-brand .cs-brand-name em{font-style:normal;}
+@media (max-width:420px){.cs-brand .cs-brand-name{font-size:14px;}}
+.cs-brand .gmark{width:26px;height:26px;border-radius:9px;box-shadow:none;}
+.cs-brand .gmark svg{width:15px;height:15px;}
+
+/* The hero's brandbar is the same logo the header now carries, at four times
+   the size and directly beneath it. One of the two has to go, and the header
+   is the one that stays visible as the page scrolls. */
+.hero .brandbar{display:none;}
+
+
+/* ---------- Screens close to the description on small screens ----------
+   The tag row and the fact grid sat between the description and the first
+   screen, and on the longer pages two prose sections sat there too — so the
+   work itself started a screen and a half down. The description keeps its
+   place, the screens follow it, and the supporting detail moves below them.
+   Desktop is untouched: .cs-meta renders exactly where the tags and facts
+   used to sit at the foot of the hero. */
+.cs-meta{padding:0;}
+@media (max-width:760px){
+  main{display:flex;flex-direction:column;}
+  main>*{order:5;}
+  main>.hero{order:0;}
+  /* .cs-meta is now the first section in source, so the description is the
+     one straight after it. :first-of-type cannot see past .cs-meta. */
+  main>.cs-meta+section{order:1;}
+  main>[data-shots]{order:2;}
+  main>.cs-meta{order:3;}
+}
+
+/* ---------- Social icons: square, never stretched ---------- */
+.nl-socials a{flex:0 0 auto;aspect-ratio:1;}
+@media (pointer:coarse){
+  .nl-socials a{width:44px;height:44px;min-width:44px;min-height:44px;display:grid;place-items:center;border-radius:50%;}
+}
+</style>
+</head>
+<body>
+<nav class="cs-nav">
+  <div class="cs-nav-inner">
+    <a class="cs-back" href="/work">
+      <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
+      Back to work
+    </a>
+    <span class="cs-brand"><span class="gmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span><b class="cs-brand-name">Gaia</b></span>
+  </div>
+</nav>
+<div class="bg-fx"><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
+
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <div class="brandbar reveal in">
+        <span class="gmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span>
+        <span class="wm">Gaia<small>AI assistant · BuyMore</small></span>
+      </div>
+      <div class="reveal in d1"><span class="eyebrow">Case study · AI · E-commerce · Web · 2025</span></div>
+      <h1 class="reveal in d1">Gaia — shopping that <em>answers back</em>.</h1>
+      <p class="lede reveal in d2">A conversational AI assistant woven into the BuyMore storefront. It tracks orders, applies promos, surfaces collections and resolves issues, turning support tickets and dead-end searches into a single, friendly chat.</p>
+      
+      <div class="banner reveal in d3">
+        <div class="browser">
+          <div class="bar"><i></i><i></i><i></i><span class="url">buymore.app / explore</span></div>
+          <img src="home.jpg" alt="BuyMore storefront — Explore dashboard with Gaia assistant" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="cs-meta">
+    <div class="wrap">
+      <div class="cs-facts reveal in d3">
+        <div><div class="k">Role</div><div class="v">Product Designer &amp; Front-End</div></div>
+        <div><div class="k">Timeline</div><div class="v">5 months</div></div>
+        <div><div class="k">Platform</div><div class="v">Web · React</div></div>
+        <div><div class="k">Domain</div><div class="v">AI E-commerce</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OVERVIEW -->
+  <section class="section">
+    <div class="wrap cs-2col">
+      <div class="reveal"><span class="eyebrow">Overview</span><h2>A storefront with a brain</h2></div>
+      <div class="cs-prose reveal d1">
+        <p>Shoppers don't want to dig through menus to track a parcel, find a promo or report a problem. They want to ask. <b>Gaia turns the whole BuyMore experience into a conversation.</b></p>
+        <p>From a single "Chat with us" entry point, the assistant greets the customer with quick-start actions, then guides them through rich, interactive replies (order cards, tracking maps, month/week order charts and a structured issue form) without ever leaving the thread.</p>
+        <p>I owned the experience and the front-end: the dual-pane chat workspace, the quick-action launcher, every interactive bot card, and a soft, approachable visual language that sits comfortably inside the wider store.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I DID -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="reveal" style="max-width:680px;"><span class="eyebrow">What I did</span><h2 class="h-sec">Conversational commerce, end to end</h2></div>
+      <div class="cs-cards reveal d1">
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span><b>Assistant UX</b><p>Designed a dual-pane chat, history rail plus an active thread of rich, tappable bot replies.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></span><b>Interactive cards</b><p>Order summaries, a tracking map, drill-down order charts and a guided issue form, all inline.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span><b>Front-end build</b><p>Implemented the chat surface, quick actions, charts and form flows as a responsive React app.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><b>Soft UI system</b><p>A lavender-and-cream language with violet accents that reads friendly, not robotic.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE DEMO -->
+  <section class="section" id="demo" style="padding-top:0;" data-shots>
+    <div class="wrap demo-split">
+      <div class="demo-copy reveal">
+        <span class="eyebrow">Live demo</span>
+        <h2 class="h-sec">From "Hi" to resolved</h2>
+        <p class="cs-prose" style="margin-top:18px;color:var(--muted);font-size:clamp(16px,1.4vw,18px);">Gaia opens with quick options, then keeps the customer in flow, provide an order number and a tracking card animates in, with next-step actions ready underneath.</p>
+        <div class="chips">
+          <span><b>Track</b>&nbsp; my order</span>
+          <span>Apply&nbsp; <b>promo</b></span>
+          <span><b>Order</b>&nbsp; history</span>
+          <span>Report&nbsp; <b>an issue</b></span>
+        </div>
+      </div>
+      <div class="phone-fx reveal d1">
+        <span class="halo"></span>
+        <div class="recording">
+          <div class="topbar"><i></i><i></i><i></i><span class="live"><span class="dot"></span> Recorded flow</span></div>
+          <img src="demo.webp" alt="Gaia assistant — recorded order-tracking conversation" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SCREENS -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="reveal" style="max-width:680px;"><span class="eyebrow">The screens</span><h2 class="h-sec">Every answer is a moment</h2></div>
+      <div class="panels reveal d1">
+        <div class="panel">
+          <div class="shot"><img src="assistant.jpg" alt="Gaia — new chat with quick options" /></div>
+          <div class="cap"><span class="k">01 · Quick start</span><b>Greet &amp; guide</b><p>A friendly welcome with six quick actions so customers never face an empty box.</p></div>
+        </div>
+        <div class="panel">
+          <div class="shot"><img src="track.jpg" alt="Gaia — order tracking result" /></div>
+          <div class="cap"><span class="k">02 · Track my order</span><b>Order, mapped</b><p>An order card with items, a live tracking map and clear next-step buttons.</p></div>
+        </div>
+        <div class="panel">
+          <div class="shot"><img src="orders.jpg" alt="Gaia — order history charts" /></div>
+          <div class="cap"><span class="k">03 · Order history</span><b>Drill into the data</b><p>Month and week order charts the customer can tap to expand, right in the chat.</p></div>
+        </div>
+        <div class="panel">
+          <div class="shot"><img src="report.jpg" alt="Gaia — report an issue form" /></div>
+          <div class="cap"><span class="k">04 · Report an issue</span><b>Structured support</b><p>A guided form (issue type, photo upload and contact details) submitted without leaving the thread.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIDE THE ASSISTANT -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow reveal">Inside the assistant</span>
+      <h2 class="h-sec reveal">What makes Gaia helpful</h2>
+      <div class="feat-grid reveal d1">
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H5a2 2 0 0 0-2 2v7h18v-7a2 2 0 0 0-2-2h-4M9 11V5a3 3 0 0 1 6 0v6"/></svg></span><b>Quick actions</b><p>Track orders, apply promos, ask about products, browse collections, buy a gift card.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3zM3 10h18M7 14h4"/></svg></span><b>Rich bot cards</b><p>Replies render as live cards: order summaries, maps, charts and forms, not flat text.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></span><b>Tappable charts</b><p>Order activity by month rolls down to weeks and individual orders on demand.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><b>Chat history</b><p>A results rail groups past threads by day so customers can pick up where they left off.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALETTE -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow reveal">Color system</span>
+      <h2 class="h-sec reveal">The Gaia palette</h2>
+      <div class="palette-grid reveal d1">
+        <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#8b6fe8,#5c8be8)"></div><div class="info"><b>Assistant Gradient</b><span>violet → blue</span></div></div>
+        <div class="sw"><div class="chip" style="background:#7c5cff"></div><div class="info"><b>Gaia Violet</b><span>#7C5CFF</span></div></div>
+        <div class="sw"><div class="chip" style="background:#bdeecb"></div><div class="info"><b>Bot Mint</b><span>#BDEECB</span></div></div>
+        <div class="sw"><div class="chip" style="background:#fbe7a0"></div><div class="info"><b>User Yellow</b><span>#FBE7A0</span></div></div>
+        <div class="sw"><div class="chip" style="background:#efe9f7"></div><div class="info"><b>Lavender</b><span>#EFE9F7</span></div></div>
+        <div class="sw"><div class="chip" style="background:#1c1733"></div><div class="info"><b>Ink</b><span>#1C1733</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="glow"></div>
+        <div class="in">
+          <span class="kick">Live showcase</span>
+          <h2>See Gaia hold<br/>a conversation.</h2>
+          <p>Walk through the storefront and the assistant: quick actions, tracking maps, order charts and the issue flow.</p>
+          <a class="btn-w" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to the top
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="nl-footer">
+  <div class="nl-fwrap">
+    <div class="nl-ftop">
+      <a class="nl-logo" href="/"><span class="nl-mk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><linearGradient id="mk-foot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19b7d1"/><stop offset="1" stop-color="#8b6bff"/></linearGradient><circle cx="12" cy="12" r="10.85" stroke="url(#mk-foot)" stroke-width="2.2"/><path d="M8.7 7.9h1.8l3 5.13V7.9h1.8V16.1h-1.8l-3-5.13V16.1H8.7Z" fill="url(#mk-foot)"/></svg></span><b><span>the<i>Nab</i>Labs</span><small>by Nabil Abou Rjeily</small></b></a>
+      <div class="nl-flinks"><a href="/#services">Services</a><a href="/#about">About</a><a href="/#skills">Skills</a><a href="/work">Work</a><a href="/#contact">Contact</a></div>
+    </div>
+    <div class="nl-fbot">
+      <span>© 2026 TheNabLab</span>
+      <span class="nl-tag"><b style="font-weight:inherit;color:#19b7d1">Designing</b> products. <b style="font-weight:inherit;color:#8b6bff">Engineering</b> experiences.</span>
+      <div class="nl-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24">undefined</svg></a><a href="#" aria-label="Behance"><svg viewBox="0 0 24 24">undefined</svg></a></div>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+})();
+</script>
+<script>(function(){var r=document.documentElement,f=function(){r.classList.toggle('scrolled',window.scrollY>24)};f();window.addEventListener('scroll',f,{passive:true})})();</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "thenablab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TheNabLab \u2014 product design & front-end engineering studio site.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "verify": "node scripts/check-links.mjs && node scripts/verify-css.mjs",
+    "verify:pages": "node scripts/verify-case-studies.mjs",
+    "preview": "next build && wrangler pages dev out --port 8788"
+  },
+  "dependencies": {
+    "next": "16.3.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.4"
+  }
+}

@@ -1,0 +1,210 @@
+/* Dark mode for every case study.
+
+   The case-study styles are written against the pro.css tokens, so flipping
+   the tokens here is enough — the same charcoal palette the homepage runs on
+   (see app/(home)/home.css). Two deliberate shifts from the light values:
+   --teal-dark goes lighter rather than darker (it is used for eyebrows and
+   icons that now sit on charcoal), and --teal-soft becomes translucent so
+   icon chips tint the dark surface instead of punching a pale hole in it. */
+:root{
+  --cream:#111214;
+  --cream-2:#181a1d;
+  --paper:#181a1d;
+  --paper-2:#202328;
+  --ink:#f4f1ea;
+  --ink-2:#dcd9d3;
+  --muted:#a6a8ad;
+  --muted-2:#6f737a;
+  --line:#2b2e33;
+  --line-2:#383b41;
+  --teal:#19b7d1;
+  --teal-dark:#42c8dd;
+  --teal-soft:rgba(25,183,209,.12);
+  color-scheme:dark;
+}
+
+/* ============================================================
+   Case-study responsive layer
+   ------------------------------------------------------------
+   Shared by all seven case studies. This file is bundled before each page's
+   own stylesheet, so every rule here is written one step more specific than
+   the base it corrects (.csw-nav .csw-nav-inner over .csw-nav-inner) to win
+   the cascade without !important.
+   ============================================================ */
+
+/* The bar is back-link + wordmark + "Live showcase" on one row. Under ~760px
+   the three no longer fit and the button was running off the right edge, so
+   the row wraps: identity on top, actions beneath. */
+@media (max-width: 760px) {
+  .csw-nav .csw-nav-inner {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 10px;
+  }
+  /* The wordmark comes off here. It was taking a row of its own to fit, and
+     on a case study it is the one thing in the bar that is not doing a job —
+     "Back to work" and the showcase button are, and the footer carries the
+     wordmark anyway. Without it the bar is one row again. */
+  .csw-nav .csw-nav-inner .nl-logo {
+    display: none;
+  }
+  .csw-nav .csw-back {
+    font-size: 14px;
+    gap: 8px;
+  }
+  .csw-nav .csw-back .ar {
+    width: 36px;
+    height: 36px;
+  }
+  .csw-nav .btn {
+    margin-left: auto;
+    min-height: 44px;
+  }
+  /* One row again, so the hero starts higher than it did. */
+  .csw-hero.csw-hero {
+    padding-top: 104px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Narrower still: the button label is what gives, not the layout. */
+  .csw-nav .csw-nav-inner {
+    gap: 10px;
+  }
+  .csw-nav .btn {
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+  .csw-hero.csw-hero {
+    padding-top: 96px;
+  }
+}
+
+/* Facts strip: 4 → 2 is handled per page; below 420px two columns of
+   label+value still collide, so fall to one. */
+@media (max-width: 420px) {
+  .csw-hero .csw-facts {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* The horizontal screen carousels (footycash, wimsa, al-hilal, smartwealth,
+   related) scroll on purpose — make sure they scroll comfortably on touch and
+   that their cards never exceed the viewport. */
+.csw-screens > * {
+  scroll-snap-align: start;
+}
+@media (max-width: 760px) {
+  .csw-screens {
+    scroll-padding-inline: var(--gutter);
+  }
+  .csw-screens > .csw-pill,
+  .csw-screens > .csw-phone {
+    max-width: min(210px, 62vw);
+  }
+}
+
+/* Decorative CTA glow is a fixed 480px disc; keep it inside the panel on
+   narrow screens so it cannot widen the layout. */
+.csw-cta {
+  isolation: isolate;
+}
+@media (max-width: 560px) {
+  .csw-cta .glow.glow {
+    width: min(300px, 88%);
+    height: min(300px, 88vw);
+    top: -140px;
+  }
+}
+
+/* Touch targets in the case-study chrome. The footer link pills sit at 40px
+   and the wordmark at 34px — fine under a cursor, short of a thumb. */
+@media (pointer: coarse) {
+  .csw-nav .csw-back,
+  .csw-foot .in a,
+  .nl-footer .nl-flinks a,
+  .nl-footer .nl-fbot a,
+  .csw-nav .nl-logo,
+  .nl-footer .nl-logo {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .nl-footer .nl-flinks a {
+    padding-block: 0;
+  }
+}
+
+/* Hero banner phone trio: .bp is clamp(120px,15vw,200px), so below ~800px the
+   120px floor took over and three phones plus gaps measured 396px inside a
+   288px banner — the outer ones were simply cropped off. Let the width keep
+   tracking the viewport down to a real small-phone size instead. */
+@media (max-width: 800px) {
+  .csw-hero .csw-banner .phones {
+    gap: 12px;
+  }
+  .csw-hero .csw-banner .bp {
+    width: clamp(76px, 25vw, 200px);
+    border-radius: 18px;
+  }
+  .csw-hero .csw-banner .bp .s {
+    border-radius: 13px;
+  }
+}
+@media (max-width: 420px) {
+  .csw-hero .csw-banner .phones {
+    gap: 8px;
+  }
+  .csw-hero .csw-banner .bp {
+    width: clamp(66px, 24vw, 200px);
+    border-radius: 14px;
+  }
+  .csw-hero .csw-banner .bp .s {
+    border-radius: 10px;
+  }
+}
+
+/* ---------- Case study hero: the banner before the fact grid ----------
+   The facts stack to four tall rows on a phone, pushing the hero image a
+   full screen down. The image is the point of a case study, so it comes
+   directly after the description and the facts follow it. */
+@media (max-width: 760px) {
+  .csw-hero .wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .csw-hero .wrap > * {
+    order: 1;
+  }
+  .csw-hero .wrap .csw-banner {
+    order: 2;
+    margin-top: clamp(26px, 5vw, 40px);
+  }
+  .csw-hero .wrap .csw-facts {
+    order: 3;
+    margin-top: clamp(28px, 6vw, 44px);
+  }
+}
+
+
+/* Social icons are square buttons — see the note in pro.css. The generic
+   touch rule above must not reach them or they render as ovals. */
+.nl-footer .nl-socials a,
+.csw-foot .nl-socials a {
+  flex: 0 0 auto;
+  aspect-ratio: 1;
+}
+@media (pointer: coarse) {
+  .nl-footer .nl-socials a,
+  .csw-foot .nl-socials a {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+  }
+}

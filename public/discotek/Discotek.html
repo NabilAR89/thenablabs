@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Discotek — Club & Events Site · TheNabLab</title>
+<meta name="description" content="A neon-soaked nightlife site for the Discotek club: a video-led hero, headline-act events and ticketing, a resident-DJ roster, a charged photo gallery and table bookings, all wrapped in a cyan-and-magenta identity that glows in the dark." />
+<link rel="canonical" href="https://thenablabs.com/discotek/Discotek.html" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Nabil Abou Rjeily" />
+<meta name="theme-color" content="#111214" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="TheNabLab" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://thenablabs.com/discotek/Discotek.html" />
+<meta property="og:title" content="Discotek — Club &amp; Events Site · TheNabLab" />
+<meta property="og:description" content="A neon-soaked nightlife site for the Discotek club: a video-led hero, headline-act events and ticketing, a resident-DJ roster, a charged photo gallery and table bookings, all wrapped in a cyan-and-magenta identity that glows in the dark." />
+<meta property="og:image" content="https://thenablabs.com/discotek/hero.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Discotek — Club &amp; Events Site · TheNabLab" />
+<meta name="twitter:description" content="A neon-soaked nightlife site for the Discotek club: a video-led hero, headline-act events and ticketing, a resident-DJ roster, a charged photo gallery and table bookings, all wrapped in a cyan-and-magenta identity that glows in the dark." />
+<meta name="twitter:image" content="https://thenablabs.com/discotek/hero.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#050507;
+  --bg-2:#0b0a12;
+  --surface:#100e18;
+  --surface-2:#16131f;
+  --line:rgba(255,255,255,0.09);
+  --line-2:rgba(255,255,255,0.17);
+  --text:#f3f1fa;
+  --muted:#9c97b3;
+  --muted-2:#6b6783;
+
+  --cyan:#2ee6e6;
+  --magenta:#c13fe0;
+  --pink:#ff3fa4;
+  --violet:#8b5cff;
+
+  --grad:linear-gradient(100deg,var(--cyan),var(--magenta));
+  --font-display:'Space Grotesk', system-ui, sans-serif;
+  --font-body:'DM Sans', system-ui, sans-serif;
+  --maxw:1300px;
+  --r:24px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+::selection{background:var(--magenta);color:#fff;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-fx .glow{position:absolute;border-radius:50%;filter:blur(150px);}
+.bg-fx .g1{width:620px;height:620px;background:var(--magenta);opacity:.2;top:-260px;left:-120px;}
+.bg-fx .g2{width:560px;height:560px;background:var(--cyan);opacity:.14;bottom:-220px;right:-120px;}
+.bg-fx .g3{width:440px;height:440px;background:var(--violet);opacity:.14;top:42%;left:50%;}
+.bg-fx .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(120% 80% at 50% 0%,#000,transparent 72%);}
+main{position:relative;z-index:1;}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
+
+/* nav */
+.cs-nav{position:fixed;inset:0 0 auto 0;z-index:100;background:color-mix(in oklab,var(--bg) 76%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.cs-nav-inner{max-width:var(--maxw);margin:0 auto;padding:13px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.cs-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:14.5px;color:var(--text);}
+.cs-back .ar{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:all .3s var(--ease);}
+.cs-back:hover .ar{background:var(--cyan);border-color:var(--cyan);color:#000;}
+.cs-back svg{width:16px;height:16px;}
+.cs-nav .logo{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--text);}
+.cs-nav .logo b{color:var(--cyan);font-weight:700;}
+.cs-nav .live{font-family:var(--font-display);font-weight:600;font-size:14px;color:#000;background:var(--grad);padding:10px 20px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+.cs-nav .live:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(46,230,230,.6);}
+.cs-nav .live svg{width:15px;height:15px;}
+
+/* hero */
+.hero{padding-top:clamp(96px,12vw,138px);padding-bottom:clamp(20px,3vw,40px);}
+.brandbar{display:inline-flex;align-items:center;gap:14px;margin-bottom:30px;}
+.gmark{font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:.12em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.brandbar .wm{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.05em;line-height:1.1;border-left:1px solid var(--line-2);padding-left:14px;}
+.brandbar .wm small{display:block;font-family:var(--font-body);font-weight:400;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+.eyebrow{font-family:var(--font-display);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--cyan);font-weight:600;}
+.hero h1{font-family:var(--font-display);font-weight:700;font-size:clamp(42px,7vw,86px);line-height:1.0;letter-spacing:-0.03em;margin-top:18px;max-width:15ch;}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p.lede{color:var(--muted);font-size:clamp(17px,1.6vw,21px);max-width:58ch;margin-top:24px;}
+.cs-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;padding-top:30px;border-top:1px solid var(--line);}
+.cs-facts .k{font-family:var(--font-display);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted-2);font-weight:600;}
+.cs-facts .v{font-family:var(--font-display);font-weight:600;font-size:16.5px;margin-top:7px;}
+@media (max-width:720px){.cs-facts{grid-template-columns:1fr 1fr;gap:18px;}}
+
+/* hero banner — browser frame */
+.banner{margin-top:clamp(34px,5vw,58px);}
+.browser{border-radius:16px;overflow:hidden;background:#000;border:1px solid var(--line-2);box-shadow:0 50px 100px -50px rgba(193,63,224,.5),0 0 0 1px rgba(0,0,0,.6);}
+.browser .bar{display:flex;align-items:center;gap:8px;padding:13px 18px;background:#0c0a12;border-bottom:1px solid var(--line);}
+.browser .bar i{width:11px;height:11px;border-radius:50%;background:#2a2636;}
+.browser .bar i:nth-child(1){background:#ff5f57;}.browser .bar i:nth-child(2){background:#febc2e;}.browser .bar i:nth-child(3){background:#28c840;}
+.browser .bar .url{margin-left:14px;flex:1;max-width:340px;height:24px;border-radius:7px;background:rgba(255,255,255,.05);border:1px solid var(--line);display:flex;align-items:center;padding-inline:12px;font-size:12px;color:var(--muted);font-family:var(--font-body);}
+.browser img{width:100%;display:block;}
+
+/* sections */
+.section{padding-block:clamp(50px,7vw,96px);}
+.cs-2col{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,80px);align-items:start;}
+.cs-2col h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,42px);letter-spacing:-0.025em;line-height:1.08;margin-top:12px;}
+.cs-prose p{color:var(--muted);font-size:clamp(16px,1.4vw,18px);margin-top:18px;line-height:1.72;}
+.cs-prose p:first-child{margin-top:0;}
+.cs-prose b{color:var(--text);font-weight:600;}
+@media (max-width:760px){.cs-2col{grid-template-columns:1fr;gap:16px;}}
+.h-sec{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,44px);letter-spacing:-0.025em;margin-top:12px;}
+
+/* what i did */
+.cs-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px;}
+.cs-card{background:linear-gradient(160deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:18px;padding:26px 22px;}
+.cs-card .ic{width:46px;height:46px;border-radius:13px;background:rgba(46,230,230,.12);color:var(--cyan);display:grid;place-items:center;}
+.cs-card .ic svg{width:22px;height:22px;}
+.cs-card b{font-family:var(--font-display);font-weight:600;font-size:17px;display:block;margin-top:18px;}
+.cs-card p{color:var(--muted);font-size:14px;margin-top:8px;}
+@media (max-width:900px){.cs-cards{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.cs-cards{grid-template-columns:1fr;}}
+
+/* laptop stage */
+.stage-wrap{padding-block:clamp(20px,4vw,46px);}
+.stage{position:relative;width:100%;max-width:1080px;margin:0 auto;aspect-ratio:16/8.4;}
+.st-glow{position:absolute;left:50%;top:6%;transform:translateX(-50%);width:74%;height:84%;border-radius:50%;filter:blur(90px);background:radial-gradient(closest-side,rgba(193,63,224,.34),rgba(46,230,230,.2) 55%,transparent 76%);}
+.laptop{position:absolute;transition:transform .7s var(--ease);}
+.laptop .scr{display:block;position:relative;width:100%;aspect-ratio:16/10.2;border-radius:13px 13px 6px 6px;padding:2%;background:linear-gradient(160deg,#26222e,#0a0810 55%,#221d30);box-shadow:0 50px 90px -40px rgba(20,5,30,.8),0 0 0 1px rgba(0,0,0,.6);}
+.laptop .scr img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:5px;display:block;}
+.laptop .scr::after{content:"";position:absolute;left:50%;bottom:-4.8%;transform:translateX(-50%);width:118%;height:4.8%;background:linear-gradient(#24202c,#13111b);border-radius:0 0 11px 11px;clip-path:polygon(1.2% 0,98.8% 0,96.4% 100%,3.6% 100%);}
+.laptop.back{width:42%;left:10%;bottom:9%;z-index:1;transform:rotate(-2deg);}
+.laptop.front{width:50%;right:8%;bottom:0;z-index:2;}
+.stage:hover .laptop.back{transform:rotate(-2deg) translateY(-6px);}
+.stage:hover .laptop.front{transform:translateY(-9px);}
+.laptop .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-family:var(--font-display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#000;background:var(--cyan);padding:5px 12px;border-radius:999px;font-weight:600;white-space:nowrap;z-index:5;}
+.laptop.back .tag{background:var(--magenta);color:#fff;}
+@media (max-width:820px){.stage{aspect-ratio:16/10.4;}.laptop.back{width:50%;left:4%;bottom:13%;}.laptop.front{width:58%;right:3%;}}
+
+/* screens grid */
+.screens{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,26px);margin-top:34px;}
+.frame{border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--line-2);box-shadow:0 30px 60px -42px rgba(193,63,224,.5);}
+.frame .fbar{display:flex;gap:7px;padding:11px 15px;background:#0c0a12;border-bottom:1px solid var(--line);}
+.frame .fbar i{width:10px;height:10px;border-radius:50%;background:#2a2636;}
+.frame .fbar i:nth-child(1){background:#ff5f57;}.frame .fbar i:nth-child(2){background:#febc2e;}.frame .fbar i:nth-child(3){background:#28c840;}
+.frame img{display:block;width:100%;}
+.frame .lab{font-family:var(--font-display);font-weight:600;font-size:14.5px;padding:14px 17px;display:flex;align-items:baseline;gap:9px;}
+.frame .lab .k{color:var(--cyan);font-size:11px;letter-spacing:.14em;text-transform:uppercase;}
+.frame .lab span{color:var(--muted);font-weight:400;font-size:13px;}
+@media (max-width:760px){.screens{grid-template-columns:1fr;}}
+
+/* features */
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;}
+.fcard{background:linear-gradient(160deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:18px;padding:26px 22px;}
+.fcard .ic{width:44px;height:44px;border-radius:13px;background:rgba(193,63,224,.14);color:var(--magenta);display:grid;place-items:center;}
+.fcard .ic svg{width:22px;height:22px;}
+.fcard b{font-family:var(--font-display);font-weight:600;font-size:17px;display:block;margin-top:18px;}
+.fcard p{color:var(--muted);font-size:14px;margin-top:8px;}
+@media (max-width:900px){.feat-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.feat-grid{grid-template-columns:1fr;}}
+
+/* palette */
+.palette-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:34px;}
+.sw{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface);}
+.sw .chip{height:104px;}
+.sw .info{padding:13px 15px;}
+.sw .info b{font-family:var(--font-display);font-weight:600;font-size:13.5px;display:block;}
+.sw .info span{font-size:11.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;}
+@media (max-width:860px){.palette-grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:480px){.palette-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* cta */
+.cta{position:relative;border-radius:var(--r);padding:clamp(40px,6vw,82px);overflow:hidden;text-align:center;background:radial-gradient(130% 130% at 50% 0%,#1a1226,#070509);border:1px solid var(--line);}
+.cta .glow{position:absolute;width:480px;height:480px;border-radius:50%;background:var(--magenta);filter:blur(120px);opacity:.34;top:-220px;left:50%;transform:translateX(-50%);}
+.cta .in{position:relative;z-index:2;}
+.cta .kick{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);}
+.cta h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.4vw,52px);letter-spacing:-0.03em;line-height:1.04;margin-top:14px;}
+.cta p{color:var(--muted);font-size:17px;margin-top:18px;max-width:48ch;margin-inline:auto;}
+.cta .btn-w{margin-top:30px;display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:15px;background:var(--grad);color:#000;padding:15px 28px;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+.cta .btn-w:hover{transform:translateY(-3px);box-shadow:0 18px 44px -12px rgba(46,230,230,.6);}
+.cta .btn-w svg{width:17px;height:17px;}
+
+.foot{padding-block:46px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;}
+.foot .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.foot b{color:var(--text);font-weight:600;}
+.foot a{color:var(--cyan);font-weight:600;}
+</style>
+<style id="nl-brand">
+.nl-logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{width:34px;height:34px;flex:none;border-radius:11px;background:linear-gradient(150deg,#39a6ff,#7b5cff);color:#fff;display:grid;place-items:center;font-weight:700;font-size:16px;letter-spacing:-.02em;box-shadow:0 0 0 1px rgba(123,92,255,.45),0 0 20px -5px rgba(57,166,255,.6);}
+.nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-weight:700;font-size:20px;letter-spacing:-.02em;color:#f4f1ea;line-height:1;}
+/* opaque #111214 — the same dark as the case-study pages. A translucent
+   dark greys out on the light-themed showcases. */
+.cs-nav,.csw-nav{background:#111214!important;backdrop-filter:none!important;border-bottom:1px solid rgba(255,255,255,.09)!important;box-shadow:none!important;}
+.cs-nav .cs-back,.csw-nav .csw-back{color:#f4f1ea!important;}
+.cs-nav .cs-back .ar,.csw-nav .csw-back .ar{border-color:rgba(255,255,255,.22)!important;color:#f4f1ea!important;}
+
+.nl-footer{background:#0d0e10;border-top:1px solid #2b2e33;color:#a6a8ad;padding:clamp(44px,6vw,72px) 0;position:relative;z-index:2;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-footer .nl-fwrap{max-width:1300px;margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+.nl-ftop{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid #2b2e33;}
+.nl-footer .nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-size:24px;}
+.nl-flinks{display:flex;flex-wrap:wrap;gap:8px;}
+.nl-flinks a{font-weight:500;font-size:14px;color:#dcd9d3;padding:8px 14px;border-radius:999px;text-decoration:none;transition:background .25s,color .25s;}
+.nl-flinks a:hover{background:#181a1d;color:#42c8dd;}
+.nl-fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;color:#a6a8ad;font-size:14px;}
+.nl-socials{display:flex;gap:8px;}
+.nl-socials a{width:40px;height:40px;border-radius:50%;border:1.5px solid #383b41;display:grid;place-items:center;color:#dcd9d3;transition:all .3s ease;}
+.nl-socials a:hover{background:#19b7d1;border-color:#19b7d1;color:#fff;}
+.nl-socials svg{width:17px;height:17px;}
+.plogo .mk svg,.nl-logo .nl-mk svg,.studio-mix-badge .mk svg{width:74%;height:74%;display:block}
+.plogo .mk,.nl-logo .nl-mk,.studio-mix-badge .mk{font-size:0}
+
+.nl-fbot{display:grid!important;grid-template-columns:1fr auto 1fr;align-items:center;}
+.nl-fbot .nl-tag{text-align:center;}
+.nl-fbot .nl-socials{justify-self:end;}
+@media (max-width:700px){.nl-fbot{grid-template-columns:1fr;justify-items:center;text-align:center;}.nl-fbot .nl-socials{justify-self:center;}}
+
+/* brand mark matches the homepage: the bare circled N (gradient lives in the
+   svg), Sora wordmark, no tile behind the mark */
+.nl-logo{font-family:'Sora',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{background:none!important;box-shadow:none!important;border-radius:0!important;}
+.nl-logo .nl-mk svg{width:100%;height:100%;display:block;}
+
+/* Floating nav — a rounded bar inset from the edges rather than a full-width
+   strip. The bar itself is transparent; the pill is the inner row. */
+.cs-nav,.csw-nav{background:none!important;backdrop-filter:none!important;border-bottom:none!important;box-shadow:none!important;padding-block:clamp(10px,1.3vw,16px);}
+.cs-nav-inner{width:calc(100% - clamp(20px,4vw,52px));max-width:var(--maxw);margin-inline:auto;
+  padding:10px 12px 10px 22px;border-radius:20px;
+  background:#141518;
+  border:none;box-shadow:none;
+  transition:background .4s var(--ease),box-shadow .4s var(--ease);}
+html.scrolled .cs-nav-inner{box-shadow:0 20px 46px -10px rgba(0,0,0,1),0 6px 16px -6px rgba(0,0,0,.9);}
+
+/* ---------- Small screens: clear the fixed bar, smaller wordmark ----------
+   The hero's padding-top bottomed out at 64px while the fixed bar reaches
+   ~76px, so the first line of the page was sitting under the header. The
+   wordmark also comes down a size: at 34px with its subtitle it was wrapping
+   the bar onto a second line on a narrow handset, which is what made the bar
+   tall enough to collide in the first place. */
+@media (max-width:760px){
+  .hero{padding-top:clamp(104px,20vw,138px);}
+  .cs-nav .nl-logo .nl-mk,.csw-nav .nl-logo .nl-mk{width:26px;height:26px;}
+  .cs-nav .nl-logo b,.csw-nav .nl-logo b{font-size:16px!important;}
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{font-size:8px;letter-spacing:.12em;}
+  .cs-nav .nl-logo,.csw-nav .nl-logo{gap:8px!important;}
+  .cs-nav-inner,.csw-nav-inner{padding:8px 12px 8px 16px;}
+}
+@media (max-width:420px){
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{display:none;}
+}
+
+/* ---------- Showcase header carries the project's own logo ----------
+   The site wordmark was the one thing in this bar that did not belong to the
+   project on screen, and the footer already signs the page. The hero's
+   brandbar mark is reused here instead, shrunk to sit in the bar. Sizing is
+   per-page below because every project's mark is built differently - some are
+   fixed boxes, some images, some the wordmark itself. */
+.cs-brand{display:inline-flex;align-items:center;gap:9px;min-width:0;}
+.cs-brand>*{flex:none;margin:0;}
+.cs-brand .cs-brand-name{font-family:'Sora',system-ui,-apple-system,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.01em;color:#f4f1ea;white-space:nowrap;line-height:1;}
+.cs-brand .cs-brand-name em{font-style:normal;}
+@media (max-width:420px){.cs-brand .cs-brand-name{font-size:14px;}}
+.cs-brand .gmark{font-size:15px;letter-spacing:.1em;}
+
+/* The hero's brandbar is the same logo the header now carries, at four times
+   the size and directly beneath it. One of the two has to go, and the header
+   is the one that stays visible as the page scrolls. */
+.hero .brandbar{display:none;}
+
+
+/* ---------- Screens close to the description on small screens ----------
+   The tag row and the fact grid sat between the description and the first
+   screen, and on the longer pages two prose sections sat there too — so the
+   work itself started a screen and a half down. The description keeps its
+   place, the screens follow it, and the supporting detail moves below them.
+   Desktop is untouched: .cs-meta renders exactly where the tags and facts
+   used to sit at the foot of the hero. */
+.cs-meta{padding:0;}
+@media (max-width:760px){
+  main{display:flex;flex-direction:column;}
+  main>*{order:5;}
+  main>.hero{order:0;}
+  /* .cs-meta is now the first section in source, so the description is the
+     one straight after it. :first-of-type cannot see past .cs-meta. */
+  main>.cs-meta+section{order:1;}
+  main>[data-shots]{order:2;}
+  main>.cs-meta{order:3;}
+}
+
+/* ---------- Social icons: square, never stretched ---------- */
+.nl-socials a{flex:0 0 auto;aspect-ratio:1;}
+@media (pointer:coarse){
+  .nl-socials a{width:44px;height:44px;min-width:44px;min-height:44px;display:grid;place-items:center;border-radius:50%;}
+}
+</style>
+</head>
+<body>
+<nav class="cs-nav">
+  <div class="cs-nav-inner">
+    <a class="cs-back" href="/work">
+      <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
+      Back to work
+    </a>
+    <span class="cs-brand"><span class="gmark">DISCOTEK</span></span>
+  </div>
+</nav>
+<div class="bg-fx"><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
+
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <div class="brandbar reveal in">
+        <span class="gmark">DISCOTEK</span>
+        <span class="wm">Nightlife platform<small>Clubs · events · tickets</small></span>
+      </div>
+      <div class="reveal in d1"><span class="eyebrow">Case study · Nightlife · Web · 2024</span></div>
+      <h1 class="reveal in d1">A night out, <em>before the night out</em>.</h1>
+      <p class="lede reveal in d2">A neon-soaked website for Discotek: built to sell the energy of the room. Line-ups and ticketing, a resident-DJ roster, a charged photo gallery and table bookings, all wrapped in a cyan-and-magenta identity that glows in the dark.</p>
+      
+      <div class="banner reveal in d3">
+        <div class="browser">
+          <div class="bar"><i></i><i></i><i></i><span class="url">discotek.club</span></div>
+          <img src="hero.png" alt="Discotek — hero, #WEAREDSCTK" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="cs-meta">
+    <div class="wrap">
+      <div class="cs-facts reveal in d3">
+        <div><div class="k">Role</div><div class="v">Product Designer &amp; Front-End</div></div>
+        <div><div class="k">Timeline</div><div class="v">3 months</div></div>
+        <div><div class="k">Platform</div><div class="v">Web · Responsive</div></div>
+        <div><div class="k">Domain</div><div class="v">Nightlife · Events</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OVERVIEW -->
+  <section class="section">
+    <div class="wrap cs-2col">
+      <div class="reveal"><span class="eyebrow">Overview</span><h2>Sell the room, in the dark</h2></div>
+      <div class="cs-prose reveal d1">
+        <p>A club lives or dies on its line-up and its energy, and a website has to bottle both before anyone's through the door. <b>Discotek needed to feel like the night, not describe it.</b></p>
+        <p>I built a full-bleed, dark experience where photography does the talking: a disco-ball hero, an events carousel headlining the next big act, a resident roster, a charged photo gallery and a frictionless "Book a table" path.</p>
+        <p>I owned the experience and the front-end: the immersive hero, the events slider, the gallery grid, the contact flow and a glowing cyan-magenta visual system that holds up over busy imagery.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I DID -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="reveal" style="max-width:680px;"><span class="eyebrow">What I did</span><h2 class="h-sec">The whole night, end to end</h2></div>
+      <div class="cs-cards reveal d1">
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></span><b>Immersive hero</b><p>A video-led, full-bleed landing with a neon logo, social links and a bold "Book a table" CTA.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg></span><b>Events &amp; ticketing</b><p>A headline slider for the next act, plus an upcoming-events list with detail and tickets.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3zM3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="9.5" r="1.5"/></svg></span><b>Photo gallery</b><p>A masonry "Latest shots" grid that recreates the room's energy in stills.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.2zM8 9h8M8 12h5"/></svg></span><b>Contact &amp; social</b><p>An Instagram strip, a message form and clear venue details to close the loop.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE -->
+  <section class="stage-wrap reveal" data-shots>
+    <div class="stage">
+      <span class="st-glow"></span>
+      <span class="laptop back"><span class="scr"><span class="tag">Events</span><img src="events.png" alt="Discotek — Seth Troxler Live events slider" /></span></span>
+      <span class="laptop front"><span class="scr"><span class="tag">Home</span><img src="hero.png" alt="Discotek — neon home" /></span></span>
+    </div>
+  </section>
+
+  <!-- SCREENS -->
+  <section class="section" id="screens" style="padding-top:clamp(30px,4vw,56px);">
+    <div class="wrap">
+      <div class="reveal" style="max-width:680px;"><span class="eyebrow">The screens</span><h2 class="h-sec">Six rooms of one club</h2></div>
+      <div class="screens reveal d1">
+        <div class="frame"><div class="fbar"><i></i><i></i><i></i></div><img src="hero.png" alt="Hero" /><div class="lab"><span class="k">01</span>Home<span>· #WEAREDSCTK hero</span></div></div>
+        <div class="frame"><div class="fbar"><i></i><i></i><i></i></div><img src="events.png" alt="Events" /><div class="lab"><span class="k">02</span>Events<span>· headline act slider</span></div></div>
+        <div class="frame"><div class="fbar"><i></i><i></i><i></i></div><img src="menu.png" alt="Menu" /><div class="lab"><span class="k">03</span>Menu<span>· full-screen navigation</span></div></div>
+        <div class="frame"><div class="fbar"><i></i><i></i><i></i></div><img src="gallery.png" alt="Gallery" /><div class="lab"><span class="k">04</span>Gallery<span>· latest shots grid</span></div></div>
+        <div class="frame"><div class="fbar"><i></i><i></i><i></i></div><img src="upcoming.png" alt="Upcoming events" /><div class="lab"><span class="k">05</span>Upcoming<span>· event detail &amp; flyer</span></div></div>
+        <div class="frame"><div class="fbar"><i></i><i></i><i></i></div><img src="contact.png" alt="Contact" /><div class="lab"><span class="k">06</span>Contact<span>· Instagram, message &amp; reach us</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow reveal">Inside the build</span>
+      <h2 class="h-sec reveal">What makes it glow</h2>
+      <div class="feat-grid reveal d1">
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3"/></svg></span><b>Neon system</b><p>A cyan-magenta gradient language with glowing outlines that survive over busy photos.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9z"/></svg></span><b>Video-led hero</b><p>Full-bleed motion sets the mood the instant the page loads.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><b>Events slider</b><p>A headline carousel with a synced upcoming list and one-tap detail.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></span><b>Masonry gallery</b><p>A mixed-size photo grid with hover reveals that captures the crowd.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALETTE -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow reveal">Color system</span>
+      <h2 class="h-sec reveal">The Discotek palette</h2>
+      <div class="palette-grid reveal d1">
+        <div class="sw"><div class="chip" style="background:linear-gradient(120deg,#2ee6e6,#c13fe0)"></div><div class="info"><b>Neon Gradient</b><span>cyan → magenta</span></div></div>
+        <div class="sw"><div class="chip" style="background:#2ee6e6"></div><div class="info"><b>Laser Cyan</b><span>#2EE6E6</span></div></div>
+        <div class="sw"><div class="chip" style="background:#c13fe0"></div><div class="info"><b>Disco Magenta</b><span>#C13FE0</span></div></div>
+        <div class="sw"><div class="chip" style="background:#ff3fa4"></div><div class="info"><b>Hot Pink</b><span>#FF3FA4</span></div></div>
+        <div class="sw"><div class="chip" style="background:#8b5cff"></div><div class="info"><b>Strobe Violet</b><span>#8B5CFF</span></div></div>
+        <div class="sw"><div class="chip" style="background:#050507"></div><div class="info"><b>Blackout</b><span>#050507</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="glow"></div>
+        <div class="in">
+          <span class="kick">The full set</span>
+          <h2>Step onto the<br/>dancefloor.</h2>
+          <p>From the disco-ball hero to the contact form, six glowing screens of one very loud club.</p>
+          <a class="btn-w" href="#screens">See the screens
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="nl-footer">
+  <div class="nl-fwrap">
+    <div class="nl-ftop">
+      <a class="nl-logo" href="/"><span class="nl-mk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><linearGradient id="mk-foot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19b7d1"/><stop offset="1" stop-color="#8b6bff"/></linearGradient><circle cx="12" cy="12" r="10.85" stroke="url(#mk-foot)" stroke-width="2.2"/><path d="M8.7 7.9h1.8l3 5.13V7.9h1.8V16.1h-1.8l-3-5.13V16.1H8.7Z" fill="url(#mk-foot)"/></svg></span><b><span>the<i>Nab</i>Labs</span><small>by Nabil Abou Rjeily</small></b></a>
+      <div class="nl-flinks"><a href="/#services">Services</a><a href="/#about">About</a><a href="/#skills">Skills</a><a href="/work">Work</a><a href="/#contact">Contact</a></div>
+    </div>
+    <div class="nl-fbot">
+      <span>© 2026 TheNabLab</span>
+      <span class="nl-tag"><b style="font-weight:inherit;color:#19b7d1">Designing</b> products. <b style="font-weight:inherit;color:#8b6bff">Engineering</b> experiences.</span>
+      <div class="nl-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.22 8.02h4.52V24H.22zM8.34 8.02h4.33v2.18h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.52v-7.66c0-1.83-.03-4.18-2.55-4.18-2.56 0-2.95 2-2.95 4.05V24H8.34z" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="Behance"><svg viewBox="0 0 24 24"><path d="M7.5 11.3c1.2-.5 1.9-1.5 1.9-2.9 0-2.6-1.9-3.4-4.2-3.4H0v13.9h5.4c2.4 0 4.7-1.2 4.7-4 0-1.7-.8-3-2.6-3.6zM3 7.4h2.1c.9 0 1.7.3 1.7 1.3 0 1-.7 1.4-1.6 1.4H3zm2.3 9H3v-3.2h2.4c1.1 0 1.8.5 1.8 1.6 0 1.2-.8 1.6-1.9 1.6zM18.8 9c-2.8 0-4.7 2.1-4.7 4.9s1.8 4.8 4.7 4.8c2.2 0 3.8-1 4.5-3h-2.4c-.3.8-1.1 1.2-1.9 1.2-1.5 0-2.3-.9-2.3-2.4h6.8c.2-2.9-1.4-5.5-4.7-5.5zm-2.1 3.9c0-1.2.9-2.1 2.1-2.1 1.3 0 1.9.7 2 2.1zM15.2 5.9h5.9v1.5h-5.9z" fill="currentColor" stroke="none"/></svg></a></div>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+})();
+</script>
+<script>(function(){var r=document.documentElement,f=function(){r.classList.toggle('scrolled',window.scrollY>24)};f();window.addEventListener('scroll',f,{passive:true})})();</script>
+</body>
+</html>

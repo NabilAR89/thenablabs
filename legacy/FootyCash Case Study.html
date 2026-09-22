@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FootyCash — Case Study · TheNabLab</title>
+<meta name="description" content="FootyCash — a pool-based football prediction & betting platform for Ghana, across web and mobile. A case study by Nabil Abou Rjeily." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="pro.css" />
+<style>
+.csw-nav{position:fixed;inset:0 0 auto 0;z-index:100;background:color-mix(in oklab,var(--cream) 88%,transparent);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line);}
+.csw-nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.csw-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:15px;}
+.csw-back .ar{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line-2);display:grid;place-items:center;transition:all .3s var(--ease);}
+.csw-back:hover .ar{background:var(--teal);border-color:var(--teal);color:#fff;}
+.csw-back svg{width:16px;height:16px;}
+
+.csw-hero{padding-top:130px;padding-bottom:clamp(30px,4vw,56px);}
+.csw-kick{font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-dark);}
+.csw-hero h1{font-family:var(--font-display);font-weight:700;font-size:clamp(38px,6vw,76px);line-height:1.0;letter-spacing:-0.035em;margin-top:16px;max-width:16ch;}
+.csw-hero h1 .teal{color:var(--teal);}
+.csw-hero .lede{color:var(--muted);font-size:clamp(17px,1.6vw,21px);margin-top:24px;max-width:56ch;}
+.csw-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px;padding-top:32px;border-top:1px solid var(--line);}
+.csw-facts .k{font-family:var(--font-display);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted-2);}
+.csw-facts .v{font-family:var(--font-display);font-weight:600;font-size:17px;margin-top:7px;}
+@media (max-width:720px){.csw-facts{grid-template-columns:1fr 1fr;}}
+
+.csw-banner{margin-top:clamp(34px,5vw,60px);border-radius:var(--r);overflow:hidden;aspect-ratio:16/8;background:linear-gradient(116deg,#04130a,#0b3a1f 50%,#3ddc6e);position:relative;box-shadow:0 40px 80px -40px rgba(4,30,15,.55);display:grid;place-items:center;}
+.csw-banner .phones{display:flex;gap:18px;align-items:flex-end;padding:5% 0;}
+.csw-banner .bp{width:clamp(120px,15vw,200px);aspect-ratio:640/1340;border-radius:24px;padding:5px;background:linear-gradient(155deg,#2a2c2e,#101113 55%,#26282a);box-shadow:0 30px 60px -24px rgba(2,20,10,.6);}
+.csw-banner .bp:nth-child(1){transform:rotate(-7deg) translateY(14px);}
+.csw-banner .bp:nth-child(3){transform:rotate(7deg) translateY(14px);}
+.csw-banner .bp .s{width:100%;height:100%;border-radius:19px;overflow:hidden;background:#000;}
+.csw-banner .bp .s img{width:100%;height:100%;object-fit:cover;object-position:top;}
+
+.csw-2col{display:grid;grid-template-columns:0.8fr 1.2fr;gap:clamp(30px,6vw,84px);align-items:start;}
+.csw-2col h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,42px);letter-spacing:-0.025em;line-height:1.06;}
+.csw-prose p{color:var(--muted);font-size:clamp(16px,1.4vw,18px);margin-top:18px;line-height:1.7;}
+.csw-prose p:first-child{margin-top:0;}
+.csw-prose p b{color:var(--ink);font-weight:600;}
+@media (max-width:760px){.csw-2col{grid-template-columns:1fr;gap:18px;}}
+
+.csw-contrib{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px;}
+.csw-contrib .c{background:var(--cream-2);border:1px solid var(--line);border-radius:16px;padding:22px;}
+.csw-contrib .c .ic{width:42px;height:42px;border-radius:12px;background:var(--teal-soft);color:var(--teal-dark);display:grid;place-items:center;}
+.csw-contrib .c .ic svg{width:21px;height:21px;}
+.csw-contrib .c b{font-family:var(--font-display);font-weight:600;font-size:17px;display:block;margin-top:16px;}
+.csw-contrib .c p{color:var(--muted);font-size:14.5px;margin-top:7px;}
+@media (max-width:560px){.csw-contrib{grid-template-columns:1fr;}}
+
+.csw-screens{display:flex;gap:clamp(16px,2.4vw,30px);overflow-x:auto;padding:6px 2px 24px;scroll-snap-type:x mandatory;}
+.csw-screens::-webkit-scrollbar{height:7px;}
+.csw-screens::-webkit-scrollbar-track{background:var(--cream-2);border-radius:999px;}
+.csw-screens::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:999px;}
+.csw-pill{flex:0 0 auto;width:212px;scroll-snap-align:center;}
+.csw-phone{position:relative;width:100%;aspect-ratio:640/1396;border-radius:30px;padding:5px;background:linear-gradient(155deg,#2a2c2e,#101113 55%,#26282a);box-shadow:0 24px 50px -26px rgba(0,0,0,.55);}
+.csw-phone .scr{position:relative;width:100%;height:100%;border-radius:26px;overflow:hidden;background:#000;}
+.csw-phone .scr img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.csw-pill .lab{font-family:var(--font-display);font-weight:600;font-size:14px;margin-top:14px;}
+.csw-pill .lab span{display:block;color:var(--muted);font-weight:400;font-size:12.5px;margin-top:2px;}
+
+.csw-cta{background:linear-gradient(116deg,#04130a,#0b3a1f 40%,#1f8a47 78%,#3ddc6e 120%);border-radius:var(--r);padding:clamp(40px,6vw,80px);position:relative;overflow:hidden;color:#fff;text-align:center;}
+.csw-cta .glow{position:absolute;width:480px;height:480px;border-radius:50%;background:#3ddc6e;filter:blur(120px);opacity:.4;top:-220px;left:50%;transform:translateX(-50%);}
+.csw-cta .in{position:relative;z-index:2;}
+.csw-cta .kick{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#c7f23f;}
+.csw-cta h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.4vw,54px);letter-spacing:-0.03em;line-height:1.04;margin-top:14px;}
+.csw-cta p{color:rgba(255,255,255,.85);font-size:17px;margin-top:18px;max-width:46ch;margin-inline:auto;}
+.btn-banner{background:#fff;color:#0b3a1f;margin-top:30px;}
+.btn-banner:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px rgba(61,220,110,.55);}
+
+.csw-foot{padding-block:46px;border-top:1px solid var(--line);}
+.csw-foot .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;width:100%;color:var(--muted);font-size:14px;}
+</style>
+<style id="nl-brand">
+.nl-logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{width:34px;height:34px;flex:none;border-radius:11px;background:linear-gradient(150deg,#39a6ff,#7b5cff);color:#fff;display:grid;place-items:center;font-weight:700;font-size:16px;letter-spacing:-.02em;box-shadow:0 0 0 1px rgba(123,92,255,.45),0 0 20px -5px rgba(57,166,255,.6);}
+.nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-weight:700;font-size:20px;letter-spacing:-.02em;color:#f4f1ea;line-height:1;}
+.cs-nav,.csw-nav{background:rgba(17,18,20,.72)!important;backdrop-filter:blur(16px) saturate(120%)!important;border-bottom:1px solid rgba(255,255,255,.09)!important;box-shadow:none!important;}
+.cs-nav .cs-back,.csw-nav .csw-back{color:#f4f1ea!important;}
+.cs-nav .cs-back .ar,.csw-nav .csw-back .ar{border-color:rgba(255,255,255,.22)!important;color:#f4f1ea!important;}
+
+.nl-footer{background:#0d0e10;border-top:1px solid #2b2e33;color:#a6a8ad;padding:clamp(44px,6vw,72px) 0;position:relative;z-index:2;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-footer .nl-fwrap{max-width:1300px;margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+.nl-ftop{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid #2b2e33;}
+.nl-footer .nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-size:24px;}
+.nl-flinks{display:flex;flex-wrap:wrap;gap:8px;}
+.nl-flinks a{font-weight:500;font-size:14px;color:#dcd9d3;padding:8px 14px;border-radius:999px;text-decoration:none;transition:background .25s,color .25s;}
+.nl-flinks a:hover{background:#181a1d;color:#42c8dd;}
+.nl-fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;color:#a6a8ad;font-size:14px;}
+.nl-socials{display:flex;gap:8px;}
+.nl-socials a{width:40px;height:40px;border-radius:50%;border:1.5px solid #383b41;display:grid;place-items:center;color:#dcd9d3;transition:all .3s ease;}
+.nl-socials a:hover{background:#19b7d1;border-color:#19b7d1;color:#fff;}
+.nl-socials svg{width:17px;height:17px;}
+.plogo .mk svg,.nl-logo .nl-mk svg,.studio-mix-badge .mk svg{width:74%;height:74%;display:block}
+.plogo .mk,.nl-logo .nl-mk,.studio-mix-badge .mk{font-size:0}
+
+.nl-fbot{display:grid!important;grid-template-columns:1fr auto 1fr;align-items:center;}
+.nl-fbot .nl-tag{text-align:center;}
+.nl-fbot .nl-socials{justify-self:end;}
+@media (max-width:700px){.nl-fbot{grid-template-columns:1fr;justify-items:center;text-align:center;}.nl-fbot .nl-socials{justify-self:center;}}
+</style>
+</head>
+<body>
+<nav class="csw-nav">
+  <div class="csw-nav-inner">
+    <a class="csw-back" href="All Work.html">
+      <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
+      Back to work
+    </a>
+    <a class="nl-logo" href="TheNabLab Pro v5 Charcoal.html"><span class="nl-mk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 18.4V6.6c0-.6.7-.9 1.1-.4l8.6 10.6V5.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16.3" cy="5.6" r="2.1" fill="currentColor"/></svg></span><b><span>the<i>Nab</i>Lab</span><small>by Nabil Abou Rjeily</small></b></a>
+    <a class="btn btn-teal" href="footycash/FootyCash.html" style="padding:11px 20px;font-size:14px;">Live showcase</a>
+  </div>
+</nav>
+
+<main>
+  <header class="csw-hero">
+    <div class="wrap">
+      <div class="reveal in"><span class="csw-kick">Case study · iGaming · Web &amp; Mobile · 2025</span></div>
+      <h1 class="reveal in">FootyCash — turning a football hunch into a <span class="teal">shared pool</span>.</h1>
+      <p class="lede reveal in">A pool-based football prediction and betting platform for Ghana's leagues — score predictors, three bet types and live pools, delivered as a fast mobile app and a data-dense desktop console on a stadium-night neon identity.</p>
+      <div class="csw-facts reveal in">
+        <div><div class="k">Role</div><div class="v">Product Designer &amp; Front-End</div></div>
+        <div><div class="k">Timeline</div><div class="v">5 months</div></div>
+        <div><div class="k">Platform</div><div class="v">Web &amp; Mobile</div></div>
+        <div><div class="k">Market</div><div class="v">Ghana · Football pools</div></div>
+      </div>
+      <div class="csw-banner reveal in">
+        <div class="phones">
+          <div class="bp"><div class="s"><img src="footycash/predictor-m.jpg" alt="" /></div></div>
+          <div class="bp"><div class="s"><img src="footycash/home-m.jpg" alt="FootyCash home" /></div></div>
+          <div class="bp"><div class="s"><img src="footycash/mybets-m.jpg" alt="" /></div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-block:clamp(50px,7vw,96px);">
+    <div class="wrap csw-2col">
+      <div class="reveal"><span class="eyebrow">Overview</span><h2 style="margin-top:14px;">A betting product that rewards football knowledge</h2></div>
+      <div class="csw-prose reveal reveal-d1">
+        <p>Most betting apps are walls of odds. <b>FootyCash bets on knowledge instead — punters predict exact scores and outcomes, then share a transparent pool where the payout is visible before a cedi is staked.</b></p>
+        <p>I designed the product around three pillars that map to how Ghanaian fans actually play: a single-match predictor, three combined bet types, and multi-match pools — each surfaced consistently on mobile and on a wider desktop console.</p>
+        <p>I owned the flows, the dark stadium-night UI with its neon green, floodlight lime and predictor violet, and built the responsive front-end so the same markets feel native on a phone and on a three-column web layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="reveal" style="max-width:680px;margin-bottom:30px;"><span class="eyebrow">What I did</span><h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,42px);letter-spacing:-0.025em;margin-top:14px;">From bet markets to a responsive front-end</h2></div>
+      <div class="csw-contrib reveal reveal-d1">
+        <div class="c"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v14H4zM4 9h16M8 13h3"/></svg></span><b>Bet-market UX</b><p>Designed the score grid, double chance, draw-no-bet and handicap markets into one scannable, colour-coded slip.</p></div>
+        <div class="c"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l3-3 3 3 4-5"/></svg></span><b>Transparent pools</b><p>Surfaced total pool, total payout and projected user payout so players see the value before staking.</p></div>
+        <div class="c"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span><b>Responsive front-end</b><p>Built the dark neon system once and laid it out as a single-column app and a three-column web console.</p></div>
+        <div class="c"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span><b>Results &amp; stats</b><p>A my-bets dashboard and last-5 / head-to-head stats close the loop from prediction to payout.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px;">
+        <div><span class="eyebrow">The screens</span><h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,42px);letter-spacing:-0.025em;margin-top:14px;">Predict, pool, track</h2></div>
+        <span style="color:var(--muted-2);font-size:13px;">Scroll to browse →</span>
+      </div>
+      <div class="csw-screens reveal reveal-d1">
+        <div class="csw-pill"><div class="csw-phone"><div class="scr"><img src="footycash/home-m-top.jpg" alt="FootyCash home" /></div></div><div class="lab">01 · Home<span>Live &amp; discover pools</span></div></div>
+        <div class="csw-pill"><div class="csw-phone"><div class="scr"><img src="footycash/predictor-m-top.jpg" alt="Match predictor" /></div></div><div class="lab">02 · Match Predicator<span>Correct score grid</span></div></div>
+        <div class="csw-pill"><div class="csw-phone"><div class="scr"><img src="footycash/threebet-m-top.jpg" alt="Three bet types" /></div></div><div class="lab">03 · Three Bet Types<span>Multi-match pool</span></div></div>
+        <div class="csw-pill"><div class="csw-phone"><div class="scr"><img src="footycash/mybets-m.jpg" alt="My bets" /></div></div><div class="lab">04 · My Bets<span>Won / lost &amp; payout</span></div></div>
+        <div class="csw-pill"><div class="csw-phone"><div class="scr"><img src="footycash/stats-m-top.jpg" alt="Statistics" /></div></div><div class="lab">05 · Statistics<span>Form &amp; head to head</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="csw-cta reveal">
+        <div class="glow"></div>
+        <div class="in">
+          <span class="kick">Live showcase</span>
+          <h2>Walk the full platform,<br/>mobile and web.</h2>
+          <p>See the predictor, the pools and the results dashboard in interactive mobile mockups and desktop browser frames on the branded FootyCash canvas.</p>
+          <a class="btn btn-banner" href="footycash/FootyCash.html">Explore the showcase
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="nl-footer">
+  <div class="nl-fwrap">
+    <div class="nl-ftop">
+      <a class="nl-logo" href="TheNabLab Pro v5 Charcoal.html"><span class="nl-mk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 18.4V6.6c0-.6.7-.9 1.1-.4l8.6 10.6V5.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16.3" cy="5.6" r="2.1" fill="currentColor"/></svg></span><b><span>the<i>Nab</i>Lab</span><small>by Nabil Abou Rjeily</small></b></a>
+      <div class="nl-flinks"><a href="TheNabLab Pro v5 Charcoal.html#services">Services</a><a href="TheNabLab Pro v5 Charcoal.html#about">About</a><a href="TheNabLab Pro v5 Charcoal.html#skills">Skills</a><a href="All Work.html">Work</a><a href="TheNabLab Pro v5 Charcoal.html#contact">Contact</a></div>
+    </div>
+    <div class="nl-fbot">
+      <span>© 2026 TheNabLab</span>
+      <span class="nl-tag"><b style="font-weight:inherit;color:#19b7d1">Designing</b> products. <b style="font-weight:inherit;color:#8b6bff">Engineering</b> experiences.</span>
+      <div class="nl-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.22 8.02h4.52V24H.22zM8.34 8.02h4.33v2.18h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.52v-7.66c0-1.83-.03-4.18-2.55-4.18-2.56 0-2.95 2-2.95 4.05V24H8.34z" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="Behance"><svg viewBox="0 0 24 24"><path d="M7.5 11.3c1.2-.5 1.9-1.5 1.9-2.9 0-2.6-1.9-3.4-4.2-3.4H0v13.9h5.4c2.4 0 4.7-1.2 4.7-4 0-1.7-.8-3-2.6-3.6zM3 7.4h2.1c.9 0 1.7.3 1.7 1.3 0 1-.7 1.4-1.6 1.4H3zm2.3 9H3v-3.2h2.4c1.1 0 1.8.5 1.8 1.6 0 1.2-.8 1.6-1.9 1.6zM18.8 9c-2.8 0-4.7 2.1-4.7 4.9s1.8 4.8 4.7 4.8c2.2 0 3.8-1 4.5-3h-2.4c-.3.8-1.1 1.2-1.9 1.2-1.5 0-2.3-.9-2.3-2.4h6.8c.2-2.9-1.4-5.5-4.7-5.5zm-2.1 3.9c0-1.2.9-2.1 2.1-2.1 1.3 0 1.9.7 2 2.1zM15.2 5.9h5.9v1.5h-5.9z" fill="currentColor" stroke="none"/></svg></a></div>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>All Work · TheNabLab — Nabil Abou Rjeily</title>
+<meta name="description" content="The complete archive of products Nabil Abou Rjeily has designed and built — across fintech, healthcare, hospitality, AI and enterprise." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="pro.css" />
+<style>
+/* ===== charcoal · cyan dark theme (matches Pro v5) ===== */
+:root{--maxw:1440px;--cream:#111214;--cream-2:#181a1d;--paper:#181a1d;--paper-2:#202328;--ink:#f4f1ea;--ink-2:#dcd9d3;--muted:#a6a8ad;--muted-2:#6f737a;--line:#2b2e33;--line-2:#383b41;--teal:#19b7d1;--teal-dark:#42c8dd;--teal-soft:rgba(25,183,209,.1);}
+body{background:var(--cream);color:var(--ink);}
+body::before{content:'';position:fixed;inset:0;z-index:-2;background:radial-gradient(58% 40% at 10% 0%,rgba(25,183,209,.14),transparent 70%),radial-gradient(52% 40% at 92% 22%,rgba(139,107,255,.09),transparent 72%);pointer-events:none;}
+.pnav{background:rgba(17,18,20,.72);backdrop-filter:blur(14px) saturate(120%);border-bottom:1px solid var(--line);}
+.pnav.scrolled{background:rgba(17,18,20,.94);box-shadow:0 1px 0 rgba(25,183,209,.28);}
+.plogo,.plogo span,.pnav-links a{color:var(--ink);}
+.plogo .mk{background:linear-gradient(140deg,#19b7d1,#8b6bff);color:#0d0e10;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45);}
+.plogo .teal,.teal{color:var(--teal);}
+.pnav-links a:hover{color:var(--teal);text-shadow:0 0 14px rgba(25,183,209,.5);}
+h1,h2,h3{color:var(--ink);}
+.work-head h1 .teal{color:var(--teal);text-shadow:0 0 26px rgba(25,183,209,.45);}
+.eyebrow{color:var(--teal);text-shadow:0 0 14px rgba(25,183,209,.4);}
+.eyebrow::before{background:var(--teal)!important;box-shadow:0 0 12px rgba(25,183,209,.8);}
+p,.sec-sub{color:var(--muted);}
+.btn-teal,.btn-primary{background:var(--ink)!important;color:#111214!important;border:none!important;box-shadow:none!important;}
+.btn-teal:hover,.btn-primary:hover{background:var(--teal)!important;color:#111214!important;box-shadow:0 0 0 1px rgba(25,183,209,.55),0 14px 38px -14px rgba(25,183,209,.85)!important;}
+.work-back{color:var(--muted);}
+.work-back:hover{color:var(--teal);}
+.work-card{background:var(--paper);border:1px solid var(--line);box-shadow:0 0 0 1px rgba(25,183,209,.05),0 30px 70px -45px #000;}
+.work-card:hover{background:var(--paper-2);box-shadow:0 0 0 1px rgba(25,183,209,.22),0 26px 60px -34px rgba(25,183,209,.35);}
+.work-card-body .pf-no{color:var(--muted-2);}
+.work-card-body p{color:var(--muted);}
+.pf-tags span{color:var(--muted);border-color:var(--line-2);background:var(--paper-2);}
+.work-card-link{color:var(--teal);}
+.work-card-link.muted{color:var(--muted-2);}
+.pfooter{background:#0d0e10;border-top:1px solid var(--line);color:var(--muted);}
+.pfooter a{color:var(--muted);}
+.pfooter a:hover{color:var(--teal);}
+a{color:var(--teal);}
+a:hover{color:#a98fff;}
+.work-card-art[data-brand="base360"]{background:radial-gradient(66% 58% at 22% 14%,rgba(109,94,255,.26),transparent 56%),radial-gradient(70% 62% at 84% 88%,rgba(34,211,238,.18),transparent 58%),linear-gradient(160deg,#14142a,#08080d 76%);}
+.work-card-art[data-brand="base360"]::after{background:radial-gradient(120% 100% at 50% 120%,rgba(0,0,0,.35),transparent 55%);}
+.plogo-txt{display:grid;gap:2px;line-height:1;}
+.plogo-txt small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.mega-panel{background:rgba(24,26,29,.97)!important;border:1px solid var(--line)!important;box-shadow:0 40px 90px -40px #000,0 0 0 1px rgba(25,183,209,.12)!important;}
+.mega-trigger{color:var(--ink)!important;}
+.pnav-mega.open .mega-trigger,.mega-trigger:hover{color:var(--teal)!important;}
+.mega-card:hover{background:var(--paper-2)!important;}
+.mega-name{color:var(--ink)!important;}
+.mega-ind{color:var(--muted-2)!important;}
+.mega-head{border-bottom:1px solid var(--line)!important;}
+.mega-foot{border-top:1px solid var(--line)!important;}
+.mega-all-link{color:var(--teal)!important;}
+.pf-more-note{color:var(--muted-2)!important;}
+.mega-thumb .dev-laptop .dev-top{border-radius:7px;padding:2.5px;}
+.mega-thumb .dev-laptop .dev-scr{border-radius:5px;}
+.mega-thumb .dev-laptop .dev-base{height:6px;border-radius:0 0 7px 7px;}
+.pnav .btn-teal{position:relative;isolation:isolate;overflow:visible;}
+.btn-neon{display:block!important;position:absolute;inset:0;border-radius:inherit;padding:1.5px;overflow:hidden;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;filter:drop-shadow(0 0 6px rgba(25,183,209,.55));}
+.btn-neon::before{content:'';position:absolute;top:50%;left:50%;width:300%;aspect-ratio:1;background:conic-gradient(transparent 0deg,#19b7d1 45deg,#7fe4f4 80deg,#19b7d1 120deg,transparent 175deg,transparent 205deg,#8b6bff 250deg,#b39bff 290deg,#8b6bff 320deg,transparent 360deg);animation:btnRingSpin 5s linear infinite;}
+@keyframes btnRingSpin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.btn-neon::before{animation:none}}
+.pnav .btn-teal{background:transparent!important;color:#a98fff!important;border:none!important;box-shadow:none!important;}
+.pnav .btn-teal:hover{background:rgba(139,107,255,.1)!important;color:#c4b2ff!important;box-shadow:0 0 24px -10px rgba(139,107,255,.8)!important;}
+/* header layout: back link on its own row, centred title block */
+.workhero{padding-top:132px;}
+.work-topbar{display:flex;justify-content:flex-start;}
+.work-head{max-width:820px;}
+.work-head h1{margin-top:14px;}
+.work-head .sec-sub{margin-top:16px;max-width:640px;}
+.h-sec{font-size:clamp(28px,4.2vw,54px)!important;}
+.sec-sub{font-size:clamp(15px,1.2vw,17px)!important;}
+.cta h2{font-size:clamp(28px,4.2vw,54px)!important;}
+.work-head h1{font-size:clamp(30px,4.2vw,54px)!important;}
+.plogo .mk svg,.nl-logo .nl-mk svg,.studio-mix-badge .mk svg{width:74%;height:74%;display:block}
+.plogo .mk,.nl-logo .nl-mk,.studio-mix-badge .mk{font-size:0}
+</style>
+</head>
+<body>
+<div id="wroot"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="data.jsx"></script>
+<script type="text/babel" src="hooks.jsx"></script>
+<script type="text/babel" src="work-app.jsx"></script>
+
+<style id="__om-edit-overrides"></style>
+</body>
+</html>

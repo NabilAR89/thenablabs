@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Barley — Steak &amp; Burger Restaurant Site</title>
+<meta name="description" content="A full-screen, story-driven website for Barley, a Beirut steak &amp; burger house: each section a cinematic frame, from a flame-grilled hero and a cream welcome to popular platters and a full burger menu, switching between charcoal-dark and warm light." />
+<link rel="canonical" href="https://thenablabs.com/barley/Barley.html" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Nabil Abou Rjeily" />
+<meta name="theme-color" content="#111214" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="TheNabLab" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://thenablabs.com/barley/Barley.html" />
+<meta property="og:title" content="Barley — Steak &amp;amp; Burger Restaurant Site" />
+<meta property="og:description" content="A full-screen, story-driven website for Barley, a Beirut steak &amp; burger house: each section a cinematic frame, from a flame-grilled hero and a cream welcome to popular platters and a full burger menu, switching between charcoal-dark and warm light." />
+<meta property="og:image" content="https://thenablabs.com/barley/home.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Barley — Steak &amp;amp; Burger Restaurant Site" />
+<meta name="twitter:description" content="A full-screen, story-driven website for Barley, a Beirut steak &amp; burger house: each section a cinematic frame, from a flame-grilled hero and a cream welcome to popular platters and a full burger menu, switching between charcoal-dark and warm light." />
+<meta name="twitter:image" content="https://thenablabs.com/barley/home.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@300;400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0c0c0e;
+  --bg-2:#131316;
+  --surface:#16161a;
+  --surface-2:#1d1d22;
+  --line:rgba(255,255,255,0.10);
+  --line-2:rgba(255,255,255,0.18);
+  --text:#f4f1ec;
+  --muted:#b0aaa1;
+  --muted-2:#7c766d;
+
+  --coral:#e0654a;
+  --coral-soft:#ef8067;
+  --amber:#edab3f;
+  --cream:#f0efe9;
+
+  --font-display:'Playfair Display', Georgia, serif;
+  --font-body:'Poppins', system-ui, sans-serif;
+  --maxw:1280px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;font-weight:300;}
+::selection{background:var(--coral);color:#fff;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-fx .glow{position:absolute;border-radius:50%;filter:blur(150px);}
+.bg-fx .g1{width:640px;height:640px;background:var(--coral);opacity:.16;top:-240px;right:-140px;}
+.bg-fx .g2{width:560px;height:560px;background:var(--amber);opacity:.10;bottom:-200px;left:-120px;}
+main{position:relative;z-index:1;}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
+
+.eyebrow{font-family:var(--font-body);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--coral);font-weight:600;}
+
+/* logo mark */
+.bmark{width:46px;height:46px;border-radius:50%;border:2px solid var(--coral);display:grid;place-items:center;}
+.bmark b{font-family:var(--font-display);font-weight:800;font-size:24px;color:var(--text);line-height:1;}
+
+/* hero */
+.hero{padding-top:clamp(64px,11vw,128px);padding-bottom:clamp(30px,5vw,56px);text-align:center;}
+.brandbar{display:inline-flex;align-items:center;gap:14px;margin-bottom:34px;}
+.brandbar .wm{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:.02em;text-align:left;line-height:1.05;}
+.brandbar .wm small{display:block;font-family:var(--font-body);font-weight:400;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+.hero h1{font-family:var(--font-display);font-weight:700;font-size:clamp(42px,7.4vw,90px);line-height:1.02;letter-spacing:-0.01em;margin-top:18px;}
+.hero h1 em{font-style:italic;color:var(--coral);}
+.hero p.lede{color:var(--muted);font-size:clamp(16px,1.6vw,20px);max-width:60ch;margin:26px auto 0;font-weight:300;}
+.hero .tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px;}
+.hero .tags span{font-family:var(--font-body);font-size:12.5px;letter-spacing:.04em;color:var(--text);padding:8px 17px;border:1px solid var(--line-2);border-radius:999px;background:rgba(255,255,255,.03);font-weight:400;}
+.hero .tags span b{color:var(--coral);font-weight:600;}
+
+.cs-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:820px;margin:46px auto 0;padding-top:30px;border-top:1px solid var(--line);text-align:left;}
+.cs-facts .k{font-family:var(--font-body);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted-2);font-weight:500;}
+.cs-facts .v{font-family:var(--font-display);font-weight:600;font-size:17px;margin-top:8px;color:var(--text);}
+@media (max-width:720px){.cs-facts{grid-template-columns:1fr 1fr;gap:18px;}}
+
+/* featured shot */
+.feature{padding-block:clamp(34px,5vw,64px);}
+.shot{border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#0a0a0c;box-shadow:0 50px 110px -50px rgba(0,0,0,.9);}
+.shot-bar{display:flex;align-items:center;gap:8px;padding:13px 18px;background:#0a0a0c;border-bottom:1px solid var(--line);}
+.shot-bar .dots{display:flex;gap:7px;}
+.shot-bar .dots i{width:11px;height:11px;border-radius:50%;background:#2a2a2f;}
+.shot-bar .dots i:nth-child(1){background:#e0654a;}
+.shot-bar .dots i:nth-child(2){background:var(--amber);}
+.shot-bar .dots i:nth-child(3){background:#5aa56a;}
+.shot-bar .url{margin-left:14px;flex:1;max-width:320px;font-family:var(--font-body);font-size:12px;color:var(--muted-2);background:#050506;border:1px solid var(--line);border-radius:8px;padding:6px 14px;}
+.shot-bar .tag{margin-left:auto;font-family:var(--font-body);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);font-weight:600;}
+.shot img{width:100%;display:block;}
+
+/* sections of frames */
+.gal{padding-block:clamp(40px,6vw,84px);border-top:1px solid var(--line);}
+.gal-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:38px;}
+.gal-head h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,3.6vw,46px);letter-spacing:-0.01em;margin-top:12px;}
+.gal-head p{color:var(--muted);font-size:15px;max-width:42ch;}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,34px);}
+.gal-grid.solo{grid-template-columns:1fr;}
+.gframe{display:flex;flex-direction:column;}
+.gcap{display:flex;align-items:baseline;gap:12px;padding:18px 4px 0;}
+.gcap .no{font-family:var(--font-display);font-style:italic;font-size:18px;color:var(--coral);}
+.gcap b{font-family:var(--font-display);font-weight:600;font-size:18px;}
+.gcap span{color:var(--muted);font-size:13.5px;}
+.gcap .txt{display:flex;flex-direction:column;gap:2px;}
+@media (max-width:760px){.gal-grid{grid-template-columns:1fr;}}
+
+/* features strip */
+.feat{padding-block:clamp(46px,6vw,90px);border-top:1px solid var(--line);}
+.eyebrow-h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,3.6vw,46px);letter-spacing:-0.01em;margin-top:12px;}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;}
+.fcard{background:linear-gradient(160deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:16px;padding:30px 26px;text-align:center;}
+.fcard .ic{width:54px;height:54px;border-radius:50%;border:1.5px solid var(--coral);color:var(--coral);display:grid;place-items:center;margin:0 auto;}
+.fcard .ic svg{width:26px;height:26px;}
+.fcard b{font-family:var(--font-display);font-weight:600;font-size:19px;display:block;margin-top:20px;}
+.fcard b em{font-style:italic;color:var(--coral);}
+.fcard p{color:var(--muted);font-size:14px;margin-top:8px;}
+@media (max-width:760px){.feat-grid{grid-template-columns:1fr;}}
+
+/* palette */
+.palette{padding-block:clamp(50px,7vw,96px);border-top:1px solid var(--line);}
+.palette-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:34px;}
+.sw{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface);}
+.sw .chip{height:118px;}
+.sw .info{padding:14px 16px;}
+.sw .info b{font-family:var(--font-display);font-weight:600;font-size:14px;display:block;}
+.sw .info span{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+@media (max-width:860px){.palette-grid{grid-template-columns:repeat(2,1fr);}}
+
+.foot{padding-block:46px;border-top:1px solid var(--line);color:var(--muted-2);font-size:13px;}
+.foot .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.foot b{color:var(--text);font-weight:500;}
+
+/* nav */
+.cs-nav{position:fixed;inset:0 0 auto 0;z-index:100;background:color-mix(in oklab,var(--bg) 78%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.cs-nav-inner{max-width:var(--maxw);margin:0 auto;padding:13px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.cs-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-weight:500;font-size:14px;color:var(--text);}
+.cs-back .ar{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:all .3s var(--ease);}
+.cs-back:hover .ar{background:var(--coral);border-color:var(--coral);color:#fff;}
+.cs-back svg{width:16px;height:16px;}
+.cs-nav .logo{font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:.04em;color:var(--text);}
+</style>
+<style id="nl-brand">
+.nl-logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{width:34px;height:34px;flex:none;border-radius:11px;background:linear-gradient(150deg,#39a6ff,#7b5cff);color:#fff;display:grid;place-items:center;font-weight:700;font-size:16px;letter-spacing:-.02em;box-shadow:0 0 0 1px rgba(123,92,255,.45),0 0 20px -5px rgba(57,166,255,.6);}
+.nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-weight:700;font-size:20px;letter-spacing:-.02em;color:#f4f1ea;line-height:1;}
+/* opaque #111214 — the same dark as the case-study pages. A translucent
+   dark greys out on the light-themed showcases. */
+.cs-nav,.csw-nav{background:#111214!important;backdrop-filter:none!important;border-bottom:1px solid rgba(255,255,255,.09)!important;box-shadow:none!important;}
+.cs-nav .cs-back,.csw-nav .csw-back{color:#f4f1ea!important;}
+.cs-nav .cs-back .ar,.csw-nav .csw-back .ar{border-color:rgba(255,255,255,.22)!important;color:#f4f1ea!important;}
+
+.nl-footer{background:#0d0e10;border-top:1px solid #2b2e33;color:#a6a8ad;padding:clamp(44px,6vw,72px) 0;position:relative;z-index:2;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-footer .nl-fwrap{max-width:1300px;margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+.nl-ftop{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid #2b2e33;}
+.nl-footer .nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-size:24px;}
+.nl-flinks{display:flex;flex-wrap:wrap;gap:8px;}
+.nl-flinks a{font-weight:500;font-size:14px;color:#dcd9d3;padding:8px 14px;border-radius:999px;text-decoration:none;transition:background .25s,color .25s;}
+.nl-flinks a:hover{background:#181a1d;color:#42c8dd;}
+.nl-fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;color:#a6a8ad;font-size:14px;}
+.nl-socials{display:flex;gap:8px;}
+.nl-socials a{width:40px;height:40px;border-radius:50%;border:1.5px solid #383b41;display:grid;place-items:center;color:#dcd9d3;transition:all .3s ease;}
+.nl-socials a:hover{background:#19b7d1;border-color:#19b7d1;color:#fff;}
+.nl-socials svg{width:17px;height:17px;}
+.plogo .mk svg,.nl-logo .nl-mk svg,.studio-mix-badge .mk svg{width:74%;height:74%;display:block}
+.plogo .mk,.nl-logo .nl-mk,.studio-mix-badge .mk{font-size:0}
+
+.nl-fbot{display:grid!important;grid-template-columns:1fr auto 1fr;align-items:center;}
+.nl-fbot .nl-tag{text-align:center;}
+.nl-fbot .nl-socials{justify-self:end;}
+@media (max-width:700px){.nl-fbot{grid-template-columns:1fr;justify-items:center;text-align:center;}.nl-fbot .nl-socials{justify-self:center;}}
+
+/* brand mark matches the homepage: the bare circled N (gradient lives in the
+   svg), Sora wordmark, no tile behind the mark */
+.nl-logo{font-family:'Sora',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{background:none!important;box-shadow:none!important;border-radius:0!important;}
+.nl-logo .nl-mk svg{width:100%;height:100%;display:block;}
+
+/* Floating nav — a rounded bar inset from the edges rather than a full-width
+   strip. The bar itself is transparent; the pill is the inner row. */
+.cs-nav,.csw-nav{background:none!important;backdrop-filter:none!important;border-bottom:none!important;box-shadow:none!important;padding-block:clamp(10px,1.3vw,16px);}
+.cs-nav-inner{width:calc(100% - clamp(20px,4vw,52px));max-width:var(--maxw);margin-inline:auto;
+  padding:10px 12px 10px 22px;border-radius:20px;
+  background:#141518;
+  border:none;box-shadow:none;
+  transition:background .4s var(--ease),box-shadow .4s var(--ease);}
+html.scrolled .cs-nav-inner{box-shadow:0 20px 46px -10px rgba(0,0,0,1),0 6px 16px -6px rgba(0,0,0,.9);}
+
+/* ---------- Small screens: clear the fixed bar, smaller wordmark ----------
+   The hero's padding-top bottomed out at 64px while the fixed bar reaches
+   ~76px, so the first line of the page was sitting under the header. The
+   wordmark also comes down a size: at 34px with its subtitle it was wrapping
+   the bar onto a second line on a narrow handset, which is what made the bar
+   tall enough to collide in the first place. */
+@media (max-width:760px){
+  .hero{padding-top:clamp(104px,20vw,138px);}
+  .cs-nav .nl-logo .nl-mk,.csw-nav .nl-logo .nl-mk{width:26px;height:26px;}
+  .cs-nav .nl-logo b,.csw-nav .nl-logo b{font-size:16px!important;}
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{font-size:8px;letter-spacing:.12em;}
+  .cs-nav .nl-logo,.csw-nav .nl-logo{gap:8px!important;}
+  .cs-nav-inner,.csw-nav-inner{padding:8px 12px 8px 16px;}
+}
+@media (max-width:420px){
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{display:none;}
+}
+
+/* ---------- Showcase header carries the project's own logo ----------
+   The site wordmark was the one thing in this bar that did not belong to the
+   project on screen, and the footer already signs the page. The hero's
+   brandbar mark is reused here instead, shrunk to sit in the bar. Sizing is
+   per-page below because every project's mark is built differently - some are
+   fixed boxes, some images, some the wordmark itself. */
+.cs-brand{display:inline-flex;align-items:center;gap:9px;min-width:0;}
+.cs-brand>*{flex:none;margin:0;}
+.cs-brand .cs-brand-name{font-family:'Sora',system-ui,-apple-system,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.01em;color:#f4f1ea;white-space:nowrap;line-height:1;}
+.cs-brand .cs-brand-name em{font-style:normal;}
+@media (max-width:420px){.cs-brand .cs-brand-name{font-size:14px;}}
+.cs-brand .bmark{width:26px;height:26px;border-width:1.5px;}
+.cs-brand .bmark b{font-size:13px;}
+
+/* The hero's brandbar is the same logo the header now carries, at four times
+   the size and directly beneath it. One of the two has to go, and the header
+   is the one that stays visible as the page scrolls. */
+.hero .brandbar{display:none;}
+
+
+/* ---------- Screens close to the description on small screens ----------
+   The tag row and the fact grid sat between the description and the first
+   screen, and on the longer pages two prose sections sat there too — so the
+   work itself started a screen and a half down. The description keeps its
+   place, the screens follow it, and the supporting detail moves below them.
+   Desktop is untouched: .cs-meta renders exactly where the tags and facts
+   used to sit at the foot of the hero. */
+.cs-meta{padding:0;}
+@media (max-width:760px){
+  main{display:flex;flex-direction:column;}
+  main>*{order:5;}
+  main>.hero{order:0;}
+  /* .cs-meta is now the first section in source, so the description is the
+     one straight after it. :first-of-type cannot see past .cs-meta. */
+  main>.cs-meta+section{order:1;}
+  main>[data-shots]{order:2;}
+  main>.cs-meta{order:3;}
+}
+
+/* ---------- Social icons: square, never stretched ---------- */
+.nl-socials a{flex:0 0 auto;aspect-ratio:1;}
+@media (pointer:coarse){
+  .nl-socials a{width:44px;height:44px;min-width:44px;min-height:44px;display:grid;place-items:center;border-radius:50%;}
+}
+
+/* The tag row moved out of .hero into .cs-meta when the screens were
+   brought up next to the description, which left these rules behind and
+   the pills unstyled. Same declarations, re-scoped to where they live. */
+.cs-meta .tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px;}
+.cs-meta .tags span{font-family:var(--font-body);font-size:12.5px;letter-spacing:.04em;color:var(--text);padding:8px 17px;border:1px solid var(--line-2);border-radius:999px;background:rgba(255,255,255,.03);font-weight:400;}
+.cs-meta .tags span b{color:var(--coral);font-weight:600;}
+</style>
+</head>
+<body>
+<nav class="cs-nav">
+  <div class="cs-nav-inner">
+    <a class="cs-back" href="/work">
+      <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
+      Back to work
+    </a>
+    <span class="cs-brand"><span class="bmark"><b>B</b></span><b class="cs-brand-name">BARLEY</b></span>
+  </div>
+</nav>
+<div class="bg-fx"><div class="glow g1"></div><div class="glow g2"></div></div>
+
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <div class="brandbar reveal in">
+        <span class="bmark"><b>B</b></span>
+        <span class="wm">BARLEY<small>Steak &amp; Burger · Est. 2014</small></span>
+      </div>
+      <div class="reveal in d1"><span class="eyebrow">Restaurant website · Single-page</span></div>
+      <h1 class="reveal in d1">Fire, steak<br/>&amp; the perfect <em>burger</em></h1>
+      <p class="lede reveal in d2">A full-screen, story-driven website for Barley: a Beirut steak &amp; burger house. Each section is its own cinematic frame: a flame-grilled hero, a blurred dining room, popular platters and a full burger menu, switching between charcoal-dark and warm cream.</p>
+      
+      
+    </div>
+  </header>
+
+  <section class="cs-meta">
+    <div class="wrap">
+      <div class="tags reveal in d3">
+        <span><b>8</b>&nbsp; full-screen sections</span>
+        <span>Restaurant&nbsp; <b>·</b>&nbsp; Steak&nbsp; <b>·</b>&nbsp; Burgers</span>
+        <span>Beirut, Lebanon&nbsp; <b>·</b>&nbsp; LBP</span>
+      </div>
+      <div class="cs-facts reveal in d3">
+        <div><div class="k">Role</div><div class="v">Product Designer &amp; Front-End</div></div>
+        <div><div class="k">Timeline</div><div class="v">3 months</div></div>
+        <div><div class="k">Platform</div><div class="v">Web · Single-page</div></div>
+        <div><div class="k">Client</div><div class="v">Barley Steak &amp; Burger</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FEATURED -->
+  <section class="feature" data-shots>
+    <div class="wrap">
+      <figure class="shot reveal">
+        <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">barley.com</span><span class="tag">Home · Hero</span></div>
+        <img src="home.jpg" alt="Barley home hero — flame-grilled grill with the brand crest" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- THE RESTAURANT -->
+  <section class="gal">
+    <div class="wrap">
+      <div class="gal-head reveal">
+        <div>
+          <span class="eyebrow">The restaurant</span>
+          <h2>An entrance, then a welcome</h2>
+        </div>
+        <p>A full-screen carousel menu reveals the sections, then a cream "welcome" frame introduces the kitchen's traditional, tasty, delicious promise.</p>
+      </div>
+      <div class="gal-grid reveal d1">
+        <div class="gframe">
+          <figure class="shot">
+            <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">barley.com/#menu</span><span class="tag">Menu</span></div>
+            <img src="menu-nav.jpg" alt="Barley full-screen carousel menu navigation" />
+          </figure>
+          <figcaption class="gcap"><span class="no">01</span><span class="txt"><b>Carousel menu</b><span>A full-screen image carousel with Home, Restaurant, Steak, Burgers and Contact.</span></span></figcaption>
+        </div>
+        <div class="gframe">
+          <figure class="shot">
+            <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">barley.com/#welcome</span><span class="tag">Welcome</span></div>
+            <img src="welcome.jpg" alt="Barley welcome section on cream paper" />
+          </figure>
+          <figcaption class="gcap"><span class="no">02</span><span class="txt"><b>Welcome</b><span>Hand-drawn icons — traditional, tasty, delicious — on a textured cream page.</span></span></figcaption>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATTERS & CONTACT -->
+  <section class="gal">
+    <div class="wrap">
+      <div class="gal-head reveal">
+        <div>
+          <span class="eyebrow">Platters &amp; contact</span>
+          <h2>Plates worth the trip</h2>
+        </div>
+        <p>A dark platter carousel puts the cheeseburger centre stage with ingredients and price, while contact lays out hours and a map of the Beirut location.</p>
+      </div>
+      <div class="gal-grid reveal d1">
+        <div class="gframe">
+          <figure class="shot">
+            <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">barley.com/#popular</span><span class="tag">Popular platters</span></div>
+            <img src="popular.jpg" alt="Barley most popular platters carousel" />
+          </figure>
+          <figcaption class="gcap"><span class="no">03</span><span class="txt"><b>Popular platters</b><span>A framed hero dish flanked by peeks of the next and previous plates.</span></span></figcaption>
+        </div>
+        <div class="gframe">
+          <figure class="shot">
+            <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">barley.com/#contact</span><span class="tag">Contact</span></div>
+            <img src="contact.jpg" alt="Barley contact section with opening hours and map" />
+          </figure>
+          <figcaption class="gcap"><span class="no">04</span><span class="txt"><b>Reach us</b><span>Opening hours, a dark map pin and the Beirut address, phone and email.</span></span></figcaption>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE BURGERS -->
+  <section class="gal">
+    <div class="wrap">
+      <div class="gal-head reveal">
+        <div>
+          <span class="eyebrow">The burgers</span>
+          <h2>A menu that floats off the page</h2>
+        </div>
+        <p>An amber burger title screen breaks the rhythm, then a paginated burger list and a single-burger detail close out the journey.</p>
+      </div>
+      <div class="gal-grid solo reveal d1" style="margin-bottom:clamp(20px,3vw,34px);">
+        <div class="gframe">
+          <figure class="shot">
+            <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">barley.com/#burger</span><span class="tag">Burger · Title</span></div>
+            <img src="burger-hero.jpg" alt="Barley exploded burger over the word BURGER on amber" />
+          </figure>
+          <figcaption class="gcap"><span class="no">05</span><span class="txt"><b>Burger title screen</b><span>An exploded burger floating over an oversized coral "BURGER" wordmark on warm amber.</span></span></figcaption>
+        </div>
+      </div>
+      <div class="gal-grid reveal d1">
+        <div class="gframe">
+          <figure class="shot">
+            <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">barley.com/#burgers</span><span class="tag">Burger list</span></div>
+            <img src="burgers-list.jpg" alt="Barley list of burgers with prices" />
+          </figure>
+          <figcaption class="gcap"><span class="no">06</span><span class="txt"><b>Burger list</b><span>Chicken, Cordon Blues and a special offer, each priced in LBP with a "know more".</span></span></figcaption>
+        </div>
+        <div class="gframe">
+          <figure class="shot">
+            <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">barley.com/#burger-detail</span><span class="tag">Burger detail</span></div>
+            <img src="burger-details.jpg" alt="Barley single cheeseburger detail with ingredients" />
+          </figure>
+          <figcaption class="gcap"><span class="no">07</span><span class="txt"><b>Burger detail</b><span>A full description, price, ingredient chips and a draggable next-burger control.</span></span></figcaption>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="feat">
+    <div class="wrap">
+      <span class="eyebrow reveal">The promise</span>
+      <h2 class="eyebrow-h2 reveal">Three words, every plate</h2>
+      <div class="feat-grid reveal d1">
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v7a3 3 0 0 0 6 0V3M7 10v11M17 3c-1.7 0-3 2-3 5s1.3 4 3 4 3-1 3-4-1.3-5-3-5zM17 16v5"/></svg></span><b>It's <em>traditional</em></b><p>Charcoal grilling and a heritage crest, Est. 2014, carried through every frame.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18a9 9 0 0 0-18 0zM2 15h20M6 19h12"/></svg></span><b>It's <em>tasty</em></b><p>Full-bleed food photography sits at the centre of each section, never an afterthought.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M6 8h12v9a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4zM6 2v3M10 2v3M14 2v3"/></svg></span><b>It's <em>delicious</em></b><p>A coral accent and high-contrast serif tie the dark and cream worlds into one identity.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALETTE -->
+  <section class="palette">
+    <div class="wrap">
+      <span class="eyebrow reveal">Color system</span>
+      <h2 class="eyebrow-h2 reveal">The Barley palette</h2>
+      <div class="palette-grid reveal d1">
+        <div class="sw"><div class="chip" style="background:#0c0c0e"></div><div class="info"><b>Charcoal</b><span>#0C0C0E</span></div></div>
+        <div class="sw"><div class="chip" style="background:#e0654a"></div><div class="info"><b>Grill Coral</b><span>#E0654A</span></div></div>
+        <div class="sw"><div class="chip" style="background:#edab3f"></div><div class="info"><b>Bun Amber</b><span>#EDAB3F</span></div></div>
+        <div class="sw"><div class="chip" style="background:#f0efe9"></div><div class="info"><b>Paper Cream</b><span>#F0EFE9</span></div></div>
+        <div class="sw"><div class="chip" style="background:#f4f1ec;border-bottom:1px solid #e0ddd5"></div><div class="info"><b>Off White</b><span>#F4F1EC</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="nl-footer">
+  <div class="nl-fwrap">
+    <div class="nl-ftop">
+      <a class="nl-logo" href="/"><span class="nl-mk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><linearGradient id="mk-foot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19b7d1"/><stop offset="1" stop-color="#8b6bff"/></linearGradient><circle cx="12" cy="12" r="10.85" stroke="url(#mk-foot)" stroke-width="2.2"/><path d="M8.7 7.9h1.8l3 5.13V7.9h1.8V16.1h-1.8l-3-5.13V16.1H8.7Z" fill="url(#mk-foot)"/></svg></span><b><span>the<i>Nab</i>Labs</span><small>by Nabil Abou Rjeily</small></b></a>
+      <div class="nl-flinks"><a href="/#services">Services</a><a href="/#about">About</a><a href="/#skills">Skills</a><a href="/work">Work</a><a href="/#contact">Contact</a></div>
+    </div>
+    <div class="nl-fbot">
+      <span>© 2026 TheNabLab</span>
+      <span class="nl-tag"><b style="font-weight:inherit;color:#19b7d1">Designing</b> products. <b style="font-weight:inherit;color:#8b6bff">Engineering</b> experiences.</span>
+      <div class="nl-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24">undefined</svg></a><a href="#" aria-label="Behance"><svg viewBox="0 0 24 24">undefined</svg></a></div>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+})();
+</script>
+<script>(function(){var r=document.documentElement,f=function(){r.classList.toggle('scrolled',window.scrollY>24)};f();window.addEventListener('scroll',f,{passive:true})})();</script>
+</body>
+</html>

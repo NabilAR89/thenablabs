@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Al Hilal — Digital Banking Super-App</title>
+<meta name="description" content="A youth-focused digital banking super-app for Al Hilal Bank, pairing a prepaid debit card and children’s saving accounts with everyday lifestyle services, from a guided onboarding to a rewards-driven home." />
+<link rel="canonical" href="https://thenablabs.com/alhilal/AlHilal.html" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Nabil Abou Rjeily" />
+<meta name="theme-color" content="#111214" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="TheNabLab" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://thenablabs.com/alhilal/AlHilal.html" />
+<meta property="og:title" content="Al Hilal — Digital Banking Super-App" />
+<meta property="og:description" content="A youth-focused digital banking super-app for Al Hilal Bank, pairing a prepaid debit card and children’s saving accounts with everyday lifestyle services, from a guided onboarding to a rewards-driven home." />
+<meta property="og:image" content="https://thenablabs.com/alhilal/home-x.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Al Hilal — Digital Banking Super-App" />
+<meta name="twitter:description" content="A youth-focused digital banking super-app for Al Hilal Bank, pairing a prepaid debit card and children’s saving accounts with everyday lifestyle services, from a guided onboarding to a rewards-driven home." />
+<meta name="twitter:image" content="https://thenablabs.com/alhilal/home-x.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0e0a2e;
+  --bg-2:#160d3d;
+  --surface:#1c1450;
+  --surface-2:#241a5e;
+  --line:rgba(255,255,255,0.10);
+  --line-2:rgba(255,255,255,0.18);
+  --text:#f7f5ff;
+  --muted:#b3aad6;
+  --muted-2:#7d76a8;
+
+  --magenta:#ED1164;
+  --magenta-soft:#ff4d8a;
+  --orange:#F7941D;
+  --orange-2:#FF6B35;
+  --violet:#7B2FF7;
+
+  --font-display:'Sora', system-ui, sans-serif;
+  --font-body:'DM Sans', system-ui, sans-serif;
+  --maxw:1280px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+::selection{background:var(--magenta);color:#fff;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+
+/* ambient */
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-fx .glow{position:absolute;border-radius:50%;filter:blur(130px);}
+.bg-fx .g1{width:640px;height:640px;background:var(--magenta);opacity:.28;top:-220px;right:-120px;}
+.bg-fx .g2{width:560px;height:560px;background:var(--orange);opacity:.20;bottom:-200px;left:-120px;}
+.bg-fx .g3{width:480px;height:480px;background:var(--violet);opacity:.22;top:30%;left:40%;}
+main{position:relative;z-index:1;}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
+
+/* logo mark — AHB rounded square */
+.ahmark{width:40px;height:40px;border-radius:13px;background:linear-gradient(150deg,var(--orange),var(--magenta));display:grid;place-items:center;box-shadow:0 10px 26px -10px var(--magenta);}
+.ahmark span{width:17px;height:17px;border-radius:6px;border:3px solid #fff;}
+
+/* hero */
+.hero{padding-top:clamp(64px,11vw,128px);padding-bottom:clamp(30px,5vw,56px);text-align:center;}
+.brandbar{display:inline-flex;align-items:center;gap:13px;margin-bottom:34px;}
+.brandbar .wm{font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:-0.01em;text-align:left;line-height:1.05;}
+.brandbar .wm small{display:block;font-family:var(--font-body);font-weight:400;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:3px;}
+.eyebrow{font-family:var(--font-display);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:600;}
+.hero h1{font-family:var(--font-display);font-weight:700;font-size:clamp(40px,7vw,84px);line-height:1.02;letter-spacing:-0.03em;margin-top:20px;}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--orange),var(--magenta-soft));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p.lede{color:var(--muted);font-size:clamp(16px,1.6vw,20px);max-width:56ch;margin:24px auto 0;}
+.hero .tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px;}
+.hero .tags span{font-family:var(--font-display);font-size:13px;color:var(--text);padding:8px 16px;border:1px solid var(--line-2);border-radius:999px;background:rgba(255,255,255,.04);}
+.hero .tags span b{color:var(--orange);font-weight:700;}
+
+/* flow rail */
+.flow{padding-block:clamp(40px,6vw,84px);}
+.flow-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:30px;}
+.flow-head h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,44px);letter-spacing:-0.02em;}
+.flow-head .hint{font-family:var(--font-display);font-size:13px;color:var(--muted-2);display:inline-flex;align-items:center;gap:8px;}
+.flow-head .hint svg{width:16px;height:16px;}
+
+.rail{display:flex;gap:clamp(28px,4vw,56px);overflow-x:auto;padding:30px 4px 40px;scroll-snap-type:x mandatory;}
+.rail::-webkit-scrollbar{height:8px;}
+.rail::-webkit-scrollbar-track{background:var(--surface);border-radius:999px;}
+.rail::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:999px;}
+.rail::-webkit-scrollbar-thumb:hover{background:var(--magenta);}
+
+.step{flex:0 0 auto;width:296px;scroll-snap-align:center;display:flex;flex-direction:column;}
+.step:nth-child(even){margin-top:48px;}
+.step-meta{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.step-no{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:14px;flex:none;color:#fff;}
+.step-no.a{background:linear-gradient(150deg,var(--orange),var(--magenta));}
+.step-no.b{background:var(--magenta);}
+.step-no.c{background:var(--violet);}
+.step-kicker{font-family:var(--font-display);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);}
+.step-kicker b{display:block;font-size:15px;letter-spacing:0;text-transform:none;color:var(--text);font-weight:600;margin-top:2px;}
+
+.phone{position:relative;width:100%;aspect-ratio:668/1457;border-radius:42px;padding:7px;
+  background:linear-gradient(155deg,#2a2c2e,#101113 55%,#26282a);
+  box-shadow:0 2px 0 rgba(255,255,255,.08) inset,0 44px 80px -30px rgba(10,4,30,.9),0 0 0 1px rgba(0,0,0,.6);
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease);}
+.step:hover .phone{transform:translateY(-10px);box-shadow:0 2px 0 rgba(255,255,255,.1) inset,0 54px 96px -28px rgba(10,4,30,.95),0 0 0 1px var(--line-2),0 0 64px -16px var(--glow,var(--magenta));}
+.phone .screen{position:relative;width:100%;height:100%;border-radius:35px;overflow:hidden;background:#000;}
+.phone .screen img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.phone::before{content:"";position:absolute;left:-2px;top:120px;width:3px;height:64px;border-radius:3px;background:#1a1c1e;}
+.phone::after{content:"";position:absolute;right:-2px;top:96px;width:3px;height:38px;border-radius:3px;background:#1a1c1e;box-shadow:0 56px 0 #1a1c1e,0 110px 0 #1a1c1e;}
+
+.step-cap{margin-top:22px;}
+.step-cap p{color:var(--muted);font-size:14.5px;}
+.step-cap .pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
+.step-cap .pills span{font-family:var(--font-display);font-size:11.5px;color:var(--text);padding:5px 11px;border:1px solid var(--line);border-radius:999px;}
+
+/* live walkthrough */
+.live{padding-block:clamp(38px,5.5vw,76px);}
+.live-inner{display:grid;grid-template-columns:1fr .82fr;gap:clamp(28px,6vw,72px);align-items:center;}
+.live-copy p{color:var(--muted);font-size:clamp(16px,1.4vw,18px);margin-top:18px;line-height:1.7;max-width:46ch;}
+.live-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+.live-pills span{font-family:var(--font-display);font-size:12px;color:var(--text);padding:6px 13px;border:1px solid var(--line);border-radius:999px;}
+.live-stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:clamp(420px,46vw,560px);}
+.live-glow{position:absolute;width:80%;height:80%;border-radius:50%;filter:blur(95px);background:radial-gradient(circle,rgba(237,17,100,.5),rgba(247,148,29,.22) 55%,transparent 72%);z-index:0;pointer-events:none;}
+.live-stage img{position:relative;z-index:1;width:min(320px,84%);border-radius:38px;box-shadow:0 56px 100px -44px rgba(20,5,40,.85),0 0 0 1px rgba(255,255,255,.05);display:block;}
+.live-badge{position:absolute;z-index:2;top:7%;right:13%;display:inline-flex;align-items:center;gap:7px;background:rgba(8,6,24,.66);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);color:#fff;font-family:var(--font-display);font-weight:600;font-size:12.5px;letter-spacing:.02em;padding:7px 13px;border-radius:999px;}
+.live-badge i{width:7px;height:7px;border-radius:50%;background:#ED1164;animation:livePulse 1.8s infinite;}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(237,17,100,.6);}70%{box-shadow:0 0 0 9px rgba(237,17,100,0);}100%{box-shadow:0 0 0 0 rgba(237,17,100,0);}}
+@media(max-width:760px){.live-inner{grid-template-columns:1fr;text-align:center;}.live-copy p{margin-inline:auto;}.live-pills{justify-content:center;}.live-badge{right:8%;}}
+
+/* features strip */
+.feat{padding-block:clamp(46px,6vw,90px);border-top:1px solid var(--line);}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;}
+.fcard{background:linear-gradient(160deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:20px;padding:26px 22px;}
+.fcard .ic{width:44px;height:44px;border-radius:13px;background:rgba(237,17,100,.16);color:var(--magenta-soft);display:grid;place-items:center;}
+.fcard .ic svg{width:22px;height:22px;}
+.fcard b{font-family:var(--font-display);font-weight:600;font-size:17px;display:block;margin-top:18px;}
+.fcard p{color:var(--muted);font-size:14px;margin-top:8px;}
+@media (max-width:900px){.feat-grid{grid-template-columns:1fr 1fr;}}
+
+/* palette */
+.palette{padding-block:clamp(50px,7vw,96px);border-top:1px solid var(--line);}
+.palette-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:34px;}
+.sw{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--surface);}
+.sw .chip{height:118px;}
+.sw .info{padding:14px 16px;}
+.sw .info b{font-family:var(--font-display);font-weight:600;font-size:14px;display:block;}
+.sw .info span{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;}
+@media (max-width:860px){.palette-grid{grid-template-columns:repeat(2,1fr);}}
+
+.foot{padding-block:46px;border-top:1px solid var(--line);color:var(--muted-2);font-size:13px;}
+.foot .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.foot b{color:var(--text);font-weight:600;}
+.eyebrow-h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,44px);letter-spacing:-0.02em;margin-top:14px;}
+
+/* ---------- Case-study nav ---------- */
+.cs-nav{position:fixed;inset:0 0 auto 0;z-index:100;background:color-mix(in oklab,var(--bg) 76%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.cs-nav-inner{max-width:var(--maxw);margin:0 auto;padding:13px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.cs-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:14.5px;color:var(--text);}
+.cs-back .ar{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:all .3s var(--ease);}
+.cs-back:hover .ar{background:var(--magenta);border-color:var(--magenta);color:#fff;}
+.cs-back svg{width:16px;height:16px;}
+.cs-nav .logo{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--text);}
+.cs-nav .logo b{color:var(--orange);font-weight:700;}
+
+/* ---------- Case-study facts ---------- */
+.cs-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:800px;margin:44px auto 0;padding-top:30px;border-top:1px solid var(--line);text-align:left;}
+.cs-facts .k{font-family:var(--font-display);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted-2);}
+.cs-facts .v{font-family:var(--font-display);font-weight:600;font-size:16px;margin-top:7px;color:var(--text);}
+@media (max-width:720px){.cs-facts{grid-template-columns:1fr 1fr;gap:18px;}}
+
+/* ---------- Case-study narrative ---------- */
+.cs-intro{padding-block:clamp(50px,7vw,92px);border-top:1px solid var(--line);}
+.cs-2col{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,80px);align-items:start;}
+.cs-2col h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,42px);letter-spacing:-0.025em;line-height:1.08;margin-top:14px;}
+.cs-prose p{color:var(--muted);font-size:clamp(16px,1.4vw,18px);margin-top:18px;line-height:1.7;}
+.cs-prose p:first-child{margin-top:0;}
+.cs-prose b{color:var(--text);font-weight:600;}
+@media (max-width:760px){.cs-2col{grid-template-columns:1fr;gap:16px;}}
+.cs-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px;}
+.cs-card{background:linear-gradient(160deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:20px;padding:26px 22px;}
+.cs-card .ic{width:44px;height:44px;border-radius:13px;background:rgba(237,17,100,.16);color:var(--magenta-soft);display:grid;place-items:center;}
+.cs-card .ic svg{width:22px;height:22px;}
+.cs-card b{font-family:var(--font-display);font-weight:600;font-size:17px;display:block;margin-top:18px;color:var(--text);}
+.cs-card p{color:var(--muted);font-size:14px;margin-top:8px;}
+@media (max-width:900px){.cs-cards{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.cs-cards{grid-template-columns:1fr;}}
+</style>
+<style id="nl-brand">
+.nl-logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{width:34px;height:34px;flex:none;border-radius:11px;background:linear-gradient(150deg,#39a6ff,#7b5cff);color:#fff;display:grid;place-items:center;font-weight:700;font-size:16px;letter-spacing:-.02em;box-shadow:0 0 0 1px rgba(123,92,255,.45),0 0 20px -5px rgba(57,166,255,.6);}
+.nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-weight:700;font-size:20px;letter-spacing:-.02em;color:#f4f1ea;line-height:1;}
+/* opaque #111214 — the same dark as the case-study pages. A translucent
+   dark greys out on the light-themed showcases. */
+.cs-nav,.csw-nav{background:#111214!important;backdrop-filter:none!important;border-bottom:1px solid rgba(255,255,255,.09)!important;box-shadow:none!important;}
+.cs-nav .cs-back,.csw-nav .csw-back{color:#f4f1ea!important;}
+.cs-nav .cs-back .ar,.csw-nav .csw-back .ar{border-color:rgba(255,255,255,.22)!important;color:#f4f1ea!important;}
+
+.nl-footer{background:#0d0e10;border-top:1px solid #2b2e33;color:#a6a8ad;padding:clamp(44px,6vw,72px) 0;position:relative;z-index:2;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.nl-footer .nl-fwrap{max-width:1300px;margin:0 auto;padding-inline:clamp(20px,5vw,56px);}
+.nl-ftop{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid #2b2e33;}
+.nl-footer .nl-logo{gap:11px!important;}
+.nl-logo .nl-mk{background:linear-gradient(140deg,#19b7d1,#8b6bff)!important;color:#0d0e10!important;box-shadow:0 0 0 1px rgba(139,107,255,.4),0 0 20px -2px rgba(25,183,209,.45)!important;}
+.nl-logo b{display:grid;gap:2px;line-height:1;font-size:19px!important;letter-spacing:-.02em;color:#f4f1ea;}
+.nl-logo b small{font-weight:500;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a6a8ad;}
+.nl-logo b i{font-style:normal;color:#19b7d1;}
+.nl-logo b{font-size:24px;}
+.nl-flinks{display:flex;flex-wrap:wrap;gap:8px;}
+.nl-flinks a{font-weight:500;font-size:14px;color:#dcd9d3;padding:8px 14px;border-radius:999px;text-decoration:none;transition:background .25s,color .25s;}
+.nl-flinks a:hover{background:#181a1d;color:#42c8dd;}
+.nl-fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;color:#a6a8ad;font-size:14px;}
+.nl-socials{display:flex;gap:8px;}
+.nl-socials a{width:40px;height:40px;border-radius:50%;border:1.5px solid #383b41;display:grid;place-items:center;color:#dcd9d3;transition:all .3s ease;}
+.nl-socials a:hover{background:#19b7d1;border-color:#19b7d1;color:#fff;}
+.nl-socials svg{width:17px;height:17px;}
+.plogo .mk svg,.nl-logo .nl-mk svg,.studio-mix-badge .mk svg{width:74%;height:74%;display:block}
+.plogo .mk,.nl-logo .nl-mk,.studio-mix-badge .mk{font-size:0}
+
+.nl-fbot{display:grid!important;grid-template-columns:1fr auto 1fr;align-items:center;}
+.nl-fbot .nl-tag{text-align:center;}
+.nl-fbot .nl-socials{justify-self:end;}
+@media (max-width:700px){.nl-fbot{grid-template-columns:1fr;justify-items:center;text-align:center;}.nl-fbot .nl-socials{justify-self:center;}}
+
+/* brand mark matches the homepage: the bare circled N (gradient lives in the
+   svg), Sora wordmark, no tile behind the mark */
+.nl-logo{font-family:'Sora',system-ui,-apple-system,sans-serif;}
+.nl-logo .nl-mk{background:none!important;box-shadow:none!important;border-radius:0!important;}
+.nl-logo .nl-mk svg{width:100%;height:100%;display:block;}
+
+/* Floating nav — a rounded bar inset from the edges rather than a full-width
+   strip. The bar itself is transparent; the pill is the inner row. */
+.cs-nav,.csw-nav{background:none!important;backdrop-filter:none!important;border-bottom:none!important;box-shadow:none!important;padding-block:clamp(10px,1.3vw,16px);}
+.cs-nav-inner{width:calc(100% - clamp(20px,4vw,52px));max-width:var(--maxw);margin-inline:auto;
+  padding:10px 12px 10px 22px;border-radius:20px;
+  background:#141518;
+  border:none;box-shadow:none;
+  transition:background .4s var(--ease),box-shadow .4s var(--ease);}
+html.scrolled .cs-nav-inner{box-shadow:0 20px 46px -10px rgba(0,0,0,1),0 6px 16px -6px rgba(0,0,0,.9);}
+
+/* ---------- Small screens: clear the fixed bar, smaller wordmark ----------
+   The hero's padding-top bottomed out at 64px while the fixed bar reaches
+   ~76px, so the first line of the page was sitting under the header. The
+   wordmark also comes down a size: at 34px with its subtitle it was wrapping
+   the bar onto a second line on a narrow handset, which is what made the bar
+   tall enough to collide in the first place. */
+@media (max-width:760px){
+  .hero{padding-top:clamp(104px,20vw,138px);}
+  .cs-nav .nl-logo .nl-mk,.csw-nav .nl-logo .nl-mk{width:26px;height:26px;}
+  .cs-nav .nl-logo b,.csw-nav .nl-logo b{font-size:16px!important;}
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{font-size:8px;letter-spacing:.12em;}
+  .cs-nav .nl-logo,.csw-nav .nl-logo{gap:8px!important;}
+  .cs-nav-inner,.csw-nav-inner{padding:8px 12px 8px 16px;}
+}
+@media (max-width:420px){
+  .cs-nav .nl-logo b small,.csw-nav .nl-logo b small{display:none;}
+}
+
+/* ---------- Showcase header carries the project's own logo ----------
+   The site wordmark was the one thing in this bar that did not belong to the
+   project on screen, and the footer already signs the page. The hero's
+   brandbar mark is reused here instead, shrunk to sit in the bar. Sizing is
+   per-page below because every project's mark is built differently - some are
+   fixed boxes, some images, some the wordmark itself. */
+.cs-brand{display:inline-flex;align-items:center;gap:9px;min-width:0;}
+.cs-brand>*{flex:none;margin:0;}
+.cs-brand .cs-brand-name{font-family:'Sora',system-ui,-apple-system,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.01em;color:#f4f1ea;white-space:nowrap;line-height:1;}
+.cs-brand .cs-brand-name em{font-style:normal;}
+@media (max-width:420px){.cs-brand .cs-brand-name{font-size:14px;}}
+.cs-brand .ahmark{width:26px;height:26px;border-radius:9px;box-shadow:none;}
+.cs-brand .ahmark>span{transform:scale(.62);}
+
+/* The hero's brandbar is the same logo the header now carries, at four times
+   the size and directly beneath it. One of the two has to go, and the header
+   is the one that stays visible as the page scrolls. */
+.hero .brandbar{display:none;}
+
+
+/* ---------- Screens close to the description on small screens ----------
+   The tag row and the fact grid sat between the description and the first
+   screen, and on the longer pages two prose sections sat there too — so the
+   work itself started a screen and a half down. The description keeps its
+   place, the screens follow it, and the supporting detail moves below them.
+   Desktop is untouched: .cs-meta renders exactly where the tags and facts
+   used to sit at the foot of the hero. */
+.cs-meta{padding:0;}
+@media (max-width:760px){
+  main{display:flex;flex-direction:column;}
+  main>*{order:5;}
+  main>.hero{order:0;}
+  /* .cs-meta is now the first section in source, so the description is the
+     one straight after it. :first-of-type cannot see past .cs-meta. */
+  main>.cs-meta+section{order:1;}
+  main>[data-shots]{order:2;}
+  main>.cs-meta{order:3;}
+}
+
+/* ---------- Social icons: square, never stretched ---------- */
+.nl-socials a{flex:0 0 auto;aspect-ratio:1;}
+@media (pointer:coarse){
+  .nl-socials a{width:44px;height:44px;min-width:44px;min-height:44px;display:grid;place-items:center;border-radius:50%;}
+}
+
+/* The tag row moved out of .hero into .cs-meta when the screens were
+   brought up next to the description, which left these rules behind and
+   the pills unstyled. Same declarations, re-scoped to where they live. */
+.cs-meta .tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px;}
+.cs-meta .tags span{font-family:var(--font-display);font-size:13px;color:var(--text);padding:8px 16px;border:1px solid var(--line-2);border-radius:999px;background:rgba(255,255,255,.04);}
+.cs-meta .tags span b{color:var(--orange);font-weight:700;}
+</style>
+</head>
+<body>
+<nav class="cs-nav">
+  <div class="cs-nav-inner">
+    <a class="cs-back" href="/work">
+      <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
+      Back to work
+    </a>
+    <span class="cs-brand"><span class="ahmark"><span></span></span><b class="cs-brand-name">Al Hilal</b></span>
+  </div>
+</nav>
+<div class="bg-fx"><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
+
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <div class="brandbar reveal in">
+        <span class="ahmark"><span></span></span>
+        <span class="wm">Al Hilal<small>Digital banking · AHB</small></span>
+      </div>
+      <div class="reveal in d1"><span class="eyebrow">Digital banking super-app</span></div>
+      <h1 class="reveal in d1">Everyday banking,<br/><em>everyday life</em></h1>
+      <p class="lede reveal in d2">A youth-focused super-app for Al Hilal Bank, a prepaid debit card, a children's saving account and a rewards-driven home that turns pocket money into life lessons.</p>
+      
+      
+    </div>
+  </header>
+
+  <section class="cs-meta">
+    <div class="wrap">
+      <div class="tags reveal in d3">
+        <span><b>3</b>&nbsp; onboarding stories</span>
+        <span>Card&nbsp; <b>·</b>&nbsp; Saving&nbsp; <b>·</b>&nbsp; Lifestyle</span>
+        <span>iOS&nbsp; <b>·</b>&nbsp; dark</span>
+      </div>
+      <div class="cs-facts reveal in d3">
+        <div><div class="k">Role</div><div class="v">Product Designer &amp; Front-End</div></div>
+        <div><div class="k">Timeline</div><div class="v">4 months</div></div>
+        <div><div class="k">Platform</div><div class="v">iOS · React Native</div></div>
+        <div><div class="k">Client</div><div class="v">Al Hilal Bank</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- LIVE WALKTHROUGH -->
+  <section class="live" data-shots>
+    <div class="wrap live-inner">
+      <div class="live-copy reveal">
+        <span class="eyebrow">Live walkthrough</span>
+        <h2 class="eyebrow-h2">The home, in motion</h2>
+        <p>A personal “Marhaba” greeting, an AP points balance, everyday lifestyle shortcuts and a scrolling offers marketplace, the rewards-driven home as it actually feels on device.</p>
+        <div class="live-pills"><span>AP rewards</span><span>Lifestyle services</span><span>Top offers</span><span>Marketplace</span></div>
+      </div>
+      <div class="live-stage reveal d1">
+        <span class="live-glow" aria-hidden="true"></span>
+        <span class="live-badge"><i></i> Live</span>
+        <img src="home-anim.webp" alt="Al Hilal home screen — animated walkthrough" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY · OVERVIEW -->
+  <section class="cs-intro">
+    <div class="wrap cs-2col">
+      <div class="reveal"><span class="eyebrow">Overview</span><h2>A bank young people actually open</h2></div>
+      <div class="cs-prose reveal d1">
+        <p>Most banking apps talk to adults who already understand banking. <b>Al Hilal needed to speak to a younger audience (and the parents guiding them) without losing the trust a bank has to earn.</b></p>
+        <p>I designed the experience around a single idea: turn pocket money into life lessons. The onboarding tells that story in three confident screens, and the home turns the account into a rewards-driven lifestyle hub rather than a list of transactions.</p>
+        <p>I owned the flow, the UI against the bold AHB visual language (midnight indigo, Hilal magenta, sunrise orange) and built the front-end so the shipped app matched the design exactly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY · WHAT I DID -->
+  <section class="cs-intro" style="padding-top:0;border-top:0;">
+    <div class="wrap">
+      <div class="reveal" style="max-width:680px;"><span class="eyebrow">What I did</span><h2 class="eyebrow-h2">From brand story to shipped front-end</h2></div>
+      <div class="cs-cards reveal d1">
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></span><b>Narrative onboarding</b><p>Shaped a three-story intro (digital banking, family saving and lifestyle) each anchored by a single illustrative hero.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><b>Lifestyle home UI</b><p>Designed a “Marhaba” home with a points balance, service shortcuts and a scrolling offers marketplace.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span><b>Front-end build</b><p>Implemented the gradient surfaces, glassy cards and the floating action dock, fast and faithful on device.</p></div>
+        <div class="cs-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span><b>Design system fit</b><p>Built reusable components on AHB’s palette so the experience extends cleanly across the product.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow">
+    <div class="wrap">
+      <div class="flow-head reveal">
+        <h2>The onboarding story</h2>
+        <span class="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          Scroll to walk the journey
+        </span>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="rail reveal d1">
+
+        <article class="step" style="--glow:var(--orange)">
+          <div class="step-meta">
+            <span class="step-no a">01</span>
+            <span class="step-kicker">Onboarding · 1 of 3<b>Complete digital banking</b></span>
+          </div>
+          <div class="phone"><div class="screen"><img src="onb1-x.jpg" alt="Al Hilal — complete digital banking onboarding" /></div></div>
+          <div class="step-cap">
+            <p>An isometric debit card sets the promise, a prepaid card and app that turns pocket money into life lessons.</p>
+            <div class="pills"><span>Prepaid card</span><span>Brand intro</span></div>
+          </div>
+        </article>
+
+        <article class="step" style="--glow:var(--magenta)">
+          <div class="step-meta">
+            <span class="step-no b">02</span>
+            <span class="step-kicker">Onboarding · 2 of 3<b>Children saving account</b></span>
+          </div>
+          <div class="phone"><div class="screen"><img src="onb2-x.jpg" alt="Al Hilal — children saving account onboarding" /></div></div>
+          <div class="step-cap">
+            <p>A family network of trusted people and exclusive lifestyle experiences, visualised as a constellation of connections.</p>
+            <div class="pills"><span>Family network</span><span>Saving goals</span></div>
+          </div>
+        </article>
+
+        <article class="step" style="--glow:var(--violet)">
+          <div class="step-meta">
+            <span class="step-no c">03</span>
+            <span class="step-kicker">Home<b>Rewards-driven home</b></span>
+          </div>
+          <div class="phone"><div class="screen"><img src="home-x.jpg" alt="Al Hilal — rewards-driven home screen" /></div></div>
+          <div class="step-cap">
+            <p>A personal "Marhaba" greeting, a points balance, lifestyle shortcuts and top offers, banking that feels like a marketplace.</p>
+            <div class="pills"><span>AP rewards</span><span>Lifestyle services</span><span>Offers</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="feat">
+    <div class="wrap">
+      <span class="eyebrow reveal">Inside the app</span>
+      <h2 class="eyebrow-h2 reveal">More than a bank account</h2>
+      <div class="feat-grid reveal d1">
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h20v10H2zM2 11h20M6 15h4"/></svg></span><b>Prepaid debit card</b><p>A contactless Mastercard built for younger spenders and the parents who fund it.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><b>Family network</b><p>Link the people you trust and manage children's saving accounts together.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></span><b>Rewards points</b><p>Earn and spend AP points across taxi, delivery, groceries and leisure.</p></div>
+        <div class="fcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><b>Lifestyle hub</b><p>Everyday services and top offers turn the home screen into a marketplace.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="palette">
+    <div class="wrap">
+      <span class="eyebrow reveal">Color system</span>
+      <h2 class="eyebrow-h2 reveal">The Al Hilal palette</h2>
+      <div class="palette-grid reveal d1">
+        <div class="sw"><div class="chip" style="background:#0e0a2e"></div><div class="info"><b>Midnight Indigo</b><span>#0E0A2E</span></div></div>
+        <div class="sw"><div class="chip" style="background:#ED1164"></div><div class="info"><b>Hilal Magenta</b><span>#ED1164</span></div></div>
+        <div class="sw"><div class="chip" style="background:#F7941D"></div><div class="info"><b>Sunrise Orange</b><span>#F7941D</span></div></div>
+        <div class="sw"><div class="chip" style="background:#7B2FF7"></div><div class="info"><b>Royal Violet</b><span>#7B2FF7</span></div></div>
+        <div class="sw"><div class="chip" style="background:#f7f5ff"></div><div class="info"><b>Cloud White</b><span>#F7F5FF</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="nl-footer">
+  <div class="nl-fwrap">
+    <div class="nl-ftop">
+      <a class="nl-logo" href="/"><span class="nl-mk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><linearGradient id="mk-foot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19b7d1"/><stop offset="1" stop-color="#8b6bff"/></linearGradient><circle cx="12" cy="12" r="10.85" stroke="url(#mk-foot)" stroke-width="2.2"/><path d="M8.7 7.9h1.8l3 5.13V7.9h1.8V16.1h-1.8l-3-5.13V16.1H8.7Z" fill="url(#mk-foot)"/></svg></span><b><span>the<i>Nab</i>Labs</span><small>by Nabil Abou Rjeily</small></b></a>
+      <div class="nl-flinks"><a href="/#services">Services</a><a href="/#about">About</a><a href="/#skills">Skills</a><a href="/work">Work</a><a href="/#contact">Contact</a></div>
+    </div>
+    <div class="nl-fbot">
+      <span>© 2026 TheNabLab</span>
+      <span class="nl-tag"><b style="font-weight:inherit;color:#19b7d1">Designing</b> products. <b style="font-weight:inherit;color:#8b6bff">Engineering</b> experiences.</span>
+      <div class="nl-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.22 8.02h4.52V24H.22zM8.34 8.02h4.33v2.18h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.52v-7.66c0-1.83-.03-4.18-2.55-4.18-2.56 0-2.95 2-2.95 4.05V24H8.34z" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="Behance"><svg viewBox="0 0 24 24"><path d="M7.5 11.3c1.2-.5 1.9-1.5 1.9-2.9 0-2.6-1.9-3.4-4.2-3.4H0v13.9h5.4c2.4 0 4.7-1.2 4.7-4 0-1.7-.8-3-2.6-3.6zM3 7.4h2.1c.9 0 1.7.3 1.7 1.3 0 1-.7 1.4-1.6 1.4H3zm2.3 9H3v-3.2h2.4c1.1 0 1.8.5 1.8 1.6 0 1.2-.8 1.6-1.9 1.6zM18.8 9c-2.8 0-4.7 2.1-4.7 4.9s1.8 4.8 4.7 4.8c2.2 0 3.8-1 4.5-3h-2.4c-.3.8-1.1 1.2-1.9 1.2-1.5 0-2.3-.9-2.3-2.4h6.8c.2-2.9-1.4-5.5-4.7-5.5zm-2.1 3.9c0-1.2.9-2.1 2.1-2.1 1.3 0 1.9.7 2 2.1zM15.2 5.9h5.9v1.5h-5.9z" fill="currentColor" stroke="none"/></svg></a></div>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+})();
+</script>
+<script>(function(){var r=document.documentElement,f=function(){r.classList.toggle('scrolled',window.scrollY>24)};f();window.addEventListener('scroll',f,{passive:true})})();</script>
+</body>
+</html>
