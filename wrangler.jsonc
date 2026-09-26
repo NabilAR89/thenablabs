@@ -1,0 +1,31 @@
+{
+  // Deploy target for `npx wrangler deploy` (the Cloudflare project's deploy
+  // command). Without this file wrangler sees a Next.js app, assumes it needs
+  // a server, and runs `opennextjs-cloudflare build` — which fails, and would
+  // be wrong anyway: next.config.mjs sets `output: 'export'`, so `next build`
+  // emits plain static HTML into out/ and there is no server to bundle.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "thenablabs",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-26",
+
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+
+    // The export writes /work.html, not /work/index.html, and the site links
+    // to the extensionless paths — this serves one for the other.
+    "html_handling": "auto-trailing-slash",
+
+    // out/404.html is Next's own not-found page; serve it, with a 404 status,
+    // for anything that matches no asset.
+    "not_found_handling": "404-page",
+
+    // Assets are matched before the Worker runs, and /api/* matches nothing,
+    // so these would land on the 404 page above. Route them to worker.js
+    // first instead. Everything else still short-circuits to the asset.
+    "run_worker_first": ["/api/*"]
+  },
+
+  "observability": { "enabled": true }
+}
