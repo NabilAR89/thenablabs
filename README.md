@@ -8,9 +8,14 @@ Next.js 16 (App Router, React 19, JavaScript).
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build && npm start
+npm run build    # static export into out/
+npm run preview  # out/ + the API, on the real Workers runtime, port 8788
 npm run lint
 ```
+
+`next start` does not work here: `next.config.mjs` sets `output: 'export'`, so
+there is no Next server to start. `npm run preview` is the equivalent — it
+serves the export through Wrangler, which is also what production runs.
 
 ## Routes
 
@@ -98,5 +103,34 @@ so a generator that could overwrite it would be a hazard.
   the previous authoring environment. Nothing loads them; the unreachable
   `<image-slot>` element was dropped from `ProApp` since nothing defines it now.
 - `AGENTS.md` / `CLAUDE.md` are generated and refreshed by `next dev`.
-- There is no git repository here yet — `git init` would be a sensible next step,
-  since `.gitignore` is already in place.
+
+## Deploying
+
+Cloudflare Workers, built from `main` by the `thenablabs` project:
+
+```
+Build command:   npm run build      # writes the static export to out/
+Deploy command:  npx wrangler deploy
+Root directory:  /
+```
+
+`wrangler.jsonc` is what makes that work. Without it Wrangler sees a Next.js
+app, assumes it needs a server, and runs `opennextjs-cloudflare build` — which
+fails, and would be wrong regardless: the export is plain HTML and there is no
+server to bundle.
+
+The two Cal.com endpoints were originally Pages Functions, which routed by
+filename. Workers has no file-based routing, so `worker.js` maps the paths
+explicitly and `assets.run_worker_first` steers `/api/*` to it instead of into
+the asset lookup. The handlers in `functions/` are unchanged and still take
+`{ request, env }`.
+
+Everything else short-circuits to a static asset before the Worker runs, so the
+site costs no Worker invocations.
+
+### Environment
+
+`CAL_API_KEY` and `CAL_EVENT_TYPE_ID` must be set on the Worker (Settings →
+Variables and Secrets → **Runtime**, not build variables) or `/api/slots` and
+`/api/book` return 503 and the booking panel reports that booking is not
+configured. Locally the same two values go in `.dev.vars`, which is gitignored.
