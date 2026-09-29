@@ -1,0 +1,7 @@
+# Moodz was renamed Moods — keep the old links working.
+/case-studies/moodz /case-studies/moods 301
+/moods/Moodz.html /moods/Moods.html 301
+
+# FootyCash was renamed Goalpot — keep the old links working.
+/case-studies/footycash /case-studies/goalpot 301
+/footycash/FootyCash.html /goalpot/Goalpot.html 301

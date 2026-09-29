@@ -924,12 +924,12 @@ const PROJECT_ACCENT = {
   Wimsa: "#12b5a6",
   Related: "#e8a33d",
   Base360: "#6D5EFF",
-  Moodz: "#c66bff",
+  Moods: "#c66bff",
   Gaia: "#2ff3ff",
   Msheireb: "#5b8def",
   Discotek: "#ff3ba7",
   Locus: "#3fa9f5",
-  FootyCash: "#2fd07a",
+  Goalpot: "#2fd07a",
   Barley: "#e0552b",
 };
 function accentOf(title) {

@@ -164,7 +164,7 @@ function WorkGrid() {
                   )}
                 </div>
                 <div className="work-card-body">
-                  <div className="pf-no">{c.ind} · {c.yr}</div>
+                  <div className="pf-no">{c.ind}</div>
                   <h3><ProjectTitle title={c.title} /></h3>
                   <p>{c.desc}</p>
                   <div className="work-card-foot">

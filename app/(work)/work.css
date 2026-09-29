@@ -109,3 +109,11 @@ a:hover{color:#a98fff;}
 .work-card-art[data-brand="tahakkom"] .dev-laptop .dev-scr{aspect-ratio:4784/880;border-radius:5px;background:#0a0f18;}
 .work-card-art[data-brand="tahakkom"] .dev-laptop .dev-scr img{object-fit:cover;object-position:center;}
 .work-card-art[data-brand="tahakkom"] .dev-laptop .dev-base{display:none;}
+
+/* Laptop thumbnails fill the card art: sized off the card width (not a
+   360px cap) so the screen takes most of the frame at every breakpoint.
+   The art is 16:10.5; a 16:10 screen at 82% plus bezel and base leaves an
+   even margin top and bottom. Tahakkom keeps its own full-width wall. */
+.work-grid .work-card-art:has(.dev-laptop):not([data-brand="tahakkom"]){padding:clamp(14px,2vw,26px);}
+.work-grid .work-card-art:not([data-brand="tahakkom"]) .dev-laptop{width:82%;max-width:none;}
+.work-grid .work-card-art:not([data-brand="tahakkom"]) .dev-laptop .dev-base{width:114%;margin-left:-7%;}
