@@ -90,7 +90,7 @@
   }
 }
 
-/* The horizontal screen carousels (footycash, wimsa, al-hilal, smartwealth,
+/* The horizontal screen carousels (goalpot, wimsa, al-hilal, smartwealth,
    related) scroll on purpose — make sure they scroll comfortably on touch and
    that their cards never exceed the viewport. */
 .csw-screens > * {

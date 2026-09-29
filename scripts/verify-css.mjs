@@ -17,7 +17,7 @@ const EXPECTED = [
 const PAIRS = [
   ['legacy/TheNabLab Pro v5 Charcoal.html', 'app/(home)/home.css'],
   ['legacy/All Work.html', 'app/(work)/work.css'],
-  ...['Al Hilal:al-hilal', 'Barley:barley', 'FootyCash:footycash', 'Moodz:moodz',
+  ...['Al Hilal:al-hilal', 'Barley:barley', 'FootyCash:goalpot', 'Moodz:moods',
       'Related:related', 'SmartWealth:smartwealth', 'Wimsa:wimsa']
     .map((p) => { const [name, slug] = p.split(':');
       return [`legacy/${name} Case Study.html`, `app/(case-studies)/case-studies/${slug}/${slug}.css`]; }),

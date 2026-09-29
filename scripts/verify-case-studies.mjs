@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 
 const PAGES = [
   ['Al Hilal Case Study.html', 'al-hilal'], ['Barley Case Study.html', 'barley'],
-  ['FootyCash Case Study.html', 'footycash'], ['Moodz Case Study.html', 'moodz'],
+  ['FootyCash Case Study.html', 'goalpot'], ['Moodz Case Study.html', 'moods'],
   ['Related Case Study.html', 'related'], ['SmartWealth Case Study.html', 'smartwealth'],
   ['Wimsa Case Study.html', 'wimsa'],
 ];

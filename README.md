@@ -23,7 +23,7 @@ serves the export through Wrangler, which is also what production runs.
 | --- | --- |
 | `/` | `components/ProApp.jsx` — the charcoal/cyan home page |
 | `/work` | `components/WorkApp.jsx` — the full archive grid |
-| `/case-studies/al-hilal` · `barley` · `footycash` · `moodz` · `related` · `smartwealth` · `wimsa` | `app/(case-studies)/case-studies/<slug>/page.jsx` |
+| `/case-studies/al-hilal` · `barley` · `goalpot` · `moods` · `related` · `smartwealth` · `wimsa` | `app/(case-studies)/case-studies/<slug>/page.jsx` |
 | `/<brand>/<Brand>.html` | self-contained showcase pages in `public/` |
 
 ## Layout

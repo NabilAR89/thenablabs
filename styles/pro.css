@@ -539,7 +539,7 @@ button {
   font-size: 27px;
   line-height: 1;
 }
-/* Moodz — dark squircle, tricolor gradient M + ring */
+/* Moods — dark squircle, tricolor gradient M + ring */
 .mt-ic.mz {
   background: linear-gradient(155deg, #1d1830, #0e0c16);
   position: relative;
@@ -2401,10 +2401,84 @@ button {
     radial-gradient(95% 85% at 6% 102%, #b9e0ff, transparent 56%),
     linear-gradient(150deg, #d6ebff 0%, #eef7ff 70%);
 }
+.work-card-art[data-brand="gaia"] {
+  background:
+    radial-gradient(
+      70% 62% at 86% 10%,
+      rgba(124, 92, 255, 0.34),
+      transparent 58%
+    ),
+    radial-gradient(
+      80% 70% at 10% 96%,
+      rgba(91, 141, 239, 0.3),
+      transparent 58%
+    ),
+    linear-gradient(150deg, #e3daf7 0%, #f3effb 72%);
+}
+.work-card-art[data-brand="goalpot"] {
+  background:
+    radial-gradient(
+      80% 66% at 84% 100%,
+      rgba(61, 220, 110, 0.34),
+      transparent 58%
+    ),
+    radial-gradient(
+      60% 52% at 16% 8%,
+      rgba(61, 220, 110, 0.12),
+      transparent 56%
+    ),
+    linear-gradient(160deg, #06150c, #0b2616 76%);
+}
+.work-card-art[data-brand="barley"] {
+  background:
+    radial-gradient(
+      76% 64% at 80% 96%,
+      rgba(224, 101, 74, 0.3),
+      transparent 58%
+    ),
+    radial-gradient(
+      60% 52% at 14% 8%,
+      rgba(237, 171, 63, 0.14),
+      transparent 56%
+    ),
+    linear-gradient(160deg, #18140f, #0c0b0a 76%);
+}
+.work-card-art[data-brand="msheireb"] {
+  background:
+    radial-gradient(
+      72% 62% at 84% 8%,
+      rgba(232, 116, 59, 0.22),
+      transparent 56%
+    ),
+    radial-gradient(
+      80% 70% at 12% 100%,
+      rgba(79, 176, 165, 0.3),
+      transparent 58%
+    ),
+    linear-gradient(160deg, #3d2a52, #1c1328 78%);
+}
+.work-card-art[data-brand="discotek"] {
+  background:
+    radial-gradient(
+      70% 60% at 82% 12%,
+      rgba(255, 59, 167, 0.28),
+      transparent 56%
+    ),
+    radial-gradient(
+      76% 66% at 14% 92%,
+      rgba(34, 224, 255, 0.2),
+      transparent 56%
+    ),
+    linear-gradient(160deg, #120b1c, #07050b 76%);
+}
 /* dark cards: drop the white top-sheen, add a gentle dark vignette instead */
 .work-card-art[data-brand="smartwealth"]::after,
 .work-card-art[data-brand="relatedapp"]::after,
-.work-card-art[data-brand="moods"]::after {
+.work-card-art[data-brand="moods"]::after,
+.work-card-art[data-brand="msheireb"]::after,
+.work-card-art[data-brand="discotek"]::after,
+.work-card-art[data-brand="goalpot"]::after,
+.work-card-art[data-brand="barley"]::after {
   background: radial-gradient(
     120% 100% at 50% 120%,
     rgba(0, 0, 0, 0.35),
@@ -2489,9 +2563,9 @@ button {
 .cphone .scr .ph-screen {
   border-radius: 16px;
 }
-/* FootyCash once needed a squarer frame here: the uncropped screenshots
+/* Goalpot once needed a squarer frame here: the uncropped screenshots
    carried a white page background in their lower third, and squashing the
-   frame cropped it out. The assets in use now are the `-m-top` crops, which
+   frame cropped it out. The assets in use now are the `m-` screens, which
    are dark end to end, so the exception has outlived its reason — and it was
    rendering these phones a different size from every other card's. They use
    the standard frame. */
@@ -3496,7 +3570,7 @@ button {
    scrollbar hidden — the peek of the next frame is the affordance.
    ============================================================ */
 @media (max-width: 820px) {
-  /* ---------- Wimsa / Base360 / Moodz: a hidden scroll strip ----------
+  /* ---------- Wimsa / Base360 / Moods: a hidden scroll strip ----------
      Every mockup gets the full width of the screen and the strip scrolls
      sideways. The scrollbar is hidden — the peek of the next frame is the
      affordance. */
