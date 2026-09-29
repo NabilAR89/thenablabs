@@ -4,7 +4,7 @@ import FontLinks from '@/components/FontLinks';
 import { pageMeta, personLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'All Work — Product Design & Engineering | TheNabLab',
+  title: 'All Work — Product Design & Engineering | TheNabLabs',
   description:
     'The complete archive of products Nabil Abou Rjeily has designed and built, across fintech, healthcare, hospitality, govtech, AI and enterprise.',
   path: '/work',

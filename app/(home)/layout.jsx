@@ -4,9 +4,9 @@ import FontLinks from "@/components/FontLinks";
 import { pageMeta, personLd, websiteLd, JsonLd } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "TheNabLab — Product Design & Engineering | Nabil Abou Rjeily",
+  title: "TheNabLabs — Product Design & Engineering | Nabil Abou Rjeily",
   description:
-    "TheNabLab is an independent product design studio founded by Nabil Abou Rjeily: strategy, product design, interface and motion, and production engineering all under one roof.",
+    "TheNabLabs is an independent product design studio founded by Nabil Abou Rjeily: strategy, product design, interface and motion, and production engineering all under one roof.",
   path: "/",
 });
 

@@ -65,6 +65,29 @@
   justify-self: center;
   margin-top: 4px;
 }
+.cform .btn:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+/* honeypot for /api/contact: off-screen rather than display:none, which some
+   bots skip */
+.cform-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.cform-note {
+  min-height: 1.4em;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+.cform-note:empty {
+  display: none;
+}
 .cform .btn i.ph {
   font-size: 18px;
   line-height: 1;
@@ -2205,6 +2228,12 @@ section.section {
   box-shadow:
     0 36px 70px -28px rgba(30, 12, 2, 0.7),
     0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+/* The Related screens are full-bleed and already the frame's 9:19.5 ratio,
+   so the shared 1.1 zoom only cropped them — the title and the booking cards
+   ran into the bezel. Show them at their true size. */
+.pf-banner[data-brand="relatedapp"] .ahb-phone .scr img {
+  transform: none;
 }
 
 /* ---------- Wimsa showcase: fill more of the block ----------

@@ -1,5 +1,5 @@
 /* Worker entry — the static export in out/ is served by the assets binding;
-   this script exists only for the two API routes.
+   this script exists only for the API routes.
 
    The handlers in functions/ were written for Cloudflare Pages, which routes
    by filename and passes a context object. Workers has no file-based routing,
@@ -10,6 +10,7 @@
 
 import { onRequestGet as slots } from './functions/api/slots.js';
 import { onRequestPost as book } from './functions/api/book.js';
+import { onRequestPost as contact } from './functions/api/contact.js';
 
 /* Pages answered a wrong method with 405 rather than falling through to the
    asset handler; keep that, including the Allow header the spec requires. */
@@ -26,6 +27,7 @@ const methodNotAllowed = (allow) =>
 const ROUTES = {
   '/api/slots': { method: 'GET', handler: slots },
   '/api/book': { method: 'POST', handler: book },
+  '/api/contact': { method: 'POST', handler: contact },
 };
 
 const worker = {

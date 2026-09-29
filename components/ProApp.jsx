@@ -1,6 +1,6 @@
 "use client";
 
-/* ProApp — TheNabLab "Pro" v5 home page. Ported from legacy/pro-app-v4.jsx. */
+/* ProApp — TheNabLabs "Pro" v5 home page. Ported from legacy/pro-app-v4.jsx. */
 
 import { useState, useEffect, useRef } from "react";
 import { DATA } from "@/lib/data";
@@ -17,7 +17,7 @@ import {
 import { brandOf } from "@/lib/brand";
 import NabMark from "@/components/NabMark";
 import { cardLink } from "@/lib/links";
-import { ProjectTitle } from "@/lib/title";
+import { ProjectTitle, RoleChips } from "@/lib/title";
 import BookingSection from "@/components/BookingSection";
 
 const PRO_NAV = ["Services", "About", "Work", "Skills", "Contact"];
@@ -88,7 +88,7 @@ const CONNECT_OPTIONS = [
 const PRO_REVIEWS = [
   {
     quote:
-      "TheNabLab is the rare partner that can lead a design critique in the morning and review a pull request in the afternoon, and improve both. They raised the bar for our whole product org.",
+      "TheNabLabs is the rare partner that can lead a design critique in the morning and review a pull request in the afternoon, and improve both. They raised the bar for our whole product org.",
     name: "VP of Product",
     role: "Fintech Platform",
     av: "VP",
@@ -977,9 +977,12 @@ function ProPortfolio() {
                     </h3>
                     <p>{c.desc}</p>
                     <div className="pf-tags">
-                      <span>{c.role}</span>
-                      <span>{c.duration}</span>
-                      <span>{c.yr}</span>
+                      <RoleChips role={c.role} />
+                      {/* the discipline tags; the industry ones that close each
+                         list already read in the kicker above the title */}
+                      {(c.tags || []).slice(0, 4).map((t) => (
+                        <span key={t}>{t}</span>
+                      ))}
                     </div>
                     {c.link && (
                       <a
@@ -1057,9 +1060,12 @@ function ProPortfolio() {
                   </div>
                   <div className="wimsa-foot">
                     <div className="pf-tags">
-                      <span>{c.role}</span>
-                      <span>{c.duration}</span>
-                      <span>{c.yr}</span>
+                      <RoleChips role={c.role} />
+                      {/* the discipline tags; the industry ones that close each
+                         list already read in the kicker above the title */}
+                      {(c.tags || []).slice(0, 4).map((t) => (
+                        <span key={t}>{t}</span>
+                      ))}
                     </div>
                     {c.link && (
                       <a
@@ -1099,9 +1105,12 @@ function ProPortfolio() {
                       <ProjectTitle title={c.title} />
                     </h3>
                     <div className="pf-tags on-dark">
-                      <span>{c.role}</span>
-                      <span>{c.duration}</span>
-                      <span>{c.yr}</span>
+                      <RoleChips role={c.role} />
+                      {/* the discipline tags; the industry ones that close each
+                         list already read in the kicker above the title */}
+                      {(c.tags || []).slice(0, 4).map((t) => (
+                        <span key={t}>{t}</span>
+                      ))}
                     </div>
                     <p>{c.desc}</p>
                     {c.link ? (
@@ -1287,9 +1296,12 @@ function ProPortfolio() {
                     <ProjectTitle title={c.title} />
                   </h3>
                   <div className="pf-tags">
-                    <span>{c.role}</span>
-                    <span>{c.duration}</span>
-                    <span>{c.yr}</span>
+                    <RoleChips role={c.role} />
+                    {/* the discipline tags; the industry ones that close each
+                       list already read in the kicker above the title */}
+                    {(c.tags || []).slice(0, 4).map((t) => (
+                      <span key={t}>{t}</span>
+                    ))}
                   </div>
                   <p>{c.desc}</p>
                   {c.link ? (
@@ -1362,13 +1374,37 @@ function ProReviews() {
 }
 
 function ProCTA() {
-  const [sent, setSent] = useState(false);
-  const submit = (e) => {
+  /* idle → sending → sent | error. The form posts to /api/contact (worker.js),
+     which emails hello@thenablabs.com server-side — no mail app involved. */
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
+  const submit = async (e) => {
     e.preventDefault();
     const f = e.target;
-    const body = `Name: ${f.name.value}\nEmail: ${f.email.value}\n\n${f.message.value}`;
-    window.location.href = `mailto:hello@thenablabss.com?subject=${encodeURIComponent("Project enquiry — " + f.name.value)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setStatus("sending");
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name: f.name.value,
+          email: f.email.value,
+          message: f.message.value,
+          website: f.website.value,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error);
+      f.reset();
+      setStatus("sent");
+    } catch (err) {
+      setError(
+        err.message ||
+          "Your message could not be sent. Please email hello@thenablabs.com directly.",
+      );
+      setStatus("error");
+    }
   };
   return (
     <section className="section" style={{ paddingTop: 0 }}>
@@ -1408,11 +1444,35 @@ function ProCTA() {
                   placeholder="What are you building, and what do you need help with?"
                 ></textarea>
               </label>
-              <button className="btn btn-light btn-neon-host" type="submit">
+              {/* honeypot — hidden from people, filled in by bots */}
+              <input
+                className="cform-hp"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+              <button
+                className="btn btn-light btn-neon-host"
+                type="submit"
+                disabled={status === "sending"}
+              >
                 <span className="btn-neon" aria-hidden="true"></span>
-                {sent ? "Opening your mail app…" : "Send message"}{" "}
+                {status === "sending"
+                  ? "Sending…"
+                  : status === "sent"
+                    ? "Message sent"
+                    : "Send message"}{" "}
                 <Icon name="arrowUpRight" />
               </button>
+              <p className="cform-note" role="status" aria-live="polite">
+                {status === "sent"
+                  ? "Thanks — your message is on its way. I’ll be in touch soon."
+                  : status === "error"
+                    ? error
+                    : ""}
+              </p>
             </form>
           </div>
         </div>
@@ -1511,7 +1571,7 @@ function ProFooter() {
           </div>
         </div>
         <div className="pfooter-bottom">
-          <span>© 2026 TheNabLab</span>
+          <span>© 2026 TheNabLabs</span>
           <span className="pfooter-tag">
             <span style={{ color: "#19b7d1" }}>Designing</span> products.{" "}
             <span style={{ color: "#8b6bff" }}>Engineering</span> experiences.

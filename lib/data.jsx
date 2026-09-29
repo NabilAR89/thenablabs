@@ -26,7 +26,7 @@ export const DATA = {
     eventLabel: "30-minute intro call",
     footnote:
       "30-minute calls. All times are shown in your selected time zone.",
-    email: "hello@thenablabss.com",
+    email: "hello@thenablabs.com",
     panel: {
       kicker: "Your idea, my craft",
       title: (
@@ -658,8 +658,8 @@ export const DATA = {
   contact: [
     {
       k: "Email",
-      v: "hello@thenablabss.com",
-      href: "mailto:hello@thenablabss.com",
+      v: "hello@thenablabs.com",
+      href: "mailto:hello@thenablabs.com",
       icon: "mail",
     },
     {

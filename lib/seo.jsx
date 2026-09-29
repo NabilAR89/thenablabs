@@ -2,13 +2,13 @@
 
    SITE_URL has to be absolute for canonicals, Open Graph and the sitemap to
    be valid. Nothing in the repo declared a domain, so it is derived from the
-   contact address (hello@thenablabss.com) and can be overridden at build time
+   contact address (hello@thenablabs.com) and can be overridden at build time
    with NEXT_PUBLIC_SITE_URL without touching code. */
 
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://thenablabs.com"
 ).replace(/\/$/, "");
-export const SITE_NAME = "TheNabLab";
+export const SITE_NAME = "TheNabLabs";
 export const AUTHOR = "Nabil Abou Rjeily";
 export const OG_IMAGE = "/og.png";
 
@@ -77,7 +77,7 @@ export function personLd() {
     name: AUTHOR,
     url: SITE_URL,
     jobTitle: "Senior UX/UI Designer & Front-End Engineer",
-    email: "mailto:hello@thenablabss.com",
+    email: "mailto:hello@thenablabs.com",
     sameAs: [
       "https://www.linkedin.com/in/nabil-abou-rjeily-b033a698",
       "https://www.behance.net/nabil_abourjeily",

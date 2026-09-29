@@ -13,3 +13,13 @@ export function ProjectTitle({ title = '' }) {
     </>
   );
 }
+
+/* A project role reads "Product Design & Front-End" in the data, but each
+   discipline is its own chip on the cards, so split it at the ampersand. */
+export function RoleChips({ role = '' }) {
+  return role
+    .split('&')
+    .map((r) => r.trim())
+    .filter(Boolean)
+    .map((r) => <span key={r}>{r}</span>);
+}

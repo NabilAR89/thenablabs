@@ -1,4 +1,4 @@
-# TheNabLab
+# TheNabLabs
 
 Portfolio site for Nabil Abou Rjeily — product design & front-end engineering.
 Next.js 16 (App Router, React 19, JavaScript).

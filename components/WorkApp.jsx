@@ -9,7 +9,7 @@ import { useRevealObserver, useScrollNav, useMobileNav } from '@/lib/hooks';
 import { brandOf } from '@/lib/brand';
 import NabMark from '@/components/NabMark';
 import { cardLink } from '@/lib/links';
-import { ProjectTitle } from '@/lib/title';
+import { ProjectTitle, RoleChips } from '@/lib/title';
 
 const WORK_NAV = ['Services', 'About', 'Skills', 'Work', 'Contact'];
 
@@ -169,7 +169,7 @@ function WorkGrid() {
                   <p>{c.desc}</p>
                   <div className="work-card-foot">
                     <div className="pf-tags">
-                      <span>{c.role}</span>
+                      <RoleChips role={c.role} />
                       {(c.tags || []).map((t) => <span key={t}>{t}</span>)}
                     </div>
                     <span className={'work-card-link' + (c.link ? '' : ' muted')}>
@@ -195,7 +195,7 @@ function WorkFooter() {
           <div className="pfooter-links">{WORK_NAV.map((n) => n === 'Work' ? <a key={n} href="/work">{n}</a> : <a key={n} href={'/#' + n.toLowerCase()}>{n}</a>)}</div>
         </div>
         <div className="pfooter-bottom">
-          <span>© 2026 TheNabLab</span>
+          <span>© 2026 TheNabLabs</span>
           <span className="pfooter-tag"><span style={{color:'#19b7d1'}}>Designing</span> products. <span style={{color:'#8b6bff'}}>Engineering</span> experiences.</span>
           <div className="socials">
             <a href="https://www.linkedin.com/in/nabil-abou-rjeily-b033a698" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Social name="linkedin" /></a>
