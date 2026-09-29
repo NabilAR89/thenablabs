@@ -27,12 +27,13 @@
     "run_worker_first": ["/api/*"]
   },
 
-  // env.EMAIL for /api/contact. Locked to the studio inbox and our own sender,
-  // so the endpoint can never be used to mail anyone else.
+  // env.EMAIL for /api/contact. The recipient is fixed server-side (the
+  // CONTACT_TO runtime variable, else hello@), never taken from the request,
+  // and Cloudflare itself only delivers to verified destinations until the
+  // domain is onboarded for sending — so the form cannot mail anyone else.
   "send_email": [
     {
       "name": "EMAIL",
-      "allowed_destination_addresses": ["hello@thenablabs.com"],
       "allowed_sender_addresses": ["website@thenablabs.com"]
     }
   ],
