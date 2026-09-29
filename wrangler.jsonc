@@ -38,6 +38,16 @@
     }
   ],
 
+  // Runtime variables. `wrangler deploy` replaces the Worker's variables with
+  // exactly this set, so anything added only in the dashboard is wiped on the
+  // next deploy — keep them here. CONTACT_TO is where /api/contact delivers:
+  // it must be a verified Email Routing destination until thenablabs.com is
+  // onboarded for Email Sending. (Secrets like CAL_API_KEY stay in the
+  // dashboard; deploys leave those alone.)
+  "vars": {
+    "CONTACT_TO": "nabilabourjeily89@gmail.com"
+  },
+
   "observability": { "enabled": true },
 
   // Non-production branches (stage) deploy with `npx wrangler preview`, which
