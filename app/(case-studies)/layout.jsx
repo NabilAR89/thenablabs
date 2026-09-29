@@ -4,7 +4,7 @@ import FontLinks from '@/components/FontLinks';
 import { pageMeta, personLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Case Studies — TheNabLab',
+  title: 'Case Studies — TheNabLabs',
   description: 'Case studies by Nabil Abou Rjeily: product design and front-end engineering, from research through to shipped interface.',
   path: '/case-studies',
   type: 'article',

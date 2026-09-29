@@ -1,8 +1,8 @@
 {
-  "name": "thenablab",
+  "name": "thenablabs",
   "version": "1.0.0",
   "private": true,
-  "description": "TheNabLab — product design & front-end engineering studio site.",
+  "description": "TheNabLabs — product design & front-end engineering studio site.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

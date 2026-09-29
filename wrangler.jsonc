@@ -27,6 +27,16 @@
     "run_worker_first": ["/api/*"]
   },
 
+  // env.EMAIL for /api/contact. Locked to the studio inbox and our own sender,
+  // so the endpoint can never be used to mail anyone else.
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "allowed_destination_addresses": ["hello@thenablabs.com"],
+      "allowed_sender_addresses": ["website@thenablabs.com"]
+    }
+  ],
+
   "observability": { "enabled": true },
 
   // Non-production branches (stage) deploy with `npx wrangler preview`, which
