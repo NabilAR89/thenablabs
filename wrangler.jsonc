@@ -27,5 +27,10 @@
     "run_worker_first": ["/api/*"]
   },
 
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+
+  // Non-production branches (stage) deploy with `npx wrangler preview`, which
+  // refuses to run without this block. Empty is enough: assets and
+  // compatibility settings above apply to previews as-is.
+  "previews": {}
 }
