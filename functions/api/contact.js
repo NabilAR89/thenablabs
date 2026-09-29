@@ -2,9 +2,15 @@
    Sends the home page's "Let's work together" form to the studio inbox
    through Cloudflare's send_email binding (env.EMAIL, see wrangler.jsonc), so
    the visitor never has to open a mail app. The visitor's address goes in
-   Reply-To: the From has to be on our own onboarded domain. */
+   Reply-To: the From has to be on our own domain.
 
-const TO = 'hello@thenablabs.com';
+   Until thenablabs.com is onboarded for Email Sending, Cloudflare only
+   delivers to *verified Email Routing destinations* — hello@ is a routing
+   address, not one of those, so sends to it fail. CONTACT_TO (a runtime
+   variable set in the dashboard) points the form at the verified inbox
+   instead; hello@ is the fallback once the domain is onboarded. */
+
+const DEFAULT_TO = 'hello@thenablabs.com';
 const FROM = { email: 'website@thenablabs.com', name: 'TheNabLabs website' };
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -47,7 +53,7 @@ export async function onRequestPost({ request, env }) {
 
   try {
     await env.EMAIL.send({
-      to: TO,
+      to: env.CONTACT_TO || DEFAULT_TO,
       from: FROM,
       replyTo: { email, name },
       subject: `Project enquiry — ${name}`,
