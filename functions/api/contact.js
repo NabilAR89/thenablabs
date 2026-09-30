@@ -44,7 +44,7 @@ export async function onRequestPost({ request, env }) {
 
   if (!name) return json({ error: 'Please add your name.' }, 400);
   if (!EMAIL.test(email)) return json({ error: 'Please add a valid email.' }, 400);
-  if (!message) return json({ error: 'Tell me a little about the project.' }, 400);
+  if (!message) return json({ error: 'Tell us a little about the project.' }, 400);
 
   const text = `Name: ${name}\nEmail: ${email}\n\n${message}`;
   const html =

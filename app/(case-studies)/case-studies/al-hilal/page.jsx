@@ -57,8 +57,8 @@ export default function AlHilalCaseStudy() {
             <div className="reveal"><span className="eyebrow">Overview</span><h2 style={{ marginTop: '14px' }}>A bank young people actually open</h2></div>
             <div className="csw-prose reveal reveal-d1">
               <p>Most banking apps talk to adults who already understand banking. <b>Al Hilal needed to speak to a younger audience (and the parents guiding them) without losing the trust a bank has to earn.</b></p>
-              <p>I designed the experience around a single idea: turn pocket money into life lessons. The onboarding tells that story in three confident screens, and the home turns the account into a rewards-driven lifestyle hub rather than a list of transactions.</p>
-              <p>I owned the flow, the UI against the bold AHB visual language (midnight indigo, Hilal magenta, sunrise orange) and built the front-end so the shipped app matched the design exactly.</p>
+              <p>We designed the experience around a single idea: turn pocket money into life lessons. The onboarding tells that story in three confident screens, and the home turns the account into a rewards-driven lifestyle hub rather than a list of transactions.</p>
+              <p>We owned the flow, the UI against the bold AHB visual language (midnight indigo, Hilal magenta, sunrise orange) and built the front-end so the shipped app matched the design exactly.</p>
             </div>
           </div>
         </section>
@@ -82,7 +82,7 @@ export default function AlHilalCaseStudy() {
 
         <section className="section" style={{ paddingTop: '0' }}>
           <div className="wrap">
-            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What I did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From brand story to shipped front-end</h2></div>
+            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What we did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From brand story to shipped front-end</h2></div>
             <div className="csw-contrib reveal reveal-d1">
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></span><b>Narrative onboarding</b><p>Shaped a three-story intro (digital banking, family saving and lifestyle) each anchored by a single illustrative hero.</p></div>
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><b>Lifestyle home UI</b><p>Designed a &quot;Marhaba&quot; home with a points balance, service shortcuts and a scrolling offers marketplace.</p></div>

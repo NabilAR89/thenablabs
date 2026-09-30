@@ -53,15 +53,15 @@ export default function BarleyCaseStudy() {
             <div className="reveal"><span className="eyebrow">Overview</span><h2 style={{ marginTop: '14px' }}>A menu site that feels like a tasting</h2></div>
             <div className="csw-prose reveal reveal-d1">
               <p>Most restaurant sites bury the food under navigation. <b>Barley does the opposite, the food is the interface, and every scroll is a full-screen frame you move through like courses.</b></p>
-              <p>I built the experience around a fixed chrome (menu, &quot;reserve now&quot;, social and a section counter) that stays put while cinematic frames slide beneath it. The rhythm alternates charcoal-dark sections for grilled drama with warm cream pages for calm, readable menus.</p>
-              <p>I owned the art direction, the high-contrast serif and coral identity, and the front-end (full-bleed photography, the carousel menu and the burger detail interactions) so the shipped site matched the design exactly.</p>
+              <p>We built the experience around a fixed chrome (menu, &quot;reserve now&quot;, social and a section counter) that stays put while cinematic frames slide beneath it. The rhythm alternates charcoal-dark sections for grilled drama with warm cream pages for calm, readable menus.</p>
+              <p>We owned the art direction, the high-contrast serif and coral identity, and the front-end (full-bleed photography, the carousel menu and the burger detail interactions) so the shipped site matched the design exactly.</p>
             </div>
           </div>
         </section>
 
         <section className="section" style={{ paddingTop: '0' }}>
           <div className="wrap">
-            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What I did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From art direction to a shipped site</h2></div>
+            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What we did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From art direction to a shipped site</h2></div>
             <div className="csw-contrib reveal reveal-d1">
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h20v14H2zM8 21h8M12 17v4"/></svg></span><b>Full-screen art direction</b><p>Designed each section as a self-contained cinematic frame with one hero image and a clear focal point.</p></div>
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7V5h16v2M9 20h6M12 5v15"/></svg></span><b>Type &amp; identity</b><p>Paired a high-contrast serif with a clean sans and a single coral accent across dark and cream worlds.</p></div>

@@ -59,7 +59,7 @@ export default function SmartWealthCaseStudy() {
             <div className="reveal"><span className="eyebrow">Overview</span><h2 style={{ marginTop: '14px' }}>A first impression that builds trust</h2></div>
             <div className="csw-prose reveal reveal-d1">
               <p>Opening an investment account is where most fintech apps lose people: too many forms, too much jargon, no sense of progress. <b>SmartWealth needed an onboarding that felt as premium and reassuring as the brand itself.</b></p>
-              <p>I owned the experience end-to-end: defining the flow, designing every screen against the SmartWealth visual language (deep black, signal lime, electric blue), and building the front-end so the shipped app matched the design exactly.</p>
+              <p>We owned the experience end-to-end: defining the flow, designing every screen against the SmartWealth visual language (deep black, signal lime, electric blue), and building the front-end so the shipped app matched the design exactly.</p>
             </div>
           </div>
         </section>
@@ -67,7 +67,7 @@ export default function SmartWealthCaseStudy() {
         {/* CONTRIBUTION */}
         <section className="section" style={{ paddingTop: '0' }}>
           <div className="wrap">
-            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What I did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From flow to shipped front-end</h2></div>
+            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What we did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From flow to shipped front-end</h2></div>
             <div className="csw-contrib reveal reveal-d1">
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></span><b>Flow & UX architecture</b><p>Mapped account opening into a clear three-step path (identity, KYC, preferences) with visible progress at every screen.</p></div>
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><b>UI design</b><p>Designed every screen in the SmartWealth system: biometric scan, risk sliders, multi-select objectives and a celebratory success state.</p></div>

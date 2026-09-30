@@ -54,15 +54,15 @@ export default function MoodsCaseStudy() {
             <div className="reveal"><span className="eyebrow">Overview</span><h2 style={{ marginTop: '14px' }}>A store that talks back</h2></div>
             <div className="csw-prose reveal reveal-d1">
               <p>Endless grids and filters ask shoppers to do the work of a stylist. <b>Moods flips that. You describe a vibe, and an AI stylist assembles the look for you.</b></p>
-              <p>I designed a neon-lit storefront that doubles as a chat surface: browse mood tiles and trends, or open the stylist and let swipeable product cards come to you, recolor and restyle them live, then drop them straight into a cart that never breaks the flow.</p>
-              <p>I owned the experience and the front-end: the conversational UI, the product-card carousels, the live restyle controls and the checkout, all on a bold neon design language.</p>
+              <p>We designed a neon-lit storefront that doubles as a chat surface: browse mood tiles and trends, or open the stylist and let swipeable product cards come to you, recolor and restyle them live, then drop them straight into a cart that never breaks the flow.</p>
+              <p>We owned the experience and the front-end: the conversational UI, the product-card carousels, the live restyle controls and the checkout, all on a bold neon design language.</p>
             </div>
           </div>
         </section>
 
         <section className="section" style={{ paddingTop: '0' }}>
           <div className="wrap">
-            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What I did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>Conversational commerce, end to end</h2></div>
+            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What we did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>Conversational commerce, end to end</h2></div>
             <div className="csw-contrib reveal reveal-d1">
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span><b>Conversational UX</b><p>Designed a chat that returns shoppable cards, quick-reply chips and a voice-friendly input bar.</p></div>
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><b>Neon UI system</b><p>Built a glowing dark visual language (cyan, magenta, ember) that stays legible behind product imagery.</p></div>

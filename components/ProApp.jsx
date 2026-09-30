@@ -69,7 +69,7 @@ const PRO_CAPS = [
   [
     "04",
     "Collaboration",
-    "When a project needs additional expertise, I work with trusted specialists across back-end, branding, motion and other disciplines to bring the product together.",
+    "When a project needs additional expertise, we work with trusted specialists across back-end, branding, motion and other disciplines to bring the product together.",
   ],
 ];
 
@@ -1468,7 +1468,7 @@ function ProCTA() {
               </button>
               <p className="cform-note" role="status" aria-live="polite">
                 {status === "sent"
-                  ? "Thanks — your message is on its way. I’ll be in touch soon."
+                  ? "Thanks — your message is on its way. We’ll be in touch soon."
                   : status === "error"
                     ? error
                     : ""}
