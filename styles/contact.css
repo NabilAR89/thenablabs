@@ -1,0 +1,384 @@
+/* Contact form + floating contact button.
+
+   Imported by components/ContactForm.jsx, so it loads on every page that
+   renders the form — the home page's "Send a message" section and the
+   ContactFab mounted in each layout. All three route groups run the same
+   charcoal tokens, so the form reads the same everywhere. */
+
+/* ---------- Form ---------- */
+.cform {
+  width: min(560px, 100%);
+  margin: 26px auto 0;
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+.cform-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.cfield {
+  display: grid;
+  gap: 6px;
+}
+.cfield span {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cfield input,
+.cfield textarea {
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition:
+    border-color 0.25s var(--ease),
+    background 0.25s var(--ease);
+}
+.cfield textarea {
+  resize: vertical;
+}
+.cfield input::placeholder,
+.cfield textarea::placeholder {
+  color: var(--muted-2);
+}
+.cfield input:focus,
+.cfield textarea:focus {
+  border-color: var(--teal);
+  background: var(--cream-2);
+}
+.cform .btn {
+  justify-self: center;
+  margin-top: 4px;
+}
+.cform .btn:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+/* honeypot for /api/contact: off-screen rather than display:none, which some
+   bots skip */
+.cform-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.cform-note {
+  min-height: 1.4em;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+.cform-note:empty {
+  display: none;
+}
+.cform .btn i.ph {
+  font-size: 18px;
+  line-height: 1;
+}
+@media (max-width: 620px) {
+  .cform-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The submit button's neon ring. The home page styles it in home.css; these
+   copies make it look the same on /work and the case studies. */
+.cform .btn-neon-host {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+.cform .btn.btn-light.btn-neon-host {
+  background: transparent !important;
+  color: #a98fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.cform .btn.btn-light.btn-neon-host:hover {
+  background: rgba(139, 107, 255, 0.1) !important;
+  color: #c4b2ff !important;
+  box-shadow: 0 0 24px -10px rgba(139, 107, 255, 0.8) !important;
+}
+.cform .btn-neon {
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  overflow: hidden;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  transform: none;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(25, 183, 209, 0.55));
+}
+.cform .btn-neon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  aspect-ratio: 1;
+  background: conic-gradient(
+    transparent 0deg,
+    #19b7d1 45deg,
+    #7fe4f4 80deg,
+    #19b7d1 120deg,
+    transparent 175deg,
+    transparent 205deg,
+    #8b6bff 250deg,
+    #b39bff 290deg,
+    #8b6bff 320deg,
+    transparent 360deg
+  );
+  animation: cformRingSpin 5s linear infinite;
+}
+@keyframes cformRingSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@media (max-width: 1024px) {
+  .cform .btn-neon {
+    background: linear-gradient(135deg, #19b7d1 0%, #5fd0e4 38%, #8b6bff 100%);
+    filter: none;
+  }
+  .cform .btn-neon::before {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cform .btn-neon::before {
+    animation: none;
+  }
+}
+
+/* ---------- Floating contact button ----------
+   Sits under the nav (100+) and the mobile menu (130+), so an open menu
+   always covers it. */
+.cfab {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  pointer-events: none;
+}
+.cfab > * {
+  pointer-events: auto;
+}
+.cfab-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 6px;
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(140deg, #19b7d1, #8b6bff);
+  box-shadow: 0 14px 34px -12px rgba(25, 183, 209, 0.75);
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+.cfab-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -12px rgba(25, 183, 209, 0.95);
+}
+.cfab-btn:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 8px;
+}
+.cfab-btn svg {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+/* the same spinning two-colour ring as the neon CTA buttons, set 4px out from
+   the button so a sliver of the page shows between them */
+.cfab-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  padding: 2px;
+  overflow: hidden;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 6px rgba(25, 183, 209, 0.55));
+  pointer-events: none;
+}
+.cfab-ring::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  aspect-ratio: 1;
+  background: conic-gradient(
+    transparent 0deg,
+    #19b7d1 45deg,
+    #7fe4f4 80deg,
+    #19b7d1 120deg,
+    transparent 175deg,
+    transparent 205deg,
+    #8b6bff 250deg,
+    #b39bff 290deg,
+    #8b6bff 320deg,
+    transparent 360deg
+  );
+  animation: cformRingSpin 4s linear infinite;
+}
+/* "online" dot, with a ping ring breathing out of it */
+.cfab-live {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #34d058;
+  border: 2.5px solid #111214;
+  pointer-events: none;
+}
+.cfab-live::after {
+  content: "";
+  position: absolute;
+  inset: -2.5px;
+  border-radius: 50%;
+  background: #34d058;
+  animation: cfabPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes cfabPing {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  80%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.cfab.open .cfab-live {
+  display: none;
+}
+
+.cfab-panel {
+  width: min(420px, calc(100vw - 32px));
+  max-height: calc(100dvh - 110px);
+  overflow-y: auto;
+  padding: 24px 22px 18px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow:
+    0 0 0 1px rgba(25, 183, 209, 0.12),
+    0 40px 80px -30px #000;
+  transform-origin: bottom right;
+  transition:
+    opacity 0.3s var(--ease),
+    transform 0.35s var(--ease),
+    visibility 0s linear 0.35s;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.97);
+}
+.cfab.open .cfab-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.3s var(--ease),
+    transform 0.35s var(--ease);
+}
+.cfab-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cfab-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.cfab-title {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.cfab-close {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  transition:
+    color 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+.cfab-close:hover {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+.cfab-close svg {
+  width: 16px;
+  height: 16px;
+}
+.cfab-panel .cform {
+  width: 100%;
+  margin-top: 18px;
+}
+/* the panel is narrow at every width — keep name and email stacked */
+.cfab-panel .cform-row {
+  grid-template-columns: 1fr;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cfab-btn,
+  .cfab-panel {
+    transition: none;
+  }
+  .cfab-ring::before,
+  .cfab-live::after {
+    animation: none;
+  }
+}

@@ -18,6 +18,7 @@ export const ICONS = {
   search: 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3',
   zap: 'M13 2 3 14h8l-1 8 10-12h-8z',
   chevronDown: 'M6 9l6 6 6-6',
+  close: 'M18 6 6 18M6 6l12 12',
 };
 
 export function Icon({ name, style }) {

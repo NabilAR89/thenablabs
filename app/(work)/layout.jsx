@@ -1,6 +1,7 @@
 import '@/styles/pro.css';
 import './work.css';
 import FontLinks from '@/components/FontLinks';
+import ContactFab from '@/components/ContactFab';
 import { pageMeta, personLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
@@ -16,7 +17,7 @@ export default function WorkLayout({ children }) {
   return (
     <html lang="en">
       <head><FontLinks /><JsonLd data={personLd()} /></head>
-      <body>{children}</body>
+      <body>{children}<ContactFab /></body>
     </html>
   );
 }
