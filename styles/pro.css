@@ -204,32 +204,42 @@ button {
   background: var(--ink);
   color: #fff;
 }
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 30px -14px rgba(23, 25, 30, 0.6);
+@media (hover: hover) {
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 30px -14px rgba(23, 25, 30, 0.6);
+  }
 }
-.btn-primary:hover svg {
-  transform: translateX(4px);
+@media (hover: hover) {
+  .btn-primary:hover svg {
+    transform: translateX(4px);
+  }
 }
 .btn-teal {
   background: var(--teal);
   color: #fff;
 }
-.btn-teal:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px -12px
+@media (hover: hover) {
+  .btn-teal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px -12px
     color-mix(in oklab, var(--teal) 70%, transparent);
+  }
 }
-.btn-teal:hover svg {
-  transform: translateX(4px);
+@media (hover: hover) {
+  .btn-teal:hover svg {
+    transform: translateX(4px);
+  }
 }
 .btn-ghost {
   border: 1.5px solid var(--line-2);
   color: var(--ink);
 }
-.btn-ghost:hover {
-  border-color: var(--ink);
-  transform: translateY(-3px);
+@media (hover: hover) {
+  .btn-ghost:hover {
+    border-color: var(--ink);
+    transform: translateY(-3px);
+  }
 }
 
 /* ---------- Nav ---------- */
@@ -290,9 +300,11 @@ button {
     background 0.25s,
     color 0.25s;
 }
-.pnav-links > a:hover {
-  background: var(--cream-2);
-  color: var(--teal-dark);
+@media (hover: hover) {
+  .pnav-links > a:hover {
+    background: var(--cream-2);
+    color: var(--teal-dark);
+  }
 }
 @media (max-width: 940px) {
   .pnav-links {
@@ -322,10 +334,15 @@ button {
     background 0.25s,
     color 0.25s;
 }
-.mega-trigger:hover,
 .pnav-mega.open .mega-trigger {
   background: var(--cream-2);
   color: var(--teal-dark);
+}
+@media (hover: hover) {
+  .mega-trigger:hover {
+    background: var(--cream-2);
+    color: var(--teal-dark);
+  }
 }
 .mega-trigger svg {
   width: 15px;
@@ -383,8 +400,10 @@ button {
   height: 14px;
   transition: transform 0.35s var(--ease);
 }
-.mega-all-link:hover svg {
-  transform: translate(3px, -3px);
+@media (hover: hover) {
+  .mega-all-link:hover svg {
+    transform: translate(3px, -3px);
+  }
 }
 
 .mega-grid {
@@ -400,8 +419,10 @@ button {
   border-radius: 14px;
   transition: background 0.25s;
 }
-.mega-card:hover {
-  background: var(--cream-2);
+@media (hover: hover) {
+  .mega-card:hover {
+    background: var(--cream-2);
+  }
 }
 .mega-thumb {
   aspect-ratio: 16 / 10;
@@ -443,11 +464,15 @@ button {
   height: 6px;
   border-radius: 0 0 7px 7px;
 }
-.mega-card:hover .mega-thumb .dev-phones {
-  transform: scale(0.96);
+@media (hover: hover) {
+  .mega-card:hover .mega-thumb .dev-phones {
+    transform: scale(0.96);
+  }
 }
-.mega-card:hover .mega-thumb .dev-laptop {
-  transform: scale(1.08);
+@media (hover: hover) {
+  .mega-card:hover .mega-thumb .dev-laptop {
+    transform: scale(1.08);
+  }
 }
 .mt-lockup {
   position: relative;
@@ -458,8 +483,10 @@ button {
   gap: 10px;
   transition: transform 0.4s var(--ease);
 }
-.mega-card:hover .mt-lockup {
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .mega-card:hover .mt-lockup {
+    transform: translateY(-2px);
+  }
 }
 .mt-name {
   font-family: var(--font-display);
@@ -606,8 +633,10 @@ button {
   width: 17px;
   height: 17px;
 }
-.mega-foot .btn-primary:hover svg {
-  transform: translate(3px, -3px);
+@media (hover: hover) {
+  .mega-foot .btn-primary:hover svg {
+    transform: translate(3px, -3px);
+  }
 }
 
 .mega-cta {
@@ -623,10 +652,12 @@ button {
     transform 0.35s var(--ease),
     box-shadow 0.35s var(--ease);
 }
-.mega-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 34px -16px
+@media (hover: hover) {
+  .mega-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 34px -16px
     color-mix(in oklab, var(--teal) 72%, transparent);
+  }
 }
 .mega-cta-ic {
   width: 36px;
@@ -642,8 +673,10 @@ button {
   height: 18px;
   transition: transform 0.4s var(--ease);
 }
-.mega-cta:hover .mega-cta-ic svg {
-  transform: translate(3px, -3px);
+@media (hover: hover) {
+  .mega-cta:hover .mega-cta-ic svg {
+    transform: translate(3px, -3px);
+  }
 }
 .mega-cta-t {
   font-family: var(--font-display);
@@ -723,11 +756,13 @@ button {
   color: var(--ink-2);
   transition: all 0.3s var(--ease);
 }
-.phero-cta .socials a:hover {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: #fff;
-  transform: translateY(-3px);
+@media (hover: hover) {
+  .phero-cta .socials a:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+    transform: translateY(-3px);
+  }
 }
 .phero-cta .socials svg {
   width: 18px;
@@ -902,8 +937,10 @@ button {
   cursor: default;
   transition: padding-left 0.4s var(--ease);
 }
-.svc-row:hover {
-  padding-left: 14px;
+@media (hover: hover) {
+  .svc-row:hover {
+    padding-left: 14px;
+  }
 }
 .svc-row::after {
   content: "";
@@ -915,23 +952,29 @@ button {
   background: var(--teal);
   transition: width 0.5s var(--ease);
 }
-.svc-row:hover::after {
-  width: 100%;
+@media (hover: hover) {
+  .svc-row:hover::after {
+    width: 100%;
+  }
 }
 .svc-row .no {
   transition: color 0.3s var(--ease);
 }
-.svc-row:hover .no {
-  color: var(--teal);
+@media (hover: hover) {
+  .svc-row:hover .no {
+    color: var(--teal);
+  }
 }
 .svc-row .meta {
   transition:
     color 0.3s var(--ease),
     transform 0.4s var(--ease);
 }
-.svc-row:hover .meta {
-  color: var(--ink);
-  transform: translateX(-6px);
+@media (hover: hover) {
+  .svc-row:hover .meta {
+    color: var(--ink);
+    transform: translateX(-6px);
+  }
 }
 .svc-tag-label {
   display: none;
@@ -1019,33 +1062,49 @@ button {
     transform 0.2s var(--ease);
   z-index: 20;
 }
-.svc-tag:hover::before {
-  opacity: 1;
-  transform: translate(-50%, 0);
+@media (hover: hover) {
+  .svc-tag:hover::before {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
-.svc-row:hover .svc-shield {
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px
+@media (hover: hover) {
+  .svc-row:hover .svc-shield {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px
     color-mix(in oklab, var(--tint, var(--teal)) 35%, transparent);
+  }
 }
-.svc-row:hover .svc-shield::after {
-  opacity: 1;
+@media (hover: hover) {
+  .svc-row:hover .svc-shield::after {
+    opacity: 1;
+  }
 }
-.svc-row:hover .svc-tag:nth-child(2) .svc-shield {
-  transition-delay: 0.05s;
+@media (hover: hover) {
+  .svc-row:hover .svc-tag:nth-child(2) .svc-shield {
+    transition-delay: 0.05s;
+  }
 }
-.svc-row:hover .svc-tag:nth-child(3) .svc-shield {
-  transition-delay: 0.1s;
+@media (hover: hover) {
+  .svc-row:hover .svc-tag:nth-child(3) .svc-shield {
+    transition-delay: 0.1s;
+  }
 }
-.svc-row:hover .svc-tag:nth-child(4) .svc-shield {
-  transition-delay: 0.15s;
+@media (hover: hover) {
+  .svc-row:hover .svc-tag:nth-child(4) .svc-shield {
+    transition-delay: 0.15s;
+  }
 }
-.svc-row:hover .svc-tag:nth-child(5) .svc-shield {
-  transition-delay: 0.2s;
+@media (hover: hover) {
+  .svc-row:hover .svc-tag:nth-child(5) .svc-shield {
+    transition-delay: 0.2s;
+  }
 }
-.svc-row:hover .svc-tag:nth-child(6) .svc-shield {
-  transition-delay: 0.25s;
+@media (hover: hover) {
+  .svc-row:hover .svc-tag:nth-child(6) .svc-shield {
+    transition-delay: 0.25s;
+  }
 }
 .svc-row .no {
   font-family: var(--font-display);
@@ -1061,8 +1120,10 @@ button {
   transition: color 0.3s var(--ease);
   line-height: 1.02;
 }
-.svc-row:hover .nm {
-  color: var(--teal);
+@media (hover: hover) {
+  .svc-row:hover .nm {
+    color: var(--teal);
+  }
 }
 .svc-row .meta {
   color: var(--muted);
@@ -1080,11 +1141,13 @@ button {
   transition: all 0.4s var(--ease);
   flex: none;
 }
-.svc-row:hover .arrow {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: #fff;
-  transform: rotate(-45deg);
+@media (hover: hover) {
+  .svc-row:hover .arrow {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+    transform: rotate(-45deg);
+  }
 }
 /* Six shields per row need ~372px; tighten them on narrow desktops so the
    service name keeps a single line. */
@@ -1304,17 +1367,23 @@ button {
     transform 0.4s var(--ease),
     background 0.4s;
 }
-.scard:hover {
-  transform: translateY(-6px);
-  background: var(--ink);
+@media (hover: hover) {
+  .scard:hover {
+    transform: translateY(-6px);
+    background: var(--ink);
+  }
 }
-.scard:hover h4,
-.scard:hover p {
-  color: var(--cream);
+@media (hover: hover) {
+  .scard:hover h4,
+  .scard:hover p {
+    color: var(--cream);
+  }
 }
-.scard:hover .sc-ic {
-  background: var(--teal);
-  color: #fff;
+@media (hover: hover) {
+  .scard:hover .sc-ic {
+    background: var(--teal);
+    color: #fff;
+  }
 }
 .sc-ic {
   width: 56px;
@@ -1507,8 +1576,10 @@ button {
   object-position: center 16%;
   transition: transform 0.7s var(--ease);
 }
-.pf-item:hover .pf-img {
-  transform: scale(1.04);
+@media (hover: hover) {
+  .pf-item:hover .pf-img {
+    transform: scale(1.04);
+  }
 }
 .pf-badge {
   position: absolute;
@@ -1603,13 +1674,17 @@ button {
     translate: 0 -13px;
   }
 }
-.pf-item:hover .pf-phone.back {
-  transform: rotate(-11deg);
-  scale: 1.02;
+@media (hover: hover) {
+  .pf-item:hover .pf-phone.back {
+    transform: rotate(-11deg);
+    scale: 1.02;
+  }
 }
-.pf-item:hover .pf-phone.front {
-  transform: rotate(5deg);
-  scale: 1.03;
+@media (hover: hover) {
+  .pf-item:hover .pf-phone.front {
+    transform: rotate(5deg);
+    scale: 1.03;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .pf-phone {
@@ -1712,11 +1787,15 @@ button {
   bottom: 0;
   z-index: 2;
 }
-.pf-showcase-item:hover .ml-laptop.back {
-  transform: translateY(-5px);
+@media (hover: hover) {
+  .pf-showcase-item:hover .ml-laptop.back {
+    transform: translateY(-5px);
+  }
 }
-.pf-showcase-item:hover .ml-laptop.front {
-  transform: translateY(-8px);
+@media (hover: hover) {
+  .pf-showcase-item:hover .ml-laptop.front {
+    transform: translateY(-8px);
+  }
 }
 .moods-no {
   background: linear-gradient(90deg, #39c6d6, #e8458a 55%, #f7941d);
@@ -1904,15 +1983,21 @@ button {
     0 36px 70px -28px rgba(30, 5, 30, 0.7),
     0 0 0 1px rgba(0, 0, 0, 0.4);
 }
-.pf-banner:hover .ahb-phone.left {
-  transform: rotate(-13deg) translateX(-6px);
+@media (hover: hover) {
+  .pf-banner:hover .ahb-phone.left {
+    transform: rotate(-13deg) translateX(-6px);
+  }
 }
-.pf-banner:hover .ahb-phone.right {
-  transform: rotate(13deg) translateX(6px);
+@media (hover: hover) {
+  .pf-banner:hover .ahb-phone.right {
+    transform: rotate(13deg) translateX(6px);
+  }
 }
-.pf-banner:hover .ahb-phone.main {
-  transform: translateY(-7px);
-  scale: 1.02;
+@media (hover: hover) {
+  .pf-banner:hover .ahb-phone.main {
+    transform: translateY(-7px);
+    scale: 1.02;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .ahb-phone {
@@ -2153,18 +2238,26 @@ button {
   z-index: 2;
   animation: pf-bob 6.8s var(--ease) infinite 0.4s;
 }
-.pf-showcase-item:hover .wm-monitor {
-  transform: translateY(-5px);
+@media (hover: hover) {
+  .pf-showcase-item:hover .wm-monitor {
+    transform: translateY(-5px);
+  }
 }
-.pf-showcase-item:hover .wm-laptop {
-  transform: translateY(-7px);
+@media (hover: hover) {
+  .pf-showcase-item:hover .wm-laptop {
+    transform: translateY(-7px);
+  }
 }
-.pf-showcase-item:hover .wm-phone.p1 {
-  transform: rotate(5deg) translateY(-6px);
-  scale: 1.03;
+@media (hover: hover) {
+  .pf-showcase-item:hover .wm-phone.p1 {
+    transform: rotate(5deg) translateY(-6px);
+    scale: 1.03;
+  }
 }
-.pf-showcase-item:hover .wm-phone.p2 {
-  transform: rotate(-8deg);
+@media (hover: hover) {
+  .pf-showcase-item:hover .wm-phone.p2 {
+    transform: rotate(-8deg);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .wm-phone {
@@ -2246,8 +2339,10 @@ button {
   place-items: center;
   transition: transform 0.4s var(--ease);
 }
-.pf-link:hover .ar {
-  transform: rotate(-45deg);
+@media (hover: hover) {
+  .pf-link:hover .ar {
+    transform: rotate(-45deg);
+  }
 }
 .pf-link .ar svg {
   width: 18px;
@@ -2274,8 +2369,10 @@ button {
   width: 17px;
   height: 17px;
 }
-.pf-more .btn-primary:hover svg {
-  transform: translate(3px, -3px);
+@media (hover: hover) {
+  .pf-more .btn-primary:hover svg {
+    transform: translate(3px, -3px);
+  }
 }
 .pf-more-note {
   font-family: var(--font-display);
@@ -2321,9 +2418,11 @@ button {
     transform 0.5s var(--ease),
     box-shadow 0.5s var(--ease);
 }
-.work-card[href]:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 32px 64px -34px rgba(23, 25, 30, 0.42);
+@media (hover: hover) {
+  .work-card[href]:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 32px 64px -34px rgba(23, 25, 30, 0.42);
+  }
 }
 .work-card-art {
   aspect-ratio: 16 / 10.5;
@@ -2577,11 +2676,15 @@ button {
   transform: translate(-24%, -48%) rotate(7deg);
   z-index: 2;
 }
-.work-card[href]:hover .cphone.back {
-  transform: translate(-79%, -54%) rotate(-11deg);
+@media (hover: hover) {
+  .work-card[href]:hover .cphone.back {
+    transform: translate(-79%, -54%) rotate(-11deg);
+  }
 }
-.work-card[href]:hover .cphone.front {
-  transform: translate(-21%, -50%) rotate(5deg);
+@media (hover: hover) {
+  .work-card[href]:hover .cphone.front {
+    transform: translate(-21%, -50%) rotate(5deg);
+  }
 }
 
 /* laptop */
@@ -2625,8 +2728,10 @@ button {
   background: rgba(23, 25, 30, 0.18);
 }
 
-.work-card[href]:hover .dev {
-  transform: translateY(-7px);
+@media (hover: hover) {
+  .work-card[href]:hover .dev {
+    transform: translateY(-7px);
+  }
 }
 .work-card-body {
   padding: clamp(22px, 2.4vw, 30px);
@@ -2687,8 +2792,10 @@ button {
   height: 17px;
   transition: transform 0.4s var(--ease);
 }
-.work-card[href]:hover .work-card-link svg {
-  transform: translate(3px, -3px);
+@media (hover: hover) {
+  .work-card[href]:hover .work-card-link svg {
+    transform: translate(3px, -3px);
+  }
 }
 @media (max-width: 720px) {
   .work-grid {
@@ -2813,9 +2920,11 @@ button {
   color: var(--ink);
   margin-top: 34px;
 }
-.cta .btn-light:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 34px -14px rgba(0, 0, 0, 0.4);
+@media (hover: hover) {
+  .cta .btn-light:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px -14px rgba(0, 0, 0, 0.4);
+  }
 }
 .cta .email {
   display: block;
@@ -2858,9 +2967,11 @@ button {
     background 0.25s,
     color 0.25s;
 }
-.pfooter-links a:hover {
-  background: var(--cream-2);
-  color: var(--teal-dark);
+@media (hover: hover) {
+  .pfooter-links a:hover {
+    background: var(--cream-2);
+    color: var(--teal-dark);
+  }
 }
 .pfooter-bottom {
   display: flex;
@@ -2885,10 +2996,12 @@ button {
   color: var(--ink-2);
   transition: all 0.3s var(--ease);
 }
-.pfooter-bottom .socials a:hover {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: #fff;
+@media (hover: hover) {
+  .pfooter-bottom .socials a:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+  }
 }
 .pfooter-bottom .socials svg {
   width: 17px;
@@ -2947,8 +3060,10 @@ button {
   color: var(--ink);
   transition: background 0.25s;
 }
-.pnav-burger:hover {
-  background: var(--cream-2);
+@media (hover: hover) {
+  .pnav-burger:hover {
+    background: var(--cream-2);
+  }
 }
 .pnav-burger > span {
   display: block;
@@ -3007,10 +3122,15 @@ button {
     background 0.2s,
     color 0.2s;
 }
-.pnav-mobile-inner > a:hover,
 .pnav-mobile-inner > a:focus-visible {
   background: var(--cream-2);
   color: var(--teal-dark);
+}
+@media (hover: hover) {
+  .pnav-mobile-inner > a:hover {
+    background: var(--cream-2);
+    color: var(--teal-dark);
+  }
 }
 .pnav-mobile-sub {
   display: grid;
@@ -3040,10 +3160,15 @@ button {
     background 0.2s,
     color 0.2s;
 }
-.pnav-mobile-sub a:hover,
 .pnav-mobile-sub a:focus-visible {
   background: var(--cream-2);
   color: var(--ink);
+}
+@media (hover: hover) {
+  .pnav-mobile-sub a:hover {
+    background: var(--cream-2);
+    color: var(--ink);
+  }
 }
 .pnav-mobile-all {
   gap: 8px;
@@ -3069,10 +3194,12 @@ button {
   border: none !important;
   box-shadow: 0 14px 34px -16px rgba(25, 183, 209, 0.9) !important;
 }
-.pnav .pnav-mobile .btn.pnav-mobile-cta:hover {
-  color: #0d0e10 !important;
-  transform: none;
-  filter: brightness(1.06);
+@media (hover: hover) {
+  .pnav .pnav-mobile .btn.pnav-mobile-cta:hover {
+    color: #0d0e10 !important;
+    transform: none;
+    filter: brightness(1.06);
+  }
 }
 /* Tap-anywhere-else to dismiss. A <button> rather than a bare div so it is
    reachable and announced correctly; it sits under the panel in z-order. */
@@ -3790,6 +3917,7 @@ button {
   .wimsa-stage .wm-phone.p1,
   .wimsa-stage .wm-phone.p2 {
     height: min(76vh, 620px);
+    height: min(76svh, 620px);
     width: auto;
     max-width: calc(100vw - var(--gutter) * 2);
   }
@@ -3799,6 +3927,7 @@ button {
 @media (max-width: 820px) {
   .pf-art.has-img .pf-img {
     max-height: 76vh;
+    max-height: 76svh;
     object-fit: cover;
   }
 }

@@ -4,12 +4,12 @@
    project's own colour instead of the site teal */
 :root{--proj:#c66bff;--proj-ink:#ffffff;}
 .csw-nav .btn-teal{background:var(--proj);color:var(--proj-ink);}
-.csw-nav .btn-teal:hover{box-shadow:0 16px 32px -12px color-mix(in oklab,var(--proj) 70%,transparent);}
+@media (hover:hover){.csw-nav .btn-teal:hover{box-shadow:0 16px 32px -12px color-mix(in oklab,var(--proj) 70%,transparent);}}
 .csw-nav{position:fixed;inset:0 0 auto 0;z-index:100;background:color-mix(in oklab,var(--cream) 88%,transparent);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line);}
 .csw-nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:20px;}
 .csw-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:15px;}
 .csw-back .ar{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line-2);display:grid;place-items:center;transition:all .3s var(--ease);}
-.csw-back:hover .ar{background:var(--teal);border-color:var(--teal);color:#fff;}
+@media (hover:hover){.csw-back:hover .ar{background:var(--teal);border-color:var(--teal);color:#fff;}}
 .csw-back svg{width:16px;height:16px;}
 
 .csw-hero{padding-top:130px;padding-bottom:clamp(30px,4vw,56px);}
@@ -89,7 +89,7 @@
 .csw-cta h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.4vw,54px);letter-spacing:-0.03em;line-height:1.04;margin-top:14px;}
 .csw-cta p{color:#a59fc0;font-size:17px;margin-top:18px;max-width:46ch;margin-inline:auto;}
 .btn-neon{background:linear-gradient(100deg,#FF1B8D,#FF7A2F);color:#fff;margin-top:30px;}
-.btn-neon:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px rgba(255,27,141,.6);}
+@media (hover:hover){.btn-neon:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px rgba(255,27,141,.6);}}
 
 .csw-foot{padding-block:46px;border-top:1px solid var(--line);}
 .csw-foot .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;width:100%;color:var(--muted);font-size:14px;}
@@ -119,11 +119,11 @@
 .nl-logo b{font-size:24px;}
 .nl-flinks{display:flex;flex-wrap:wrap;gap:8px;}
 .nl-flinks a{font-weight:500;font-size:14px;color:#dcd9d3;padding:8px 14px;border-radius:999px;text-decoration:none;transition:background .25s,color .25s;}
-.nl-flinks a:hover{background:#181a1d;color:#42c8dd;}
+@media (hover:hover){.nl-flinks a:hover{background:#181a1d;color:#42c8dd;}}
 .nl-fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;color:#a6a8ad;font-size:14px;}
 .nl-socials{display:flex;gap:8px;}
 .nl-socials a{width:40px;height:40px;border-radius:50%;border:1.5px solid #383b41;display:grid;place-items:center;color:#dcd9d3;transition:all .3s ease;}
-.nl-socials a:hover{background:#19b7d1;border-color:#19b7d1;color:#fff;}
+@media (hover:hover){.nl-socials a:hover{background:#19b7d1;border-color:#19b7d1;color:#fff;}}
 .nl-socials svg{width:17px;height:17px;}
 .plogo .mk svg,.nl-logo .nl-mk svg,.studio-mix-badge .mk svg{width:100%;height:100%;display:block}
 .plogo .mk,.nl-logo .nl-mk,.studio-mix-badge .mk{font-size:0}
@@ -149,4 +149,4 @@ html.scrolled .csw-nav-inner{box-shadow:0 20px 46px -10px rgba(0,0,0,1),0 6px 16
    was never added, so this class had no rule; white on the neon-dark panel,
    matching Barley and Wimsa, with the project's magenta in the hover. */
 .btn-banner{background:#fff;color:#1d1830;margin-top:30px;}
-.btn-banner:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px rgba(255,27,141,.6);}
+@media (hover:hover){.btn-banner:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px rgba(255,27,141,.6);}}
