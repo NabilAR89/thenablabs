@@ -1,6 +1,7 @@
 import "@/styles/pro.css";
 import "./home.css";
 import FontLinks from "@/components/FontLinks";
+import ContactFab from "@/components/ContactFab";
 import { pageMeta, personLd, websiteLd, JsonLd } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -20,7 +21,10 @@ export default function HomeLayout({ children }) {
         <JsonLd data={personLd()} />
         <JsonLd data={websiteLd()} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ContactFab />
+      </body>
     </html>
   );
 }
