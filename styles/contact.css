@@ -104,10 +104,12 @@
   border: none !important;
   box-shadow: none !important;
 }
-.cform .btn.btn-light.btn-neon-host:hover {
-  background: rgba(139, 107, 255, 0.1) !important;
-  color: #c4b2ff !important;
-  box-shadow: 0 0 24px -10px rgba(139, 107, 255, 0.8) !important;
+@media (hover: hover) {
+  .cform .btn.btn-light.btn-neon-host:hover {
+    background: rgba(139, 107, 255, 0.1) !important;
+    color: #c4b2ff !important;
+    box-shadow: 0 0 24px -10px rgba(139, 107, 255, 0.8) !important;
+  }
 }
 .cform .btn-neon {
   display: block !important;
@@ -206,9 +208,11 @@
     transform 0.4s var(--ease),
     box-shadow 0.4s var(--ease);
 }
-.cfab-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px -12px rgba(25, 183, 209, 0.95);
+@media (hover: hover) {
+  .cfab-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -12px rgba(25, 183, 209, 0.95);
+  }
 }
 .cfab-btn:focus-visible {
   outline: 2px solid var(--teal);
@@ -356,9 +360,11 @@
     color 0.25s var(--ease),
     border-color 0.25s var(--ease);
 }
-.cfab-close:hover {
-  color: var(--teal);
-  border-color: var(--teal);
+@media (hover: hover) {
+  .cfab-close:hover {
+    color: var(--teal);
+    border-color: var(--teal);
+  }
 }
 .cfab-close svg {
   width: 16px;
