@@ -50,8 +50,8 @@ export default function WimsaCaseStudy() {
             <div className="reveal"><span className="eyebrow">Overview</span><h2 style={{ marginTop: '14px' }}>Clinical software without the clutter</h2></div>
             <div className="csw-prose reveal reveal-d1">
               <p>Clinic software is notoriously dense: dozens of modules, tiny type, and screens designed for data rather than people. <b>Wimsa had to carry that complexity while staying calm enough for a busy front desk and clear enough on a phone between rooms.</b></p>
-              <p>I designed two coordinated surfaces from one system: a spacious web console for scheduling, records and lab orders, and a focused mobile app for tasks and care actions. The same components, priorities and language carry across both.</p>
-              <p>I owned product design and front-end across the platform, from the scheduler&apos;s live timeline to the drag-to-rank lab ordering and the mobile task workflows.</p>
+              <p>We designed two coordinated surfaces from one system: a spacious web console for scheduling, records and lab orders, and a focused mobile app for tasks and care actions. The same components, priorities and language carry across both.</p>
+              <p>We owned product design and front-end across the platform, from the scheduler&apos;s live timeline to the drag-to-rank lab ordering and the mobile task workflows.</p>
             </div>
           </div>
         </section>
@@ -76,7 +76,7 @@ export default function WimsaCaseStudy() {
 
         <section className="section" style={{ paddingTop: '0' }}>
           <div className="wrap">
-            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What I did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>Two surfaces, one system</h2></div>
+            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What we did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>Two surfaces, one system</h2></div>
             <div className="csw-contrib reveal reveal-d1">
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></span><b>Information architecture</b><p>Organised a sprawling clinical domain (patient, history, clinic, diagnostics, financial) into a navigable left rail.</p></div>
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><b>Web & mobile UI</b><p>Designed the scheduler, lab-order builder and the mobile task views to share one visual language.</p></div>

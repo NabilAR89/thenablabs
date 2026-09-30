@@ -55,14 +55,14 @@ export default function TahakkomCaseStudy() {
             <div className="csw-prose reveal reveal-d1">
               <p>Tahakkom operates the enforcement and monitoring systems on Saudi roads. Their Riyadh control room had the data but not the picture: <b>availability in one system, tickets in another, capture delays in a third, and nothing that answered &ldquo;is the region healthy right now?&rdquo; at a glance.</b></p>
               <p>The wall is one composition, not a grid of embedded dashboards. It runs left to right as an answer to that question: the regional KPI column, then the operations snapshot, then the live sensor map, then detections and outages, and finally SLA and the alert feed that operators actually act on.</p>
-              <p>Every number is sized for viewing distance rather than for a desk. I owned the design system, the wall composition and the front-end build, including the operations console the same components serve at desk scale.</p>
+              <p>Every number is sized for viewing distance rather than for a desk. We owned the design system, the wall composition and the front-end build, including the operations console the same components serve at desk scale.</p>
             </div>
           </div>
         </section>
 
         <section className="section" style={{ paddingTop: '0' }}>
           <div className="wrap">
-            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What I did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From scattered systems to a single operating picture</h2></div>
+            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What we did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From scattered systems to a single operating picture</h2></div>
             <div className="csw-contrib reveal reveal-d1">
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></span><b>Wall composition</b><p>Laid out a 17,280&times;3,225 canvas as one reading order, with type and chart weights set for a ten-metre viewing distance.</p></div>
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><b>Design system</b><p>Light and dark command-center foundations: plum and turquoise primitives, glass surfaces, spacing and radius scales, Arabic and Latin type in Noto Sans Arabic.</p></div>

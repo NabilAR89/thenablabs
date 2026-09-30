@@ -134,7 +134,7 @@ function WorkGrid() {
         <div className="work-head reveal">
           <span className="eyebrow center">All work</span>
           <h1>Everything from the <span className="teal">lab</span>.</h1>
-          <p className="sec-sub" style={{ marginInline: 'auto' }}>The complete archive of products I’ve designed and shipped: across fintech, healthcare, hospitality, AI and enterprise.</p>
+          <p className="sec-sub" style={{ marginInline: 'auto' }}>The complete archive of products we’ve designed and shipped: across fintech, healthcare, hospitality, AI and enterprise.</p>
         </div>
         <div className="work-grid">
           {DATA.caseStudies.map((c, i) => {

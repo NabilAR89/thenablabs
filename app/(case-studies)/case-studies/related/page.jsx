@@ -56,15 +56,15 @@ export default function RelatedCaseStudy() {
             <div className="reveal"><span className="eyebrow">Overview</span><h2 style={{ marginTop: '14px' }}>Booking should feel like being seated</h2></div>
             <div className="csw-prose reveal reveal-d1">
               <p>Most reservation apps stop at &quot;table for two, 8pm&quot;: a form, a confirmation, no sense of the room you&apos;ll sit in. <b>Related set out to make booking feel like the start of the evening, not a transaction.</b></p>
-              <p>I designed a flow that moves from a tactile date-and-guests dial, to curated venue discovery, to an interactive floor plan where you choose the exact table, reserved seats greyed out, your pick glowing gold.</p>
-              <p>I owned the experience end-to-end: the flow, the elegant black-and-gold UI, and the front-end, including the floor-plan interactions and the 360° venue view.</p>
+              <p>We designed a flow that moves from a tactile date-and-guests dial, to curated venue discovery, to an interactive floor plan where you choose the exact table, reserved seats greyed out, your pick glowing gold.</p>
+              <p>We owned the experience end-to-end: the flow, the elegant black-and-gold UI, and the front-end, including the floor-plan interactions and the 360° venue view.</p>
             </div>
           </div>
         </section>
 
         <section className="section" style={{ paddingTop: '0' }}>
           <div className="wrap">
-            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What I did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>A flow as considered as the venues</h2></div>
+            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What we did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>A flow as considered as the venues</h2></div>
             <div className="csw-contrib reveal reveal-d1">
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></span><b>Booking flow</b><p>Mapped craving → discover → choose table → confirm, with a clear progress bar carrying the whole way.</p></div>
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><b>Editorial UI</b><p>An elegant black-and-gold visual language with serif headings that feels like a fine-dining menu.</p></div>

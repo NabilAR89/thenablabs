@@ -60,15 +60,15 @@ export default function GoalpotCaseStudy() {
             <div className="reveal"><span className="eyebrow">Overview</span><h2 style={{ marginTop: '14px' }}>A betting product that rewards football knowledge</h2></div>
             <div className="csw-prose reveal reveal-d1">
               <p>Most betting apps are walls of odds. <b>Goalpot bets on knowledge instead, punters predict exact scores and outcomes, then share a transparent pool where the payout is visible before a cedi is staked.</b></p>
-              <p>I designed the product around three pillars that map to how Ghanaian fans actually play: a single-match predictor, three combined bet types, and multi-match pools, each surfaced consistently on mobile and on a wider desktop console.</p>
-              <p>I owned the flows, the dark stadium-night UI with its neon green, floodlight lime and predictor violet, and built the responsive front-end so the same markets feel native on a phone and on a three-column web layout.</p>
+              <p>We designed the product around three pillars that map to how Ghanaian fans actually play: a single-match predictor, three combined bet types, and multi-match pools, each surfaced consistently on mobile and on a wider desktop console.</p>
+              <p>We owned the flows, the dark stadium-night UI with its neon green, floodlight lime and predictor violet, and built the responsive front-end so the same markets feel native on a phone and on a three-column web layout.</p>
             </div>
           </div>
         </section>
 
         <section className="section" style={{ paddingTop: '0' }}>
           <div className="wrap">
-            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What I did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From bet markets to a responsive front-end</h2></div>
+            <div className="reveal" style={{ maxWidth: '680px', marginBottom: '30px' }}><span className="eyebrow">What we did</span><h2 style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'clamp(26px,3.4vw,42px)', letterSpacing: '-0.025em', marginTop: '14px' }}>From bet markets to a responsive front-end</h2></div>
             <div className="csw-contrib reveal reveal-d1">
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v14H4zM4 9h16M8 13h3"/></svg></span><b>Bet-market UX</b><p>Designed the score grid, double chance, draw-no-bet and handicap markets into one scannable, colour-coded slip.</p></div>
               <div className="c"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18M7 14l3-3 3 3 4-5"/></svg></span><b>Transparent pools</b><p>Surfaced total pool, total payout and projected user payout so players see the value before staking.</p></div>

@@ -22,13 +22,13 @@ export const DATA = {
         Let&rsquo;s build something <span className="teal">great</span>.
       </>
     ),
-    lead: "Tell me what you\u2019re working on and pick a time that suits you. We\u2019ll talk through the idea and what it would take to ship it.",
+    lead: "Tell us what you\u2019re working on and pick a time that suits you. We\u2019ll talk through the idea and what it would take to ship it.",
     eventLabel: "30-minute intro call",
     footnote:
       "30-minute calls. All times are shown in your selected time zone.",
     email: "hello@thenablabs.com",
     panel: {
-      kicker: "Your idea, my craft",
+      kicker: "Your idea, our craft",
       title: (
         <>
           30 minutes, <br />
