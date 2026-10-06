@@ -6,7 +6,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import { pageMeta, caseStudyLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Related — Case Study · TheNabLabs',
+  title: 'Related — Restaurant Booking App UX/UI Case Study | TheNabLabs',
   description:
     'Related — a concierge-style restaurant table booking app. A case study by Nabil Abou Rjeily.',
   path: '/case-studies/related',

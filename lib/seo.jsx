@@ -69,20 +69,54 @@ export function pageMeta({
   };
 }
 
-/* JSON-LD. Rendered from the layouts so every page carries the graph. */
+/* JSON-LD. Rendered from the layouts so every page carries the graph. The
+   Person and the Organization each have a stable @id, so every other block
+   points at them by reference rather than repeating a thinner copy of each —
+   that is what lets Google join them into one entity per name. */
+const PERSON_ID = `${SITE_URL}/#person`;
+const ORG_ID = `${SITE_URL}/#organization`;
+
+const PROFILES = [
+  "https://www.linkedin.com/in/nabil-abou-rjeily-b033a698",
+  "https://www.behance.net/nabil_abourjeily",
+];
+
 export function personLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": PERSON_ID,
     name: AUTHOR,
     url: SITE_URL,
-    jobTitle: "Senior UX/UI Designer & Front-End Engineer",
-    email: "mailto:hello@thenablabs.com",
-    sameAs: [
-      "https://www.linkedin.com/in/nabil-abou-rjeily-b033a698",
-      "https://www.behance.net/nabil_abourjeily",
+    image: `${SITE_URL}/assets/nabil-studio.jpeg`,
+    jobTitle: "Senior Product Designer & UX Engineer",
+    knowsAbout: [
+      "Product design",
+      "UX/UI design",
+      "UX engineering",
+      "Design systems",
+      "Front-end engineering",
+      "Figma",
+      "React",
     ],
-    worksFor: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    email: "mailto:hello@thenablabs.com",
+    sameAs: PROFILES,
+    worksFor: { "@id": ORG_ID },
+  };
+}
+
+export function organizationLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": ORG_ID,
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}/icon-512.png`,
+    email: "hello@thenablabs.com",
+    description:
+      "Independent studio for product design, UX/UI, design systems and front-end engineering.",
+    founder: { "@id": PERSON_ID },
   };
 }
 
@@ -93,21 +127,50 @@ export function websiteLd() {
     name: SITE_NAME,
     url: SITE_URL,
     inLanguage: "en",
-    publisher: { "@type": "Person", name: AUTHOR },
+    publisher: { "@id": ORG_ID },
   };
 }
 
+/* Home → … → this page. `trail` is [name, path] pairs after Home. */
+export function breadcrumbLd(trail) {
+  return { "@context": "https://schema.org", ...crumbs(trail) };
+}
+
+function crumbs(trail) {
+  const items = [["Home", "/"], ...trail];
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map(([name, path], i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name,
+      item: SITE_URL + (path === "/" ? "" : path),
+    })),
+  };
+}
+
+/* The case study plus its breadcrumb, in one graph so the call sites stay a
+   single <JsonLd>. Case studies are listed under /work, so that is the parent
+   crumb; the crumb's own name is the project, i.e. the title before " — ". */
 export function caseStudyLd({ title, description, path, image }) {
   return {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: title,
-    description,
-    url: SITE_URL + path,
-    ...(image ? { image: SITE_URL + image } : {}),
-    author: { "@type": "Person", name: AUTHOR },
-    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
-    inLanguage: "en",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        name: title,
+        description,
+        url: SITE_URL + path,
+        ...(image ? { image: SITE_URL + image } : {}),
+        author: { "@id": PERSON_ID },
+        publisher: { "@id": ORG_ID },
+        inLanguage: "en",
+      },
+      crumbs([
+        ["Work", "/work"],
+        [title.split(" — ")[0], path],
+      ]),
+    ],
   };
 }
 

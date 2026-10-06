@@ -6,7 +6,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import { pageMeta, caseStudyLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Wimsa — Case Study · TheNabLabs',
+  title: 'Wimsa — Clinic Management Platform UX/UI Case Study | TheNabLabs',
   description:
     'Wimsa — an end-to-end clinic management platform across web and mobile. A case study by Nabil Abou Rjeily.',
   path: '/case-studies/wimsa',
