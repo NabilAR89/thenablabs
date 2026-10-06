@@ -101,12 +101,11 @@ export const DATA = {
     /* `chrome: true` marks a screenshot that already carries its own browser
        bar, so the frame does not draw one over it (base360/dashboard.png is
        one such asset). This one has none, so the frame supplies it. */
-    /* Taller than the 16:10 frame, so it cover-crops from the top — the frame
-       shows the first ~71% of the page, which reads as a browser scrolled to
-       the top. Header, imaging viewer and the synthesis panel all survive. */
+    /* 16:10, a near-exact fit for the 1200/740 frame, so the whole Discover
+       screen shows with only a sliver cropped from the bottom. */
     web: {
-      src: "/wimsa/w-diagnostics.jpg",
-      alt: "Wimsa — diagnostics and imaging review",
+      src: "/moods/d-discover.jpg",
+      alt: "Moods — AI fashion store, Discover screen",
     },
 
     /* A second desktop screen, tucked down and to the right of the first so

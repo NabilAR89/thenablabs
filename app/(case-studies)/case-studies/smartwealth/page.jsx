@@ -6,7 +6,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import { pageMeta, caseStudyLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'SmartWealth — Case Study · TheNabLabs',
+  title: 'SmartWealth — Investment App Onboarding UX/UI Case Study | TheNabLabs',
   description:
     'SmartWealth by NBK Wealth — designing and building an end-to-end investing onboarding flow. A case study by Nabil Abou Rjeily.',
   path: '/case-studies/smartwealth',

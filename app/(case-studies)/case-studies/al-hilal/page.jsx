@@ -6,7 +6,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import { pageMeta, caseStudyLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Al Hilal — Case Study · TheNabLabs',
+  title: 'Al Hilal — Digital Banking App UX/UI Case Study | TheNabLabs',
   description:
     'Al Hilal — a youth-focused digital banking super-app. A case study by Nabil Abou Rjeily.',
   path: '/case-studies/al-hilal',

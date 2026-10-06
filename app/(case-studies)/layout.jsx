@@ -2,7 +2,7 @@ import '@/styles/pro.css';
 import './dark.css';
 import FontLinks from '@/components/FontLinks';
 import ContactFab from '@/components/ContactFab';
-import { pageMeta, personLd, JsonLd } from '@/lib/seo';
+import { pageMeta, personLd, organizationLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
   title: 'Case Studies — TheNabLabs',
@@ -16,7 +16,7 @@ export const viewport = { width: 'device-width', initialScale: 1 };
 export default function CaseStudyLayout({ children }) {
   return (
     <html lang="en">
-      <head><FontLinks weights="9..40,400;9..40,500;9..40,600;9..40,700" /><JsonLd data={personLd()} /></head>
+      <head><FontLinks weights="9..40,400;9..40,500;9..40,600;9..40,700" /><JsonLd data={personLd()} /><JsonLd data={organizationLd()} /></head>
       <body>{children}<ContactFab /></body>
     </html>
   );

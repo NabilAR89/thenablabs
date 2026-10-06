@@ -443,7 +443,7 @@ const HERO_INTERVAL = 4200;
 function ProHeroGeneral() {
   const { lines, devices, web, web2, lead } = DATA.hero;
   const [i, setI] = useState(0);
-  /* Six slides either way, but not the same six: desktop shows the Wimsa
+  /* Six slides either way, but not the same six: desktop shows the Moods
      browser frame plus the five placed phones, the carousel drops that frame
      and opens on the SmartWealth home screen instead. Both are rendered; CSS
      decides which is in play, and the carousel measures what is visible. */
@@ -483,15 +483,15 @@ function ProHeroGeneral() {
       </div>
 
       <div className="wrap hero-stack">
-        <div className="hero-kicks" aria-hidden="true">
-          {lines.map((l, n) => (
-            <span className={"hero-kick" + (n === i ? " on" : "")} key={l.kick}>
-              {l.kick}
-            </span>
-          ))}
-        </div>
+        {/* The page's one H1 is this static line, not the rotating statements
+            below: those all sit in the markup at once, so as a heading they
+            read to search engines as five slogans run together, none of which
+            says what the studio does. */}
+        <h1 className="hero-kicks">
+          <span className="hero-kick on">Product Design &amp; UX Engineering</span>
+        </h1>
 
-        <h1 className="hero-heads">
+        <p className="hero-heads">
           {lines.map((l, n) => (
             <span
               className={"hero-head" + (n === i ? " on" : "")}
@@ -501,7 +501,7 @@ function ProHeroGeneral() {
               {l.head}
             </span>
           ))}
-        </h1>
+        </p>
 
         {/* Desktop floats these absolutely; at 1024px and below the same nodes
             become a scroll-snap carousel so each mockup can be shown at full
@@ -509,7 +509,7 @@ function ProHeroGeneral() {
 
             Two slides are width-specific. The lead phone opens the carousel on
             the SmartWealth home screen and has no place in the desktop
-            arrangement, whose coordinates are hand-tuned; the Wimsa browser
+            arrangement, whose coordinates are hand-tuned; the Moods browser
             frame is the reverse — it anchors the desktop composition but is the
             one mockup that cannot fill a track sized for portrait phones, so a
             handset gets phones only. Each is hidden by CSS at the width where
@@ -826,8 +826,9 @@ function ProAbout() {
             From product idea to polished experience.
           </h2>
           <p className="sec-sub">
-            Hello 👋 I’m Nabil, founder of theNabLabs. I’ve spent 12+ years in
-            the digital field, designing and building products across fintech,
+            Hello 👋 I’m Nabil Abou Rjeily, a Senior Product Designer and UX
+            Engineer, and founder of theNabLabs. I’ve spent 12+ years in the
+            digital field, designing and building products across fintech,
             SaaS, enterprise and more. We’re an independent studio that takes
             products the whole way: strategy, product design, interface and
             motion, development and launch, bringing every step under one roof

@@ -8,7 +8,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import { pageMeta, caseStudyLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Tahakkom — Case Study · TheNabLabs',
+  title: 'Tahakkom — Control Room Dashboard UX/UI Case Study | TheNabLabs',
   description:
     'Tahakkom — a control-room video wall and operations console for 4,548 enforcement and sensor sites across the Riyadh region. A case study by Nabil Abou Rjeily.',
   path: '/case-studies/tahakkom',
