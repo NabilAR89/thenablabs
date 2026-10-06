@@ -2,7 +2,7 @@ import '@/styles/pro.css';
 import './work.css';
 import FontLinks from '@/components/FontLinks';
 import ContactFab from '@/components/ContactFab';
-import { pageMeta, personLd, JsonLd } from '@/lib/seo';
+import { pageMeta, personLd, organizationLd, breadcrumbLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
   title: 'All Work — Product Design & Engineering | TheNabLabs',
@@ -16,7 +16,7 @@ export const viewport = { width: 'device-width', initialScale: 1 };
 export default function WorkLayout({ children }) {
   return (
     <html lang="en">
-      <head><FontLinks /><JsonLd data={personLd()} /></head>
+      <head><FontLinks /><JsonLd data={personLd()} /><JsonLd data={organizationLd()} /><JsonLd data={breadcrumbLd([['Work', '/work']])} /></head>
       <body>{children}<ContactFab /></body>
     </html>
   );

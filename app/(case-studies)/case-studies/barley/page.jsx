@@ -6,7 +6,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import { pageMeta, caseStudyLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Barley — Case Study · TheNabLabs',
+  title: 'Barley — Restaurant Website Design Case Study | TheNabLabs',
   description:
     'Barley — a full-screen, story-driven website for a Beirut steak & burger restaurant. A case study by Nabil Abou Rjeily.',
   path: '/case-studies/barley',

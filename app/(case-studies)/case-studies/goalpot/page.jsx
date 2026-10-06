@@ -6,7 +6,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import { pageMeta, caseStudyLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Goalpot — Case Study · TheNabLabs',
+  title: 'Goalpot — Football Prediction Platform UX/UI Case Study | TheNabLabs',
   description:
     'Goalpot — a pool-based football prediction & betting platform for Ghana, across web and mobile. A case study by Nabil Abou Rjeily.',
   path: '/case-studies/goalpot',

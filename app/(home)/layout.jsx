@@ -2,12 +2,12 @@ import "@/styles/pro.css";
 import "./home.css";
 import FontLinks from "@/components/FontLinks";
 import ContactFab from "@/components/ContactFab";
-import { pageMeta, personLd, websiteLd, JsonLd } from "@/lib/seo";
+import { pageMeta, personLd, organizationLd, websiteLd, JsonLd } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "TheNabLabs — Product Design & Engineering | Nabil Abou Rjeily",
   description:
-    "TheNabLabs is an independent product design studio founded by Nabil Abou Rjeily: strategy, product design, interface and motion, and production engineering all under one roof.",
+    "Nabil Abou Rjeily is a Senior Product Designer and UX Engineer. TheNabLabs is his studio for UX/UI design, design systems and front-end engineering for fintech, SaaS and enterprise products.",
   path: "/",
 });
 
@@ -19,6 +19,7 @@ export default function HomeLayout({ children }) {
       <head>
         <FontLinks phosphor />
         <JsonLd data={personLd()} />
+        <JsonLd data={organizationLd()} />
         <JsonLd data={websiteLd()} />
       </head>
       <body>

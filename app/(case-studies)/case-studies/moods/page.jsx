@@ -6,7 +6,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import { pageMeta, caseStudyLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Moods — Case Study · TheNabLabs',
+  title: 'Moods — AI Fashion E-commerce UX/UI Case Study | TheNabLabs',
   description:
     'Moods — a conversational AI fashion store. A case study by Nabil Abou Rjeily.',
   path: '/case-studies/moods',
