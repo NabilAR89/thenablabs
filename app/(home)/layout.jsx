@@ -2,6 +2,7 @@ import "@/styles/pro.css";
 import "./home.css";
 import FontLinks from "@/components/FontLinks";
 import ContactFab from "@/components/ContactFab";
+import GoogleTag from "@/components/GoogleTag";
 import { pageMeta, personLd, organizationLd, websiteLd, JsonLd } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -25,6 +26,7 @@ export default function HomeLayout({ children }) {
       <body>
         {children}
         <ContactFab />
+        <GoogleTag />
       </body>
     </html>
   );

@@ -2,6 +2,7 @@ import '@/styles/pro.css';
 import './work.css';
 import FontLinks from '@/components/FontLinks';
 import ContactFab from '@/components/ContactFab';
+import GoogleTag from '@/components/GoogleTag';
 import { pageMeta, personLd, organizationLd, breadcrumbLd, JsonLd } from '@/lib/seo';
 
 export const metadata = pageMeta({
@@ -17,7 +18,7 @@ export default function WorkLayout({ children }) {
   return (
     <html lang="en">
       <head><FontLinks /><JsonLd data={personLd()} /><JsonLd data={organizationLd()} /><JsonLd data={breadcrumbLd([['Work', '/work']])} /></head>
-      <body>{children}<ContactFab /></body>
+      <body>{children}<ContactFab /><GoogleTag /></body>
     </html>
   );
 }
