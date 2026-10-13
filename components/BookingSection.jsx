@@ -8,6 +8,7 @@
 import { useState, useEffect, useMemo, useCallback, useSyncExternalStore } from 'react';
 import { DATA } from '@/lib/data';
 import { Icon } from '@/lib/icons';
+import { trackLead } from '@/lib/analytics';
 
 const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const ZONES = [
@@ -118,6 +119,7 @@ export default function BookingSection() {
       if (!r.ok) throw new Error(b.error || 'Could not book that time.');
       setBooked(b.start || slot);
       setStep('done');
+      trackLead();
     } catch (err) {
       setError(err.message);
     } finally {

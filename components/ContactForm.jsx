@@ -5,6 +5,7 @@
 
 import { useState } from "react";
 import { Icon } from "@/lib/icons";
+import { trackLead } from "@/lib/analytics";
 import "@/styles/contact.css";
 
 export default function ContactForm() {
@@ -32,6 +33,7 @@ export default function ContactForm() {
       if (!res.ok) throw new Error(data.error);
       f.reset();
       setStatus("sent");
+      trackLead();
     } catch (err) {
       setError(
         err.message ||
