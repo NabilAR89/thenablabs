@@ -10,6 +10,8 @@
    variable set in the dashboard) points the form at the verified inbox
    instead; hello@ is the fallback once the domain is onboarded. */
 
+import { contactEmail } from '../email/contact.js';
+
 const DEFAULT_TO = 'hello@thenablabs.com';
 const FROM = { email: 'website@thenablabs.com', name: 'TheNabLabs website' };
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -19,9 +21,6 @@ const json = (body, status = 200) =>
     status,
     headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' },
   });
-
-const escapeHtml = (s) =>
-  s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
 export async function onRequestPost({ request, env }) {
   if (!env.EMAIL) return json({ error: 'The contact form is not configured yet.' }, 503);
@@ -46,17 +45,14 @@ export async function onRequestPost({ request, env }) {
   if (!EMAIL.test(email)) return json({ error: 'Please add a valid email.' }, 400);
   if (!message) return json({ error: 'Tell us a little about the project.' }, 400);
 
-  const text = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-  const html =
-    `<p><b>Name:</b> ${escapeHtml(name)}<br><b>Email:</b> ${escapeHtml(email)}</p>` +
-    `<p style="white-space:pre-wrap">${escapeHtml(message)}</p>`;
+  const { subject, text, html } = contactEmail({ name, email, message });
 
   try {
     await env.EMAIL.send({
       to: env.CONTACT_TO || DEFAULT_TO,
       from: FROM,
       replyTo: { email, name },
-      subject: `Project enquiry — ${name}`,
+      subject,
       text,
       html,
     });
