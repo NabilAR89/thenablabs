@@ -17,7 +17,7 @@ import {
 import { brandOf } from "@/lib/brand";
 import NabMark from "@/components/NabMark";
 import ContactForm from "@/components/ContactForm";
-import { cardLink } from "@/lib/links";
+import { cardLink, PORTFOLIO_PDF } from "@/lib/links";
 import { ProjectTitle, RoleChips } from "@/lib/title";
 import BookingSection from "@/components/BookingSection";
 
@@ -1479,6 +1479,9 @@ function ProFooter() {
                 </a>
               ),
             )}
+            <a href={PORTFOLIO_PDF} download>
+              Portfolio PDF
+            </a>
           </div>
         </div>
         <div className="pfooter-bottom">

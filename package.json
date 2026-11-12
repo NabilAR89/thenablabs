@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint .",
     "verify": "node scripts/check-links.mjs && node scripts/verify-css.mjs",
-    "verify:pages": "node scripts/verify-case-studies.mjs",
+    "pdf": "next build && node scripts/build-pdf.mjs",
+    "verify:pages":"node scripts/verify-case-studies.mjs",
     "preview": "next build && wrangler dev --port 8788",
     "deploy": "next build && wrangler deploy"
   },

@@ -1,0 +1,599 @@
+/* portfolio.css — the printable portfolio. Every .pf-sheet is exactly one A4
+   page; the screen view shows the same sheets stacked, so what you see at
+   /portfolio is what lands in the PDF. */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+:root {
+  --ink: #17191e;
+  --ink-2: #3a3e46;
+  --muted: #6a6e76;
+  --line: #e4ddd1;
+  --panel: #f4efe7;
+  --paper: #ffffff;
+  --teal: #19b7d1;
+  --teal-dark: #128299;
+  --violet: #8b6bff;
+  --night: #111214;
+  --night-2: #1b1d21;
+
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+
+  color-scheme: light;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #d9d6d0;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  display: block;
+}
+.teal {
+  color: var(--teal);
+}
+
+/* ---------- screen chrome ---------- */
+.pf-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--night);
+  color: #f4f1ea;
+  font-family: var(--font-display);
+  font-size: 14px;
+}
+.pf-toolbar a {
+  background: var(--teal);
+  color: var(--night);
+  padding: 8px 18px;
+  border-radius: 99px;
+  font-weight: 600;
+}
+.pf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0 48px;
+}
+
+/* ---------- the sheet ---------- */
+.pf-sheet {
+  width: 210mm;
+  height: 297mm;
+  padding: 14mm 16mm 0;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.18);
+}
+.pf-body {
+  flex: 1;
+  min-height: 0;
+}
+.pf-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5mm;
+  margin-bottom: 7mm;
+  border-bottom: 1px solid var(--line);
+}
+.pf-head-label {
+  font-family: var(--font-display);
+  font-size: 8pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pf-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 6mm;
+  padding: 4mm 0 8mm;
+  border-top: 1px solid var(--line);
+  font-size: 7.5pt;
+  color: var(--muted);
+}
+.pf-page {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pf-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 2mm;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 10.5pt;
+  letter-spacing: -0.01em;
+}
+.pf-mk {
+  width: 5.5mm;
+  height: 5.5mm;
+}
+.pf-mk svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pf-h2 {
+  font-family: var(--font-display);
+  font-size: 15pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 4mm;
+}
+.pf-h2:not(:first-child) {
+  margin-top: 8mm;
+}
+.pf-h2::before {
+  content: "";
+  display: inline-block;
+  width: 2.2mm;
+  height: 2.2mm;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--violet));
+  margin-right: 2.5mm;
+  vertical-align: 0.15em;
+}
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.pf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4mm;
+  margin-top: 2.5mm;
+}
+.pf-tags span {
+  font-size: 7pt;
+  padding: 0.6mm 2.4mm;
+  border-radius: 99px;
+  background: var(--panel);
+  color: var(--ink-2);
+}
+
+/* ---------- cover ---------- */
+.pf-sheet--dark {
+  background: var(--night);
+  color: #f4f1ea;
+  background-image:
+    radial-gradient(120mm 90mm at 100% 0%, rgba(25, 183, 209, 0.16), transparent 70%),
+    radial-gradient(110mm 90mm at 0% 100%, rgba(139, 107, 255, 0.14), transparent 70%);
+}
+.pf-sheet--dark .pf-foot {
+  border-color: #2b2e33;
+  color: #8e9197;
+}
+.pf-sheet--dark .pf-page {
+  color: #f4f1ea;
+}
+.pf-cover {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.pf-cover-main {
+  display: grid;
+  grid-template-columns: 1fr 62mm;
+  gap: 10mm;
+  align-items: end;
+  margin-top: 26mm;
+}
+.pf-kicker {
+  font-family: var(--font-display);
+  font-size: 8pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 4mm;
+}
+.pf-name {
+  font-family: var(--font-display);
+  font-size: 34pt;
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+.pf-role {
+  font-family: var(--font-display);
+  font-size: 12pt;
+  color: #c9c7c2;
+  margin: 4mm 0 9mm;
+}
+.pf-lead {
+  font-size: 12pt;
+  line-height: 1.55;
+  color: #dcd9d3;
+}
+.pf-lead .accent {
+  color: var(--teal);
+}
+.pf-portrait {
+  width: 62mm;
+  height: 82mm;
+  object-fit: cover;
+  border-radius: 6mm;
+  border: 1px solid #2b2e33;
+}
+.pf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5mm;
+  margin-top: 14mm;
+}
+.pf-stats div {
+  padding: 5mm;
+  border-radius: 4mm;
+  background: var(--night-2);
+  border: 1px solid #2b2e33;
+}
+.pf-stats strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--teal), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.pf-stats span {
+  font-size: 8.5pt;
+  color: #a6a8ad;
+}
+.pf-contact {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3mm 8mm;
+  margin-top: 12mm;
+  font-size: 10pt;
+}
+.pf-contact li {
+  display: flex;
+  gap: 3mm;
+  padding-bottom: 2.5mm;
+  border-bottom: 1px solid #2b2e33;
+}
+.pf-contact span {
+  width: 20mm;
+  flex: none;
+  color: #8e9197;
+}
+.pf-contact a {
+  color: #f4f1ea;
+}
+.pf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2mm;
+  margin-top: auto;
+  padding-bottom: 8mm;
+}
+.pf-chips span {
+  font-size: 8pt;
+  padding: 1mm 3mm;
+  border-radius: 99px;
+  border: 1px solid #383b41;
+  color: #dcd9d3;
+}
+
+/* ---------- about & experience ---------- */
+.pf-about {
+  columns: 2;
+  column-gap: 8mm;
+  color: var(--ink-2);
+}
+.pf-about p + p {
+  margin-top: 2.5mm;
+}
+.pf-timeline {
+  list-style: none;
+}
+.pf-timeline li {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  gap: 6mm;
+  padding: 4.5mm 0;
+  border-top: 1px solid var(--line);
+}
+.pf-when {
+  font-family: var(--font-display);
+  font-size: 8.5pt;
+  font-weight: 600;
+  color: var(--muted);
+}
+.pf-timeline .now .pf-when {
+  color: var(--teal-dark);
+}
+.pf-timeline h3 {
+  font-size: 11.5pt;
+}
+.pf-co {
+  font-size: 8.5pt;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin-bottom: 1.5mm;
+}
+.pf-timeline p:not(.pf-co) {
+  color: var(--ink-2);
+}
+
+/* ---------- expertise & skills ---------- */
+.pf-expertise {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+}
+.pf-expertise > div {
+  padding: 4.5mm;
+  border-radius: 4mm;
+  background: var(--panel);
+}
+.pf-expertise h3 {
+  font-size: 11pt;
+  margin-bottom: 1mm;
+}
+.pf-expertise p {
+  color: var(--ink-2);
+}
+.pf-expertise .pf-tags span {
+  background: var(--paper);
+}
+.pf-skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8mm;
+}
+.pf-skills h3 {
+  font-size: 10pt;
+  margin-bottom: 2mm;
+}
+.pf-bar {
+  margin-bottom: 2mm;
+  font-size: 8.5pt;
+}
+.pf-bar i {
+  display: block;
+  height: 1.4mm;
+  border-radius: 99px;
+  margin-top: 0.6mm;
+  background: linear-gradient(90deg, var(--teal), var(--violet)) 0 0 / var(--v) 100% no-repeat,
+    var(--panel);
+}
+.pf-quotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+}
+.pf-quotes figure {
+  padding: 4.5mm;
+  border-left: 0.8mm solid var(--teal);
+  background: var(--panel);
+  border-radius: 0 4mm 4mm 0;
+}
+.pf-quotes blockquote {
+  font-size: 9pt;
+  color: var(--ink-2);
+}
+.pf-quotes figcaption {
+  margin-top: 2.5mm;
+  font-size: 8pt;
+  font-weight: 600;
+}
+
+/* ---------- work ---------- */
+.pf-work {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 7mm 6mm;
+}
+.pf-project {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.pf-project--lg {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6mm;
+  align-items: center;
+}
+
+/* The contact block that closes the last sheet: fills the rest of its row. */
+.pf-closing {
+  grid-column: span 2;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10mm;
+  border-radius: 4mm;
+  background: var(--night);
+  background-image: radial-gradient(90mm 70mm at 100% 0%, rgba(25, 183, 209, 0.18), transparent 70%);
+  color: #f4f1ea;
+}
+.pf-closing h2 {
+  font-family: var(--font-display);
+  font-size: 22pt;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.pf-closing > p:not(.pf-kicker) {
+  margin-top: 3mm;
+  max-width: 120mm;
+  color: #c9c7c2;
+}
+.pf-closing .pf-contact {
+  margin-top: 7mm;
+}
+.pf-project h3 {
+  font-size: 12pt;
+  line-height: 1.25;
+}
+.pf-project--sm h3 {
+  font-size: 10pt;
+}
+.pf-project h3 span {
+  font-weight: 400;
+  color: var(--muted);
+}
+.pf-meta {
+  font-size: 7.5pt;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin-bottom: 1.5mm;
+}
+.pf-desc {
+  margin-top: 2mm;
+  color: var(--ink-2);
+}
+.pf-project--sm .pf-desc {
+  font-size: 8.3pt;
+}
+.pf-link {
+  display: inline-block;
+  margin-top: 3mm;
+  font-size: 8pt;
+  font-weight: 600;
+  color: var(--teal-dark);
+}
+
+.pf-art {
+  position: relative;
+  border-radius: 4mm;
+  overflow: hidden;
+  background: var(--panel);
+}
+.pf-project--lg .pf-art {
+  height: 100%;
+}
+.pf-project--sm .pf-art {
+  height: 52mm;
+  flex: none;
+  margin-bottom: 4mm;
+}
+.pf-art--web {
+  display: flex;
+  flex-direction: column;
+  padding: 5mm 5mm 0;
+}
+.pf-browser {
+  display: flex;
+  gap: 1.2mm;
+  padding: 1.8mm 2.4mm;
+  background: #e6e0d6;
+  border-radius: 2mm 2mm 0 0;
+}
+.pf-browser span {
+  width: 1.6mm;
+  height: 1.6mm;
+  border-radius: 50%;
+  background: #c9c1b4;
+}
+.pf-art--web > img:not(.pf-art-phone) {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+/* No box-shadows anywhere in the art: Chrome prints them as flat grey
+   rectangles. A hairline border does the separating instead. */
+.pf-art-phone {
+  position: absolute;
+  right: 4mm;
+  bottom: 4mm;
+  width: 24%;
+  border-radius: 3mm;
+  border: 0.6mm solid var(--paper);
+}
+.pf-art--phones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3mm;
+  padding: 5mm;
+}
+/* Sized by whichever runs out first, the box's height or its share of the
+   width, so each screen keeps its own aspect and nothing is letterboxed. */
+.pf-art--phones img {
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: calc((100% - (var(--n) - 1) * 3mm) / var(--n));
+  border-radius: 3mm;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- print ---------- */
+@media print {
+  body {
+    background: none;
+  }
+  .pf-toolbar {
+    display: none;
+  }
+  .pf {
+    display: block;
+    padding: 0;
+  }
+  .pf-sheet {
+    box-shadow: none;
+    break-after: page;
+  }
+  .pf-sheet:last-child {
+    break-after: auto;
+  }
+}
+
+/* Narrow screens: scale the sheets down rather than reflowing them, so the
+   on-screen preview still matches the PDF. */
+@media screen and (max-width: 840px) {
+  .pf {
+    zoom: 0.8;
+  }
+}
+@media screen and (max-width: 680px) {
+  .pf {
+    zoom: 0.45;
+  }
+}
